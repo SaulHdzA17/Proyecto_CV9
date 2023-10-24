@@ -20,7 +20,7 @@ create table Rol (
 );
 
 create table Reportes (
-	Id int not null,
+	ID int not null,
     Descripcion varchar(30) not null,
     Fecha_Inicio date not null,
     Fecha_Fin date not null,
@@ -36,3 +36,11 @@ create table Item (
     ID_Personal int not null,
     Campo varchar(20)
 );
+
+alter table Personal
+add primary key (ID);
+
+alter table Rol
+add primary key (ID);
+
+desc Rol;
