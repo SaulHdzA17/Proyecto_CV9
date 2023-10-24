@@ -14,3 +14,25 @@ create table Personal (
     ID_Item int not null
 );
 
+create table Rol (
+	ID int not null,
+    Rol varchar(20) not null
+);
+
+create table Reportes (
+	Id int not null,
+    Descripcion varchar(30) not null,
+    Fecha_Inicio date not null,
+    Fecha_Fin date not null,
+    Estado varchar(30) not null,
+    ID_Item int not null
+);
+
+create table Item (
+	ID int not null,
+    Nombre varchar(20) not null,
+    Descripcion varchar(20) not null,
+    ID_Prestamo int not null,
+    ID_Personal int not null,
+    Campo varchar(20)
+);
