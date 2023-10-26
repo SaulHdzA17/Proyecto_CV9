@@ -89,10 +89,47 @@ ADD CONSTRAINT fk_Item_Personal
 FOREIGN KEY (ID Personal)
 REFERENCES Personal(ID);
 
-ALTER TABLE Item
-ADD CONSTRAINT fk_Item_Prestamo
-FOREIGN KEY (ID Prestamo)
-REFERENCES Prestamo(ID)
+-- Director
+
+create table Director (
+    Nombre varchar not null,
+    telefono int(10) not null, 
+    Correo varchar not null,
+    Usuario varchar not null,
+    contraseña varchar not null,
+    campo varchar not null
+);
+
+-- Llave primaria
+ALTER TABLE Director
+	ADD CONSTRAINT pk_Director PRIMARY KEY (Nombre);
+
+	
+-- Prestamo
+create table Prestamo (
+	ID int not null
+	InicioPrestamo date not null,
+	FinPrestamo date not null,
+	Motivo varchar not null,
+	ID item int not null,
+	ID Personal not null
+);
+
+-- Llave Primaria
+ALTER TABLE Prestamo
+	ADD CONSTRAINT pk_Prestamo PRIMARY KEY (ID);
+
+-- Llave foránea
+ALTER TABLE Prestamo
+	ADD CONSTRAINT fk_Prestamo_Item,
+	FOREIGN KEY (ID item),
+	REFERENCES Item(ID);
+
+ALTER TABLE Prestamo
+	ADD CONSTRAINT fk_Prestamo_Personal,
+	FOREIGN KEY (ID Personal),
+	REFERENCES Personal(ID);
+	
 
 /*
 alter table Personal
