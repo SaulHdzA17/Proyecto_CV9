@@ -28,26 +28,241 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        TxtFieldNombre = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabelUsuario = new javax.swing.JLabel();
+        jLabelContraseña = new javax.swing.JLabel();
+        jLabelFecha = new javax.swing.JLabel();
+        jLabelNombre4 = new javax.swing.JLabel();
+        jLabelRFC = new javax.swing.JLabel();
+        jLabelEdad = new javax.swing.JLabel();
+        jLabelCURP = new javax.swing.JLabel();
+        TxtFieldUsuario = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jTextFieldContraseña = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jTextFieldCURP = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        jTextFieldRFC = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jTextFieldFechaContratacion = new javax.swing.JTextField();
+        jTextFieldEdad = new javax.swing.JTextField();
+        jSeparator8 = new javax.swing.JSeparator();
+        jButtonRegistrar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(195, 237, 246));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Registrar Personal");
+
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelNombre.setText("Nombre");
+
+        TxtFieldNombre.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFieldNombre.setText("Ingresa el nombre");
+        TxtFieldNombre.setBorder(null);
+        TxtFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFieldNombreActionPerformed(evt);
+            }
+        });
+
+        jSeparator1.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator1.setForeground(new java.awt.Color(195, 237, 246));
+
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelUsuario.setText("Usuario");
+
+        jLabelContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelContraseña.setText("Contraseña");
+
+        jLabelFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelFecha.setText("Fecha de Contratacion");
+
+        jLabelNombre4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabelRFC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelRFC.setText("RFC");
+
+        jLabelEdad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelEdad.setText("Edad");
+
+        jLabelCURP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelCURP.setText("CURP");
+
+        TxtFieldUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFieldUsuario.setText("Ingresa el Usuario");
+        TxtFieldUsuario.setBorder(null);
+        TxtFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFieldUsuarioActionPerformed(evt);
+            }
+        });
+
+        jSeparator2.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator2.setForeground(new java.awt.Color(195, 237, 246));
+
+        jTextFieldContraseña.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldContraseña.setText("Ingrese la contraseña");
+        jTextFieldContraseña.setBorder(null);
+
+        jSeparator3.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator3.setForeground(new java.awt.Color(195, 237, 246));
+
+        jTextFieldCURP.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldCURP.setText("Ingrese el CURP");
+        jTextFieldCURP.setBorder(null);
+        jTextFieldCURP.setPreferredSize(new java.awt.Dimension(78, 17));
+
+        jSeparator4.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator4.setForeground(new java.awt.Color(195, 237, 246));
+
+        jTextFieldRFC.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldRFC.setText("Ingrese el RFC");
+        jTextFieldRFC.setBorder(null);
+        jTextFieldRFC.setPreferredSize(new java.awt.Dimension(78, 17));
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jSeparator6.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator6.setForeground(new java.awt.Color(195, 237, 246));
+
+        jSeparator7.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator7.setForeground(new java.awt.Color(195, 237, 246));
+
+        jTextFieldFechaContratacion.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldFechaContratacion.setText("Fecha de Contratacion");
+        jTextFieldFechaContratacion.setBorder(null);
+        jTextFieldFechaContratacion.setPreferredSize(new java.awt.Dimension(106, 17));
+        jTextFieldFechaContratacion.setSize(new java.awt.Dimension(106, 17));
+
+        jTextFieldEdad.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldEdad.setText("Ingrese la edad");
+        jTextFieldEdad.setBorder(null);
+        jTextFieldEdad.setPreferredSize(new java.awt.Dimension(78, 17));
+        jTextFieldEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEdadActionPerformed(evt);
+            }
+        });
+
+        jSeparator8.setBackground(new java.awt.Color(195, 237, 246));
+        jSeparator8.setForeground(new java.awt.Color(195, 237, 246));
+
+        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel1)
-                .addContainerGap(609, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelRFC)
+                            .addComponent(jLabelContraseña)
+                            .addComponent(TxtFieldNombre)
+                            .addComponent(jLabelNombre)
+                            .addComponent(jLabelUsuario)
+                            .addComponent(TxtFieldUsuario)
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator1)
+                            .addComponent(jLabelCURP)
+                            .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(jSeparator4)
+                            .addComponent(jTextFieldRFC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator3)
+                            .addComponent(jTextFieldCURP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator7))
+                        .addGap(20, 20, 20)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelFecha)
+                                    .addComponent(jLabelNombre4)
+                                    .addComponent(jTextFieldFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(jSeparator6)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelEdad)
+                                    .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(jSeparator8)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jButtonRegistrar)))))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addContainerGap(409, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelNombre)
+                        .addGap(12, 12, 12)
+                        .addComponent(TxtFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabelUsuario)
+                        .addGap(12, 12, 12)
+                        .addComponent(TxtFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelContraseña)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelCURP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelRFC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelFecha)
+                        .addGap(12, 12, 12)
+                        .addComponent(jTextFieldFechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabelEdad)
+                        .addGap(12, 12, 12)
+                        .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelNombre4)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButtonRegistrar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -62,9 +277,49 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TxtFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFieldNombreActionPerformed
+
+    private void TxtFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFieldUsuarioActionPerformed
+
+    private void jTextFieldEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEdadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEdadActionPerformed
+
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TxtFieldNombre;
+    private javax.swing.JTextField TxtFieldUsuario;
+    private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelCURP;
+    private javax.swing.JLabel jLabelContraseña;
+    private javax.swing.JLabel jLabelEdad;
+    private javax.swing.JLabel jLabelFecha;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelNombre4;
+    private javax.swing.JLabel jLabelRFC;
+    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JTextField jTextFieldCURP;
+    private javax.swing.JTextField jTextFieldContraseña;
+    private javax.swing.JTextField jTextFieldEdad;
+    private javax.swing.JTextField jTextFieldFechaContratacion;
+    private javax.swing.JTextField jTextFieldRFC;
     // End of variables declaration//GEN-END:variables
 }

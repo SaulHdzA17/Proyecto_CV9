@@ -3,27 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventana;
+
 import java.awt.BorderLayout;
-import java.awt.Color;
 import javax.swing.JPanel;
+
 /**
  *
- * @author jauregui
+ * @author axel
  */
-public class InicioAdmin extends javax.swing.JFrame {
-    
-    //Varibles para las ventanas 
-    //private Personal P = new Personal();
-    
-    /**
-     * Creates new form InicioAdmin
-     */
-    public InicioAdmin() {
+public class Prestamos extends javax.swing.JFrame {
 
+    /**
+     * Creates new form Prestamos
+     */
+    public Prestamos() {
         initComponents();
-                //Mando a llamar la funcion para mostrar el panel lateral
+        //Mando a llamar la funcion mostrarPanel
         MenuLateral ML = new MenuLateral();
-        MostrarPanel(ML);
+        MostrarPanelMenuLateral(ML);
+    }
+    
+    
+    //Funcion para mostrar el menu lateral del admin
+           private void MostrarPanelMenuLateral(JPanel p){
+        
+
+        
+        p.setSize(250,690);
+        p.setLocation(0,0);
+        
+        MenuLateralPanel.removeAll();
+        MenuLateralPanel.add(p,BorderLayout.CENTER);
+        MenuLateralPanel.revalidate();
+        MenuLateralPanel.repaint();
     }
 
     /**
@@ -37,11 +49,11 @@ public class InicioAdmin extends javax.swing.JFrame {
 
         BG = new javax.swing.JPanel();
         MenuLateralPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(1040, 690));
         setResizable(false);
         setSize(new java.awt.Dimension(1040, 690));
 
@@ -61,57 +73,23 @@ public class InicioAdmin extends javax.swing.JFrame {
 
         BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
 
-        jPanel1.setBackground(new java.awt.Color(25, 130, 215));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenido");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1)
-                .addContainerGap(512, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-
-        BG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 790, 130));
+        jLabel1.setText("Prestamos");
+        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void MostrarPanel(JPanel p){
-        
-
-        
-        p.setSize(250,690);
-        p.setLocation(0,0);
-        
-        MenuLateralPanel.removeAll();
-        MenuLateralPanel.add(p,BorderLayout.CENTER);
-        MenuLateralPanel.revalidate();
-        MenuLateralPanel.repaint();
-    }
     /**
      * @param args the command line arguments
      */
@@ -129,20 +107,20 @@ public class InicioAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioAdmin().setVisible(true);
+                new Prestamos().setVisible(true);
             }
         });
     }
@@ -151,6 +129,5 @@ public class InicioAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel BG;
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

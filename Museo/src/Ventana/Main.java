@@ -11,7 +11,11 @@ import java.awt.Color;
  * @author jauregui
  */
 public class Main extends javax.swing.JFrame {
+    
+    //Variables para la navegaion de ventanas
 
+    
+    
     /**
      * Creates new form Main
      */
@@ -113,14 +117,18 @@ public class Main extends javax.swing.JFrame {
         BG.add(ContraseñaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 370, -1));
         BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 302, 370, 30));
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 153));
-        jButton2.setText("Iniciar Sesion");
+        jButton2.setText("Ingresar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
             }
         });
-        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 150, 50));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +147,9 @@ public class Main extends javax.swing.JFrame {
     private void UsuarioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioTextFieldActionPerformed
-
+    
+    //Set para las ventanas 
+    
     private void UsuarioTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioTextFieldMousePressed
         // TODO add your handling code here:
         UsuarioTextField.setText("");
@@ -158,11 +168,14 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        InicioAdmin VentanaAdmin = new InicioAdmin();
-        
-        VentanaAdmin.setVisible(true);
- 
+        InicioAdmin iniadmin = new InicioAdmin();
+        iniadmin.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

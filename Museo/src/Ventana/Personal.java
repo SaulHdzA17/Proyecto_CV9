@@ -13,12 +13,31 @@ import java.awt.BorderLayout;
  */
 public class Personal extends javax.swing.JFrame {
 
+    //Variables para las ventanas
+    //private InicioAdmin IniAdmin = new InicioAdmin();
+    
     /**
      * Creates new form Personal
      */
     public Personal() {
         initComponents();
+        MenuLateral ML = new MenuLateral();
+        MostrarPanelMenuLateral(ML);
         
+    }
+    
+    //Funciuon para mostrar la barra lateral. Modificar para que muestre la barra lateral del usuario correspondiente
+        private void MostrarPanelMenuLateral(JPanel p){
+        
+
+        
+        p.setSize(250,690);
+        p.setLocation(0,0);
+        
+        MenuLateralPanel.removeAll();
+        MenuLateralPanel.add(p,BorderLayout.CENTER);
+        MenuLateralPanel.revalidate();
+        MenuLateralPanel.repaint();
     }
 
     /**
@@ -31,19 +50,7 @@ public class Personal extends javax.swing.JFrame {
     private void initComponents() {
 
         BG = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        BotonInicio = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        BotonPersonal = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        BotonItems = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        BotonPrstamos = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        BotonReportes = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        MenuLateralPanel = new javax.swing.JPanel();
         PanelInfoFecha = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
@@ -56,148 +63,23 @@ public class Personal extends javax.swing.JFrame {
         BotonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1040, 690));
         setResizable(false);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(11, 83, 160));
-        jPanel1.setPreferredSize(new java.awt.Dimension(260, 365));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Arte Digital");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 47, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 97, 195, -1));
-
-        BotonInicio.setBackground(new java.awt.Color(16, 103, 182));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inicio");
-
-        javax.swing.GroupLayout BotonInicioLayout = new javax.swing.GroupLayout(BotonInicio);
-        BotonInicio.setLayout(BotonInicioLayout);
-        BotonInicioLayout.setHorizontalGroup(
-            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonInicioLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel2)
-                .addContainerGap(147, Short.MAX_VALUE))
+        javax.swing.GroupLayout MenuLateralPanelLayout = new javax.swing.GroupLayout(MenuLateralPanel);
+        MenuLateralPanel.setLayout(MenuLateralPanelLayout);
+        MenuLateralPanelLayout.setHorizontalGroup(
+            MenuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
-        BotonInicioLayout.setVerticalGroup(
-            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonInicioLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addContainerGap(14, Short.MAX_VALUE))
+        MenuLateralPanelLayout.setVerticalGroup(
+            MenuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
         );
 
-        jPanel1.add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 159, 250, 45));
-
-        BotonPersonal.setBackground(new java.awt.Color(16, 103, 182));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Personal");
-
-        javax.swing.GroupLayout BotonPersonalLayout = new javax.swing.GroupLayout(BotonPersonal);
-        BotonPersonal.setLayout(BotonPersonalLayout);
-        BotonPersonalLayout.setHorizontalGroup(
-            BotonPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonPersonalLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel3)
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
-        BotonPersonalLayout.setVerticalGroup(
-            BotonPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonPersonalLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel3)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 250, 45));
-
-        BotonItems.setBackground(new java.awt.Color(16, 103, 182));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Items");
-
-        javax.swing.GroupLayout BotonItemsLayout = new javax.swing.GroupLayout(BotonItems);
-        BotonItems.setLayout(BotonItemsLayout);
-        BotonItemsLayout.setHorizontalGroup(
-            BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonItemsLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel4)
-                .addContainerGap(145, Short.MAX_VALUE))
-        );
-        BotonItemsLayout.setVerticalGroup(
-            BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonItemsLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel4)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(BotonItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, 45));
-
-        BotonPrstamos.setBackground(new java.awt.Color(16, 103, 182));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Prestamos");
-
-        javax.swing.GroupLayout BotonPrstamosLayout = new javax.swing.GroupLayout(BotonPrstamos);
-        BotonPrstamos.setLayout(BotonPrstamosLayout);
-        BotonPrstamosLayout.setHorizontalGroup(
-            BotonPrstamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonPrstamosLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel5)
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
-        BotonPrstamosLayout.setVerticalGroup(
-            BotonPrstamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonPrstamosLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel5)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(BotonPrstamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 250, 45));
-
-        BotonReportes.setBackground(new java.awt.Color(16, 103, 182));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Reportes");
-
-        javax.swing.GroupLayout BotonReportesLayout = new javax.swing.GroupLayout(BotonReportes);
-        BotonReportes.setLayout(BotonReportesLayout);
-        BotonReportesLayout.setHorizontalGroup(
-            BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonReportesLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel6)
-                .addContainerGap(125, Short.MAX_VALUE))
-        );
-        BotonReportesLayout.setVerticalGroup(
-            BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(14, 14, 14))
-        );
-
-        jPanel1.add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 45));
-
-        BG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
+        BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
 
         PanelInfoFecha.setBackground(new java.awt.Color(25, 130, 215));
 
@@ -330,6 +212,10 @@ public class Personal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*public void setIniAdmin(InicioAdmin IniAdmin){
+        this.IniAdmin = IniAdmin;
+    }*/
+    
     private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
         // TODO add your handling code here:
         VentanaRegistrarPersonal VRP = new VentanaRegistrarPersonal();
@@ -387,24 +273,12 @@ public class Personal extends javax.swing.JFrame {
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
-    private javax.swing.JPanel BotonInicio;
-    private javax.swing.JPanel BotonItems;
-    private javax.swing.JPanel BotonPersonal;
-    private javax.swing.JPanel BotonPrstamos;
-    private javax.swing.JPanel BotonReportes;
+    private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
