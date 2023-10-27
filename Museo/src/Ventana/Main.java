@@ -33,18 +33,15 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         BG = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         LabelUsuario = new javax.swing.JLabel();
         ContraseñaLabel = new javax.swing.JLabel();
         UsuarioTextField = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         ContraseñaField = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main");
@@ -53,35 +50,24 @@ public class Main extends javax.swing.JFrame {
         setResizable(false);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
+        BG.setPreferredSize(new java.awt.Dimension(1024, 768));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventana/A Logo.jpg"))); // NOI18N
-        BG.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 80, 80));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Arte Digital");
-        BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 280, 80));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/A Museo3.jpg"))); // NOI18N
-        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 750));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setText("Arte Digital");
-        BG.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Museo 1.jpg"))); // NOI18N
+        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 880));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Iniciar Sesion");
-        BG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iniciar Sesion.jpg"))); // NOI18N
+        BG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, 130));
 
-        LabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        LabelUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         LabelUsuario.setText("Usuario: ");
-        BG.add(LabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
+        BG.add(LabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, -1, -1));
 
-        ContraseñaLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ContraseñaLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         ContraseñaLabel.setText("Contraseña: ");
-        BG.add(ContraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
+        BG.add(ContraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, -1, -1));
 
         UsuarioTextField.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         UsuarioTextField.setForeground(new java.awt.Color(204, 204, 204));
@@ -97,8 +83,7 @@ public class Main extends javax.swing.JFrame {
                 UsuarioTextFieldActionPerformed(evt);
             }
         });
-        BG.add(UsuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 370, -1));
-        BG.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 370, -1));
+        BG.add(UsuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 350, -1));
 
         ContraseñaField.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         ContraseñaField.setForeground(new java.awt.Color(204, 204, 204));
@@ -114,9 +99,10 @@ public class Main extends javax.swing.JFrame {
                 ContraseñaFieldActionPerformed(evt);
             }
         });
-        BG.add(ContraseñaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 370, -1));
-        BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 302, 370, 30));
+        BG.add(ContraseñaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 350, -1));
+        BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 350, 30));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton Entrar.png"))); // NOI18N
         jButton2.setText("Ingresar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,17 +114,18 @@ public class Main extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 120, 40));
+        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, 170, 50));
+        BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 312, 350, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, 780, Short.MAX_VALUE)
         );
 
         pack();
@@ -173,6 +160,12 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
+        private void JLabel(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        InicioAdmin iniadmin = new InicioAdmin();
+        iniadmin.setVisible(true);
+        this.setVisible(false);
+    } 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -220,11 +213,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField UsuarioTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
 }
