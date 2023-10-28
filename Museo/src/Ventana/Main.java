@@ -53,12 +53,12 @@ public class Main extends javax.swing.JFrame {
         BG.setPreferredSize(new java.awt.Dimension(1024, 768));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Museo 1.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edicion-2.jpg"))); // NOI18N
         BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 880));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iniciar Sesion.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edicion-4.jpg"))); // NOI18N
         BG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, 130));
 
         LabelUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -102,7 +102,7 @@ public class Main extends javax.swing.JFrame {
         BG.add(ContraseñaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 350, -1));
         BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 350, 30));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton Entrar.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edicion-3.jpg"))); // NOI18N
         jButton2.setText("Ingresar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,8 +114,8 @@ public class Main extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, 170, 50));
-        BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 312, 350, 20));
+        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 170, 50));
+        BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 350, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

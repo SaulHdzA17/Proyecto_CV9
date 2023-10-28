@@ -41,9 +41,6 @@ public class MenuLateral extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        BotonInicio = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         BotonPersonal = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         BotonItems = new javax.swing.JPanel();
@@ -52,53 +49,19 @@ public class MenuLateral extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         BotonReportes = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(11, 83, 160));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel7 = new javax.swing.JLabel();
+        BotonInicio = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
         jLabel1.setText("Arte Digital");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 47, -1, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 97, 195, -1));
 
-        BotonInicio.setBackground(new java.awt.Color(16, 103, 182));
-        BotonInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonInicioMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BotonInicioMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BotonInicioMouseExited(evt);
-            }
-        });
+        setBackground(new java.awt.Color(224, 229, 233));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inicio");
-
-        javax.swing.GroupLayout BotonInicioLayout = new javax.swing.GroupLayout(BotonInicio);
-        BotonInicio.setLayout(BotonInicioLayout);
-        BotonInicioLayout.setHorizontalGroup(
-            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonInicioLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel2)
-                .addContainerGap(147, Short.MAX_VALUE))
-        );
-        BotonInicioLayout.setVerticalGroup(
-            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonInicioLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 159, 250, 45));
-
-        BotonPersonal.setBackground(new java.awt.Color(16, 103, 182));
+        BotonPersonal.setBackground(new java.awt.Color(116, 141, 181));
         BotonPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonPersonalMouseClicked(evt);
@@ -111,8 +74,9 @@ public class MenuLateral extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Personal");
 
         javax.swing.GroupLayout BotonPersonalLayout = new javax.swing.GroupLayout(BotonPersonal);
@@ -120,21 +84,20 @@ public class MenuLateral extends javax.swing.JPanel {
         BotonPersonalLayout.setHorizontalGroup(
             BotonPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonPersonalLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel3)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
         );
         BotonPersonalLayout.setVerticalGroup(
             BotonPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonPersonalLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 250, 45));
+        add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 250, 45));
 
-        BotonItems.setBackground(new java.awt.Color(16, 103, 182));
+        BotonItems.setBackground(new java.awt.Color(64, 97, 150));
         BotonItems.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonItemsMouseClicked(evt);
@@ -147,30 +110,30 @@ public class MenuLateral extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Items");
 
         javax.swing.GroupLayout BotonItemsLayout = new javax.swing.GroupLayout(BotonItems);
         BotonItems.setLayout(BotonItemsLayout);
         BotonItemsLayout.setHorizontalGroup(
             BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonItemsLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel4)
-                .addContainerGap(145, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonItemsLayout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addContainerGap())
         );
         BotonItemsLayout.setVerticalGroup(
             BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonItemsLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel4)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        add(BotonItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, 45));
+        add(BotonItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 250, 50));
 
-        BotonPrestamos.setBackground(new java.awt.Color(16, 103, 182));
+        BotonPrestamos.setBackground(new java.awt.Color(159, 195, 231));
         BotonPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonPrestamosMouseClicked(evt);
@@ -183,8 +146,9 @@ public class MenuLateral extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Prestamos");
 
         javax.swing.GroupLayout BotonPrestamosLayout = new javax.swing.GroupLayout(BotonPrestamos);
@@ -192,21 +156,21 @@ public class MenuLateral extends javax.swing.JPanel {
         BotonPrestamosLayout.setHorizontalGroup(
             BotonPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonPrestamosLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel5)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addContainerGap())
         );
         BotonPrestamosLayout.setVerticalGroup(
             BotonPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonPrestamosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel5)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        add(BotonPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 250, 45));
+        add(BotonPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 250, 45));
 
-        BotonReportes.setBackground(new java.awt.Color(16, 103, 182));
+        BotonReportes.setBackground(new java.awt.Color(195, 216, 245));
         BotonReportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonReportesMouseClicked(evt);
@@ -219,28 +183,70 @@ public class MenuLateral extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Reportes");
 
         javax.swing.GroupLayout BotonReportesLayout = new javax.swing.GroupLayout(BotonReportes);
         BotonReportes.setLayout(BotonReportesLayout);
         BotonReportesLayout.setHorizontalGroup(
             BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonReportesLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel6)
-                .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addContainerGap())
         );
         BotonReportesLayout.setVerticalGroup(
             BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(14, 14, 14))
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 45));
+        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 45));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo-3.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 220));
+
+        BotonInicio.setBackground(new java.awt.Color(16, 103, 182));
+        BotonInicio.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        BotonInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonInicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonInicioMouseExited(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Inicio");
+
+        javax.swing.GroupLayout BotonInicioLayout = new javax.swing.GroupLayout(BotonInicio);
+        BotonInicio.setLayout(BotonInicioLayout);
+        BotonInicioLayout.setHorizontalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonInicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        BotonInicioLayout.setVerticalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonInicioLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 249, 250, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseEntered
@@ -419,6 +425,6 @@ public class MenuLateral extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

@@ -56,7 +56,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Museo 1.jpg"/>
+              <Image iconType="3" name="/Imagenes/Edicion-2.jpg"/>
             </Property>
           </Properties>
           <Constraints>
@@ -72,7 +72,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iniciar Sesion.jpg"/>
+              <Image iconType="3" name="/Imagenes/Edicion-4.jpg"/>
             </Property>
           </Properties>
           <Constraints>
@@ -163,7 +163,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Boton Entrar.png"/>
+              <Image iconType="3" name="/Imagenes/Edicion-3.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
           </Properties>
@@ -173,14 +173,14 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="680" y="490" width="170" height="50"/>
+              <AbsoluteConstraints x="700" y="490" width="170" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="590" y="312" width="350" height="20"/>
+              <AbsoluteConstraints x="590" y="300" width="350" height="20"/>
             </Constraint>
           </Constraints>
         </Component>

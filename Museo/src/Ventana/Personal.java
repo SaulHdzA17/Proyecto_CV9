@@ -5,6 +5,8 @@
 package Ventana;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 /**
@@ -12,6 +14,9 @@ import java.awt.BorderLayout;
  * @author jauregui
  */
 public class Personal extends javax.swing.JFrame {
+    
+    
+    Calendar fecha_actual= new GregorianCalendar();
 
     //Variables para las ventanas
     //private InicioAdmin IniAdmin = new InicioAdmin();
@@ -23,6 +28,8 @@ public class Personal extends javax.swing.JFrame {
         initComponents();
         MenuLateral ML = new MenuLateral();
         MostrarPanelMenuLateral(ML);
+        
+        this.Fecha.setCalendar(fecha_actual);
         
     }
     
@@ -53,14 +60,15 @@ public class Personal extends javax.swing.JFrame {
         MenuLateralPanel = new javax.swing.JPanel();
         PanelInfoFecha = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        Fecha = new com.toedter.calendar.JDateChooser();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
         BotonAgregar = new javax.swing.JButton();
         BotonActualizar = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -81,11 +89,14 @@ public class Personal extends javax.swing.JFrame {
 
         BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
 
-        PanelInfoFecha.setBackground(new java.awt.Color(25, 130, 215));
+        PanelInfoFecha.setBackground(new java.awt.Color(116, 141, 181));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Hoy es 25 de Octubre del 2023");
+        jLabel8.setText("Hoy es ");
+
+        Fecha.setDateFormatString("dd MMM yyyy HH:mm:ss");
+        Fecha.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout PanelInfoFechaLayout = new javax.swing.GroupLayout(PanelInfoFecha);
         PanelInfoFecha.setLayout(PanelInfoFechaLayout);
@@ -94,13 +105,17 @@ public class Personal extends javax.swing.JFrame {
             .addGroup(PanelInfoFechaLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(248, Short.MAX_VALUE))
         );
         PanelInfoFechaLayout.setVerticalGroup(
             PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoFechaLayout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jLabel8)
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(30, 30, 30))
         );
 
@@ -129,9 +144,6 @@ public class Personal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel7.setText("Personal");
-
         BotonAgregar.setBackground(new java.awt.Color(11, 83, 160));
         BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonAgregar.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,6 +169,9 @@ public class Personal extends javax.swing.JFrame {
         BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         BotonBuscar.setText("Buscar");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Personal.png"))); // NOI18N
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -164,30 +179,27 @@ public class Personal extends javax.swing.JFrame {
             .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(PanelContenidoLayout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelContenidoLayout.createSequentialGroup()
+                            .addGap(289, 289, 289)
+                            .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel7)
-                .addGap(32, 32, 32)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,6 +285,7 @@ public class Personal extends javax.swing.JFrame {
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
+    private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
