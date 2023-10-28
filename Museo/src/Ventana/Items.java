@@ -40,18 +40,17 @@ Calendar fecha_actual= new GregorianCalendar();
 
         BG = new javax.swing.JPanel();
         MenuLateralPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         PanelInfoFecha = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         Fecha = new com.toedter.calendar.JDateChooser();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        BotonAgregar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        BotonAgregar1 = new javax.swing.JButton();
         BotonActualizar = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 37, 1040, 690));
@@ -72,9 +71,6 @@ Calendar fecha_actual= new GregorianCalendar();
         );
 
         BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
-
-        jLabel1.setText("Items");
-        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, -1));
 
         PanelInfoFecha.setBackground(new java.awt.Color(116, 141, 181));
 
@@ -130,34 +126,49 @@ Calendar fecha_actual= new GregorianCalendar();
         });
         jScrollPane1.setViewportView(jTable1);
 
-        BotonAgregar.setBackground(new java.awt.Color(11, 83, 160));
-        BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonAgregar.setText("Agregar");
-        BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAgregarActionPerformed(evt);
-            }
-        });
-
-        BotonActualizar.setBackground(new java.awt.Color(11, 83, 160));
-        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setText("Actualizar");
-
-        BotonBorrar.setBackground(new java.awt.Color(11, 83, 160));
-        BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonBorrar.setText("Borrar");
-
-        BotonBuscar.setBackground(new java.awt.Color(11, 83, 160));
-        BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonBuscar.setText("Buscar");
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Items.png"))); // NOI18N
+
+        BotonAgregar1.setBackground(new java.awt.Color(255, 255, 255));
+        BotonAgregar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonAgregar1.setForeground(new java.awt.Color(0, 0, 0));
+        BotonAgregar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        BotonAgregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregar1ActionPerformed(evt);
+            }
+        });
+
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
+        BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrarActionPerformed(evt);
+            }
+        });
+
+        BotonBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        BotonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
@@ -166,20 +177,21 @@ Calendar fecha_actual= new GregorianCalendar();
             .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 51, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(PanelContenidoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonAgregar1)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonActualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonBorrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonBuscar)
+                        .addGap(58, 58, 58))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -189,13 +201,12 @@ Calendar fecha_actual= new GregorianCalendar();
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(BotonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         BG.add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 790, 470));
@@ -214,11 +225,22 @@ Calendar fecha_actual= new GregorianCalendar();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
+    private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
         // TODO add your handling code here:
-        VentanaRegistrarPersonal VRP = new VentanaRegistrarPersonal();
-        MostrarPanel(VRP);
-    }//GEN-LAST:event_BotonAgregarActionPerformed
+       
+    }//GEN-LAST:event_BotonAgregar1ActionPerformed
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizarActionPerformed
+
+    private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBorrarActionPerformed
+
+    private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBuscarActionPerformed
     private void MostrarPanel(JPanel p){
         
 
@@ -270,14 +292,13 @@ Calendar fecha_actual= new GregorianCalendar();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton BotonActualizar;
-    private javax.swing.JButton BotonAgregar;
+    private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

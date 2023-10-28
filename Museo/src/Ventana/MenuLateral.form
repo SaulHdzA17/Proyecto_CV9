@@ -260,7 +260,7 @@
     <Container class="javax.swing.JPanel" name="BotonInicio">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="67" red="10" type="rgb"/>
+          <Color blue="49" green="2c" red="17" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>

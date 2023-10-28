@@ -210,7 +210,7 @@ public class MenuLateral extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo-3.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 220));
 
-        BotonInicio.setBackground(new java.awt.Color(16, 103, 182));
+        BotonInicio.setBackground(new java.awt.Color(23, 44, 73));
         BotonInicio.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         BotonInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

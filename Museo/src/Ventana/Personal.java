@@ -144,30 +144,45 @@ public class Personal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        BotonAgregar.setBackground(new java.awt.Color(11, 83, 160));
+        BotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
         BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonAgregar.setText("Agregar");
+        BotonAgregar.setForeground(new java.awt.Color(0, 0, 0));
+        BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
         BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregarActionPerformed(evt);
             }
         });
 
-        BotonActualizar.setBackground(new java.awt.Color(11, 83, 160));
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
         BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setText("Actualizar");
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
 
-        BotonBorrar.setBackground(new java.awt.Color(11, 83, 160));
+        BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
         BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonBorrar.setText("Borrar");
+        BotonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrarActionPerformed(evt);
+            }
+        });
 
-        BotonBuscar.setBackground(new java.awt.Color(11, 83, 160));
+        BotonBuscar.setBackground(new java.awt.Color(255, 255, 255));
         BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonBuscar.setText("Buscar");
+        BotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        BotonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -182,17 +197,17 @@ public class Personal extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelContenidoLayout.createSequentialGroup()
-                                .addGap(289, 289, 289)
-                                .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(395, 395, 395)
+                                .addComponent(BotonAgregar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonBorrar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonBuscar)))
                         .addGap(0, 51, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -200,14 +215,14 @@ public class Personal extends javax.swing.JFrame {
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(13, 13, 13)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -236,6 +251,18 @@ public class Personal extends javax.swing.JFrame {
         VentanaRegistrarPersonal VRP = new VentanaRegistrarPersonal();
         MostrarPanel(VRP);
     }//GEN-LAST:event_BotonAgregarActionPerformed
+
+    private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBorrarActionPerformed
+
+    private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBuscarActionPerformed
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizarActionPerformed
 
     private void MostrarPanel(JPanel p){
         

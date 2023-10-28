@@ -102,8 +102,8 @@ public class Main extends javax.swing.JFrame {
         BG.add(ContraseñaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 350, -1));
         BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 350, 30));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edicion-3.jpg"))); // NOI18N
-        jButton2.setText("Ingresar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -114,7 +114,7 @@ public class Main extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 170, 50));
+        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 200, 60));
         BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 350, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

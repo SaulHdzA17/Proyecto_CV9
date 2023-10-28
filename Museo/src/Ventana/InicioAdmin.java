@@ -95,8 +95,11 @@ public class InicioAdmin extends javax.swing.JFrame {
 
         BG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 790, 130));
 
-        jCalendar1.setBackground(new java.awt.Color(159, 195, 231));
+        jCalendar1.setBackground(new java.awt.Color(153, 204, 255));
         jCalendar1.setForeground(new java.awt.Color(23, 44, 73));
+        jCalendar1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jCalendar1.setSundayForeground(new java.awt.Color(51, 0, 51));
+        jCalendar1.setWeekdayForeground(new java.awt.Color(0, 102, 204));
         BG.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 650, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
