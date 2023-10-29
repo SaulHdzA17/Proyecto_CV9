@@ -5,6 +5,8 @@
 package Ventana;
 
 import java.awt.BorderLayout;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JPanel;
 
 /**
@@ -16,11 +18,13 @@ public class Prestamos extends javax.swing.JFrame {
     /**
      * Creates new form Prestamos
      */
+     Calendar fecha_actual= new GregorianCalendar();
     public Prestamos() {
         initComponents();
         //Mando a llamar la funcion mostrarPanel
         MenuLateral ML = new MenuLateral();
         MostrarPanelMenuLateral(ML);
+         this.Fecha.setCalendar(fecha_actual);
     }
     
     
@@ -49,6 +53,14 @@ public class Prestamos extends javax.swing.JFrame {
 
         BG = new javax.swing.JPanel();
         MenuLateralPanel = new javax.swing.JPanel();
+        PanelInfoFecha = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        Fecha = new com.toedter.calendar.JDateChooser();
+        BotonAgregar = new javax.swing.JButton();
+        BotonActualizar = new javax.swing.JButton();
+        BotonBorrar = new javax.swing.JButton();
+        BotonBuscar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,8 +85,89 @@ public class Prestamos extends javax.swing.JFrame {
 
         BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
 
-        jLabel1.setText("Prestamos");
-        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
+        PanelInfoFecha.setBackground(new java.awt.Color(116, 141, 181));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Hoy es ");
+
+        Fecha.setDateFormatString("dd MMM yyyy HH:mm:ss");
+        Fecha.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        javax.swing.GroupLayout PanelInfoFechaLayout = new javax.swing.GroupLayout(PanelInfoFecha);
+        PanelInfoFecha.setLayout(PanelInfoFechaLayout);
+        PanelInfoFechaLayout.setHorizontalGroup(
+            PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInfoFechaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+        PanelInfoFechaLayout.setVerticalGroup(
+            PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoFechaLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(56, 56, 56))
+        );
+
+        BG.add(PanelInfoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 790, 140));
+
+        BotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonAgregar.setForeground(new java.awt.Color(0, 0, 0));
+        BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarActionPerformed(evt);
+            }
+        });
+        BG.add(BotonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 590, -1, -1));
+
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+        BG.add(BotonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 590, -1, -1));
+
+        BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrarActionPerformed(evt);
+            }
+        });
+        BG.add(BotonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
+
+        BotonBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        BotonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscarActionPerformed(evt);
+            }
+        });
+        BG.add(BotonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 590, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Prestamos.png"))); // NOI18N
+        BG.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 778, 89));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estatua.png"))); // NOI18N
+        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 270, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,11 +177,28 @@ public class Prestamos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_BotonAgregarActionPerformed
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizarActionPerformed
+
+    private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBorrarActionPerformed
+
+    private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,7 +237,15 @@ public class Prestamos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JButton BotonActualizar;
+    private javax.swing.JButton BotonAgregar;
+    private javax.swing.JButton BotonBorrar;
+    private javax.swing.JButton BotonBuscar;
+    private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JPanel MenuLateralPanel;
+    private javax.swing.JPanel PanelInfoFecha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
