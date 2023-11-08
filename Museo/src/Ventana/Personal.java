@@ -34,7 +34,7 @@ public class Personal extends javax.swing.JFrame {
     }
     
     //Funciuon para mostrar la barra lateral. Modificar para que muestre la barra lateral del usuario correspondiente
-        private void MostrarPanelMenuLateral(JPanel p){
+    private void MostrarPanelMenuLateral(JPanel p){
         
 
         
@@ -146,7 +146,6 @@ public class Personal extends javax.swing.JFrame {
 
         BotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
         BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonAgregar.setForeground(new java.awt.Color(0, 0, 0));
         BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
         BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +157,11 @@ public class Personal extends javax.swing.JFrame {
         BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
         BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        BotonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonActualizarMouseClicked(evt);
+            }
+        });
         BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonActualizarActionPerformed(evt);
@@ -178,6 +182,11 @@ public class Personal extends javax.swing.JFrame {
         BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         BotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        BotonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonBuscarMouseClicked(evt);
+            }
+        });
         BotonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonBuscarActionPerformed(evt);
@@ -263,6 +272,16 @@ public class Personal extends javax.swing.JFrame {
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonActualizarActionPerformed
+
+    private void BotonActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActualizarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizarMouseClicked
+
+    private void BotonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonBuscarMouseClicked
+        // TODO add your handling code here:
+        VentanaBuscarPersonal VBP = new VentanaBuscarPersonal();
+        MostrarPanel(VBP);
+    }//GEN-LAST:event_BotonBuscarMouseClicked
 
     private void MostrarPanel(JPanel p){
         

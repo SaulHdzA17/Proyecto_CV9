@@ -21,9 +21,6 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        //Operaciones de la conexión de la base de datos:
-        ConexionBD objetoConexion = new ConexionBD();
-        objetoConexion.establecerConexion();
     }
 
     /**
