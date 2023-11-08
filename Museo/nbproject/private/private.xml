@@ -5,13 +5,13 @@
         <group>
             <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/VentanaRegistrarPersonal.java</file>
             <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/Personal.java</file>
-            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/Items.java</file>
-            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/MenuLateral.java</file>
+            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/VentanaRegistrarItem.java</file>
             <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/Main.java</file>
-            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/Reportes.java</file>
+            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/VentanaBuscarPersonal.java</file>
             <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/Prestamos.java</file>
+            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/VentanaRegistrarReporte.java</file>
+            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/VentanaRegistrarPrestamo.java</file>
             <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/InicioAdmin.java</file>
-            <file>file:/Users/jauregui/Desktop/Lenguajes/Java/ISW/P1/Proyecto_CV9/Museo/src/Ventana/A%20Logo.jpg</file>
         </group>
     </open-files>
 </project-private>
