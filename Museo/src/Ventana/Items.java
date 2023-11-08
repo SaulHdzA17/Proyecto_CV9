@@ -25,7 +25,8 @@ Calendar fecha_actual= new GregorianCalendar();
 
         initComponents();
         MenuLateral ML = new MenuLateral();
-        MostrarPanel(ML);
+        MostrarPanelLateral(ML);
+        
         this.Fecha.setCalendar(fecha_actual);
     }
 
@@ -132,8 +133,12 @@ Calendar fecha_actual= new GregorianCalendar();
 
         BotonAgregar1.setBackground(new java.awt.Color(255, 255, 255));
         BotonAgregar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonAgregar1.setForeground(new java.awt.Color(0, 0, 0));
         BotonAgregar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        BotonAgregar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonAgregar1MouseClicked(evt);
+            }
+        });
         BotonAgregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregar1ActionPerformed(evt);
@@ -174,25 +179,22 @@ Calendar fecha_actual= new GregorianCalendar();
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelContenidoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonAgregar1)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonBorrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonBuscar)
-                        .addGap(58, 58, 58))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PanelContenidoLayout.createSequentialGroup()
+                        .addGap(0, 27, Short.MAX_VALUE)
+                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                .addComponent(BotonAgregar1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonActualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonBorrar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonBuscar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(21, 21, 21))
         );
         PanelContenidoLayout.setVerticalGroup(
@@ -241,7 +243,13 @@ Calendar fecha_actual= new GregorianCalendar();
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonBuscarActionPerformed
-    private void MostrarPanel(JPanel p){
+
+    private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
+        // TODO add your handling code here:
+        VentanaRegistrarItem VRI = new VentanaRegistrarItem();
+        MostrarPanel(VRI);
+    }//GEN-LAST:event_BotonAgregar1MouseClicked
+    private void MostrarPanelLateral(JPanel p){
         
 
         
@@ -252,6 +260,17 @@ Calendar fecha_actual= new GregorianCalendar();
         MenuLateralPanel.add(p,BorderLayout.CENTER);
         MenuLateralPanel.revalidate();
         MenuLateralPanel.repaint();
+    }
+    
+    private void MostrarPanel(JPanel p){
+        
+        p.setSize(790,470);
+        p.setLocation(0,0);
+        
+        PanelContenido.removeAll();
+        PanelContenido.add(p,BorderLayout.CENTER);
+        PanelContenido.revalidate();
+        PanelContenido.repaint();
     }
     /**
      * @param args the command line arguments

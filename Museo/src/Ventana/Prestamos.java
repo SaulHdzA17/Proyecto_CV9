@@ -41,6 +41,17 @@ public class Prestamos extends javax.swing.JFrame {
         MenuLateralPanel.revalidate();
         MenuLateralPanel.repaint();
     }
+           
+    private void MostrarPanel(JPanel p){
+        
+        p.setSize(790,470);
+        p.setLocation(0,0);
+        
+        PanelContenido.removeAll();
+        PanelContenido.add(p,BorderLayout.CENTER);
+        PanelContenido.revalidate();
+        PanelContenido.repaint();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,16 +67,21 @@ public class Prestamos extends javax.swing.JFrame {
         PanelInfoFecha = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         Fecha = new com.toedter.calendar.JDateChooser();
-        BotonAgregar = new javax.swing.JButton();
-        BotonActualizar = new javax.swing.JButton();
-        BotonBorrar = new javax.swing.JButton();
-        BotonBuscar = new javax.swing.JButton();
+        PanelContenido = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        BotonAgregar1 = new javax.swing.JButton();
+        BotonActualizar1 = new javax.swing.JButton();
+        BotonBorrar1 = new javax.swing.JButton();
+        BotonBuscar1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        BotonBuscar = new javax.swing.JButton();
+        BotonBorrar = new javax.swing.JButton();
+        BotonActualizar = new javax.swing.JButton();
+        BotonAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(1040, 690));
         setResizable(false);
         setSize(new java.awt.Dimension(1040, 690));
 
@@ -76,14 +92,14 @@ public class Prestamos extends javax.swing.JFrame {
         MenuLateralPanel.setLayout(MenuLateralPanelLayout);
         MenuLateralPanelLayout.setHorizontalGroup(
             MenuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 230, Short.MAX_VALUE)
         );
         MenuLateralPanelLayout.setVerticalGroup(
             MenuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 690, Short.MAX_VALUE)
         );
 
-        BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
+        BG.add(MenuLateralPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 690));
 
         PanelInfoFecha.setBackground(new java.awt.Color(116, 141, 181));
 
@@ -117,38 +133,71 @@ public class Prestamos extends javax.swing.JFrame {
 
         BG.add(PanelInfoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 790, 140));
 
-        BotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonAgregar.setForeground(new java.awt.Color(0, 0, 0));
-        BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
-        BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAgregarActionPerformed(evt);
-            }
-        });
-        BG.add(BotonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 590, -1, -1));
+        PanelContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
-        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonActualizarActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                { new Integer(1), "Jose", "Jose235as", "234", "ASD", "ASD", "2002", "20", null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Usuario", "Contraseña", "CURP", "RFC", "Año contratacion", "Edad", "Rol"
             }
-        });
-        BG.add(BotonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 590, -1, -1));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
 
-        BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
-        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonBorrarActionPerformed(evt);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
-        BG.add(BotonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
+        jScrollPane1.setViewportView(jTable1);
+
+        BotonAgregar1.setBackground(new java.awt.Color(255, 255, 255));
+        BotonAgregar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonAgregar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        BotonAgregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregar1ActionPerformed(evt);
+            }
+        });
+
+        BotonActualizar1.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonActualizar1.setForeground(new java.awt.Color(255, 255, 255));
+        BotonActualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        BotonActualizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizar1ActionPerformed(evt);
+            }
+        });
+
+        BotonBorrar1.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBorrar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBorrar1.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBorrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        BotonBorrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrar1ActionPerformed(evt);
+            }
+        });
+
+        BotonBuscar1.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBuscar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBuscar1.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        BotonBuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscar1ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Prestamos.png"))); // NOI18N
 
         BotonBuscar.setBackground(new java.awt.Color(255, 255, 255));
         BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -159,15 +208,94 @@ public class Prestamos extends javax.swing.JFrame {
                 BotonBuscarActionPerformed(evt);
             }
         });
-        BG.add(BotonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 590, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Prestamos.png"))); // NOI18N
-        BG.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 778, 89));
+        BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrarActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estatua.png"))); // NOI18N
-        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 270, 350));
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
+        BotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        BotonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonAgregarMouseClicked(evt);
+            }
+        });
+        BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
+        PanelContenido.setLayout(PanelContenidoLayout);
+        PanelContenidoLayout.setHorizontalGroup(
+            PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelContenidoLayout.createSequentialGroup()
+                        .addComponent(BotonAgregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonActualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonBorrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonBuscar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(427, 427, 427)
+                .addComponent(BotonAgregar1)
+                .addGap(18, 18, 18)
+                .addComponent(BotonActualizar1)
+                .addGap(18, 18, 18)
+                .addComponent(BotonBorrar1)
+                .addGap(18, 18, 18)
+                .addComponent(BotonBuscar1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        PanelContenidoLayout.setVerticalGroup(
+            PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonBorrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                    .addComponent(BotonBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonActualizar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PanelContenidoLayout.createSequentialGroup()
+                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonBuscar)
+                            .addComponent(BotonBorrar)
+                            .addComponent(BotonActualizar)
+                            .addComponent(BotonAgregar))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        BG.add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 780, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,7 +305,7 @@ public class Prestamos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -199,6 +327,30 @@ public class Prestamos extends javax.swing.JFrame {
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonBuscarActionPerformed
+
+    private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarPersonal VRP = new VentanaRegistrarPersonal();
+        MostrarPanel(VRP);
+    }//GEN-LAST:event_BotonAgregar1ActionPerformed
+
+    private void BotonActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizar1ActionPerformed
+
+    private void BotonBorrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBorrar1ActionPerformed
+
+    private void BotonBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonBuscar1ActionPerformed
+
+    private void BotonAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregarMouseClicked
+        // TODO add your handling code here:
+        VentanaRegistrarPrestamo VRP = new VentanaRegistrarPrestamo();
+        MostrarPanel(VRP);
+    }//GEN-LAST:event_BotonAgregarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -238,14 +390,20 @@ public class Prestamos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton BotonActualizar;
+    private javax.swing.JButton BotonActualizar1;
     private javax.swing.JButton BotonAgregar;
+    private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
+    private javax.swing.JButton BotonBorrar1;
     private javax.swing.JButton BotonBuscar;
+    private javax.swing.JButton BotonBuscar1;
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JPanel MenuLateralPanel;
+    private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

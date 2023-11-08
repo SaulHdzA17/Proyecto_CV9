@@ -29,7 +29,7 @@ public class Reportes extends javax.swing.JFrame {
 
     
     //Funcion para desplegar el menulateral del admin. (Modificar para que se despliegue los diferentes menuslaterales dependiendo el usuario activo)
-           private void MostrarPanelMenuLateral(JPanel p){
+    private void MostrarPanelMenuLateral(JPanel p){
         
 
         
@@ -40,6 +40,16 @@ public class Reportes extends javax.swing.JFrame {
         MenuLateralPanel.add(p,BorderLayout.CENTER);
         MenuLateralPanel.revalidate();
         MenuLateralPanel.repaint();
+    }
+    private void MostrarPanel(JPanel p){
+        
+        p.setSize(790,470);
+        p.setLocation(0,0);
+        
+        PanelContenido.removeAll();
+        PanelContenido.add(p,BorderLayout.CENTER);
+        PanelContenido.revalidate();
+        PanelContenido.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -147,8 +157,12 @@ public class Reportes extends javax.swing.JFrame {
 
         BotonAgregar1.setBackground(new java.awt.Color(255, 255, 255));
         BotonAgregar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonAgregar1.setForeground(new java.awt.Color(0, 0, 0));
         BotonAgregar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        BotonAgregar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonAgregar1MouseClicked(evt);
+            }
+        });
         BotonAgregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregar1ActionPerformed(evt);
@@ -212,7 +226,7 @@ public class Reportes extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelContenidoLayout.createSequentialGroup()
@@ -251,6 +265,12 @@ public class Reportes extends javax.swing.JFrame {
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonBorrarActionPerformed
+
+    private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
+        // TODO add your handling code here:
+        VentanaRegistrarReporte VRR = new VentanaRegistrarReporte();
+        MostrarPanel(VRR);
+    }//GEN-LAST:event_BotonAgregar1MouseClicked
 
     /**
      * @param args the command line arguments
