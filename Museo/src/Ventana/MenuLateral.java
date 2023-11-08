@@ -52,6 +52,8 @@ public class MenuLateral extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         BotonInicio = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        BotonCerrarSesion = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -247,6 +249,27 @@ public class MenuLateral extends javax.swing.JPanel {
         );
 
         add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 249, 250, 50));
+
+        jLabel8.setText("Cerrar Sesion");
+
+        javax.swing.GroupLayout BotonCerrarSesionLayout = new javax.swing.GroupLayout(BotonCerrarSesion);
+        BotonCerrarSesion.setLayout(BotonCerrarSesionLayout);
+        BotonCerrarSesionLayout.setHorizontalGroup(
+            BotonCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonCerrarSesionLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        BotonCerrarSesionLayout.setVerticalGroup(
+            BotonCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonCerrarSesionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        add(BotonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 660, 120, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseEntered
@@ -414,6 +437,7 @@ public class MenuLateral extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BotonCerrarSesion;
     private javax.swing.JPanel BotonInicio;
     private javax.swing.JPanel BotonItems;
     private javax.swing.JPanel BotonPersonal;
@@ -426,5 +450,6 @@ public class MenuLateral extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

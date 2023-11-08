@@ -4,6 +4,8 @@
  */
 package Ventana;
 
+import java.awt.Color;
+
 /**
  *
  * @author jauregui
@@ -42,16 +44,18 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jTextFieldContraseña = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        jTextFieldCURP = new javax.swing.JTextField();
+        TxtFieldCURP = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        jTextFieldRFC = new javax.swing.JTextField();
+        TxtFieldRFC = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jTextFieldFechaContratacion = new javax.swing.JTextField();
-        jTextFieldEdad = new javax.swing.JTextField();
+        TxtFieldFechaContratacion = new javax.swing.JTextField();
+        TxtFieldEdad = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         jButtonRegistrar = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(790, 470));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(195, 237, 246));
@@ -65,6 +69,11 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         TxtFieldNombre.setForeground(new java.awt.Color(204, 204, 204));
         TxtFieldNombre.setText("Ingresa el nombre");
         TxtFieldNombre.setBorder(null);
+        TxtFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtFieldNombreMousePressed(evt);
+            }
+        });
         TxtFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtFieldNombreActionPerformed(evt);
@@ -97,6 +106,11 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         TxtFieldUsuario.setForeground(new java.awt.Color(204, 204, 204));
         TxtFieldUsuario.setText("Ingresa el Usuario");
         TxtFieldUsuario.setBorder(null);
+        TxtFieldUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtFieldUsuarioMousePressed(evt);
+            }
+        });
         TxtFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtFieldUsuarioActionPerformed(evt);
@@ -109,22 +123,37 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jTextFieldContraseña.setForeground(new java.awt.Color(204, 204, 204));
         jTextFieldContraseña.setText("Ingrese la contraseña");
         jTextFieldContraseña.setBorder(null);
+        jTextFieldContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldContraseñaMousePressed(evt);
+            }
+        });
 
         jSeparator3.setBackground(new java.awt.Color(195, 237, 246));
         jSeparator3.setForeground(new java.awt.Color(195, 237, 246));
 
-        jTextFieldCURP.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldCURP.setText("Ingrese el CURP");
-        jTextFieldCURP.setBorder(null);
-        jTextFieldCURP.setPreferredSize(new java.awt.Dimension(78, 17));
+        TxtFieldCURP.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFieldCURP.setText("Ingrese el CURP");
+        TxtFieldCURP.setBorder(null);
+        TxtFieldCURP.setPreferredSize(new java.awt.Dimension(78, 17));
+        TxtFieldCURP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtFieldCURPMousePressed(evt);
+            }
+        });
 
         jSeparator4.setBackground(new java.awt.Color(195, 237, 246));
         jSeparator4.setForeground(new java.awt.Color(195, 237, 246));
 
-        jTextFieldRFC.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldRFC.setText("Ingrese el RFC");
-        jTextFieldRFC.setBorder(null);
-        jTextFieldRFC.setPreferredSize(new java.awt.Dimension(78, 17));
+        TxtFieldRFC.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFieldRFC.setText("Ingrese el RFC");
+        TxtFieldRFC.setBorder(null);
+        TxtFieldRFC.setPreferredSize(new java.awt.Dimension(78, 17));
+        TxtFieldRFC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtFieldRFCMousePressed(evt);
+            }
+        });
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -134,19 +163,29 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jSeparator7.setBackground(new java.awt.Color(195, 237, 246));
         jSeparator7.setForeground(new java.awt.Color(195, 237, 246));
 
-        jTextFieldFechaContratacion.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldFechaContratacion.setText("Fecha de Contratacion");
-        jTextFieldFechaContratacion.setBorder(null);
-        jTextFieldFechaContratacion.setPreferredSize(new java.awt.Dimension(106, 17));
-        jTextFieldFechaContratacion.setSize(new java.awt.Dimension(106, 17));
+        TxtFieldFechaContratacion.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFieldFechaContratacion.setText("Fecha de Contratacion");
+        TxtFieldFechaContratacion.setBorder(null);
+        TxtFieldFechaContratacion.setPreferredSize(new java.awt.Dimension(106, 17));
+        TxtFieldFechaContratacion.setSize(new java.awt.Dimension(106, 17));
+        TxtFieldFechaContratacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtFieldFechaContratacionMousePressed(evt);
+            }
+        });
 
-        jTextFieldEdad.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldEdad.setText("Ingrese la edad");
-        jTextFieldEdad.setBorder(null);
-        jTextFieldEdad.setPreferredSize(new java.awt.Dimension(78, 17));
-        jTextFieldEdad.addActionListener(new java.awt.event.ActionListener() {
+        TxtFieldEdad.setForeground(new java.awt.Color(204, 204, 204));
+        TxtFieldEdad.setText("Ingrese la edad");
+        TxtFieldEdad.setBorder(null);
+        TxtFieldEdad.setPreferredSize(new java.awt.Dimension(78, 17));
+        TxtFieldEdad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtFieldEdadMousePressed(evt);
+            }
+        });
+        TxtFieldEdad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEdadActionPerformed(evt);
+                TxtFieldEdadActionPerformed(evt);
             }
         });
 
@@ -183,9 +222,9 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                             .addComponent(jLabelCURP)
                             .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                             .addComponent(jSeparator4)
-                            .addComponent(jTextFieldRFC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TxtFieldRFC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
-                            .addComponent(jTextFieldCURP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TxtFieldCURP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator7))
                         .addGap(20, 20, 20)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,18 +234,18 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelFecha)
                                     .addComponent(jLabelNombre4)
-                                    .addComponent(jTextFieldFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(TxtFieldFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                                     .addComponent(jSeparator6)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelEdad)
-                                    .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(TxtFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                                     .addComponent(jSeparator8)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(103, 103, 103)
                                 .addComponent(jButtonRegistrar)))))
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,8 +265,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(TxtFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelContraseña)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,24 +275,24 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelCURP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtFieldCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelRFC)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TxtFieldRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelFecha)
                         .addGap(12, 12, 12)
-                        .addComponent(jTextFieldFechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtFieldFechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabelEdad)
                         .addGap(12, 12, 12)
-                        .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -269,7 +308,7 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,17 +324,63 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtFieldUsuarioActionPerformed
 
-    private void jTextFieldEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEdadActionPerformed
+    private void TxtFieldEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldEdadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEdadActionPerformed
+    }//GEN-LAST:event_TxtFieldEdadActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
+    private void TxtFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldNombreMousePressed
+        // TODO add your handling code here:
+        TxtFieldNombre.setText("");
+        TxtFieldNombre.setForeground(Color.black);
+    }//GEN-LAST:event_TxtFieldNombreMousePressed
+
+    private void TxtFieldUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldUsuarioMousePressed
+        // TODO add your handling code here:
+        TxtFieldUsuario.setText("");
+        TxtFieldUsuario.setForeground(Color.black);
+    }//GEN-LAST:event_TxtFieldUsuarioMousePressed
+
+    private void jTextFieldContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaMousePressed
+        // TODO add your handling code here:
+        jTextFieldContraseña.setText("");
+        jTextFieldContraseña.setForeground(Color.black);
+    }//GEN-LAST:event_jTextFieldContraseñaMousePressed
+
+    private void TxtFieldCURPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldCURPMousePressed
+        // TODO add your handling code here:
+        TxtFieldCURP.setText("");
+        TxtFieldCURP.setForeground(Color.black);
+    }//GEN-LAST:event_TxtFieldCURPMousePressed
+
+    private void TxtFieldRFCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldRFCMousePressed
+        // TODO add your handling code here:
+        TxtFieldRFC.setText("");
+        TxtFieldRFC.setForeground(Color.black);
+    }//GEN-LAST:event_TxtFieldRFCMousePressed
+
+    private void TxtFieldFechaContratacionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldFechaContratacionMousePressed
+        // TODO add your handling code here:
+        TxtFieldFechaContratacion.setText("");
+        TxtFieldFechaContratacion.setForeground(Color.black);
+    }//GEN-LAST:event_TxtFieldFechaContratacionMousePressed
+
+    private void TxtFieldEdadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldEdadMousePressed
+        // TODO add your handling code here:
+        TxtFieldEdad.setText("");
+        TxtFieldEdad.setForeground(Color.black);
+    }//GEN-LAST:event_TxtFieldEdadMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TxtFieldCURP;
+    private javax.swing.JTextField TxtFieldEdad;
+    private javax.swing.JTextField TxtFieldFechaContratacion;
     private javax.swing.JTextField TxtFieldNombre;
+    private javax.swing.JTextField TxtFieldRFC;
     private javax.swing.JTextField TxtFieldUsuario;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
@@ -316,10 +401,6 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTextField jTextFieldCURP;
     private javax.swing.JTextField jTextFieldContraseña;
-    private javax.swing.JTextField jTextFieldEdad;
-    private javax.swing.JTextField jTextFieldFechaContratacion;
-    private javax.swing.JTextField jTextFieldRFC;
     // End of variables declaration//GEN-END:variables
 }
