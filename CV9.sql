@@ -5,7 +5,7 @@ use fillgaps;
 -- Personal
 
 create table Personal (
-	ID int not null,
+	ID int auto_increment not null,
     Nombre varchar(20) not null,
     CURP varchar(18) not null,
     RFC varchar(13) not null,
@@ -39,7 +39,7 @@ REFERENCES Item(ID);
 -- Rol
 	
 create table Rol (
-	ID int not null,
+	ID int auto_increment not null,
     Rol varchar(20) not null
 );
 
@@ -51,7 +51,7 @@ ADD CONSTRAINT pk_Rol PRIMARY KEY (ID);
 -- Reportes
 	
 create table Reportes (
-	ID int not null,
+	ID int auto_increment not null,
     Descripcion varchar(30) not null,
     Fecha_Inicio date not null,
     Fecha_Fin date not null,
@@ -71,7 +71,7 @@ REFERENCES Item(ID);
 
 -- Item
 create table Item (
-	ID int not null,
+	ID int auto_increment not null,
     Nombre varchar(20) not null,
     Descripcion varchar(20) not null,
     ID_Prestamo int not null,
@@ -86,18 +86,18 @@ ADD CONSTRAINT pk_Item PRIMARY KEY (ID);
 -- Llave foránea
 ALTER TABLE Item
 ADD CONSTRAINT fk_Item_Personal
-FOREIGN KEY (ID Personal)
+FOREIGN KEY (ID_Personal)
 REFERENCES Personal(ID);
 
 -- Director
 
 create table Director (
-    Nombre varchar not null,
+    Nombre varchar(20) not null,
     telefono int(10) not null, 
-    Correo varchar not null,
-    Usuario varchar not null,
-    contraseña varchar not null,
-    campo varchar not null
+    Correo varchar(20) not null,
+    Usuario varchar(20) not null,
+    contraseña varchar(20) not null,
+    campo varchar(20) not null
 );
 
 -- Llave primaria
@@ -107,12 +107,12 @@ ALTER TABLE Director
 	
 -- Prestamo
 create table Prestamo (
-	ID int not null
+	ID int auto_increment not null,
 	InicioPrestamo date not null,
 	FinPrestamo date not null,
-	Motivo varchar not null,
-	ID item int not null,
-	ID Personal not null
+	Motivo varchar(20) not null,
+	ID_item int not null,
+	ID_Personal int not null
 );
 
 -- Llave Primaria
@@ -139,3 +139,14 @@ alter table Rol
 add primary key (ID);
 */
 desc Rol;
+
+-- Tabla para los usuarios del Login
+create table usuariosLogin (
+	ID int auto_increment primary key not null,
+    ingresoUsuario varchar(20) not null,
+    ingresoContrasenia varchar(20) not null
+)
+
+select * from usuariosLogin;
+
+insert into usuariosLogin(ingresoUsuario,ingresoContrasenia) values('admin','contra2023');
