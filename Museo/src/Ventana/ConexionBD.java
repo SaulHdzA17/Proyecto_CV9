@@ -2,6 +2,7 @@ package Ventana;
 
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import java.sql.DriverManager;
 
 /**
  *
