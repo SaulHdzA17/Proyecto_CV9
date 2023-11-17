@@ -7,8 +7,11 @@ package Ventana;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
+
 
 /**
  *
@@ -17,7 +20,7 @@ import java.util.GregorianCalendar;
 public class Items extends javax.swing.JFrame {
     //
     //private 
-Calendar fecha_actual= new GregorianCalendar();
+
     /**
      * Creates new form Items
      */
@@ -26,8 +29,15 @@ Calendar fecha_actual= new GregorianCalendar();
         initComponents();
         MenuLateral ML = new MenuLateral();
         MostrarPanelLateral(ML);
+       
+        Fecha.setText(fechaActual());
+        Calendar cal= Calendar.getInstance();
+        String hora;
         
-        this.Fecha.setCalendar(fecha_actual);
+        hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
+        
+        this.Hora.setText(hora);
+        
     }
 
     /**
@@ -43,7 +53,8 @@ Calendar fecha_actual= new GregorianCalendar();
         MenuLateralPanel = new javax.swing.JPanel();
         PanelInfoFecha = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        Fecha = new com.toedter.calendar.JDateChooser();
+        Fecha = new javax.swing.JLabel();
+        Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -79,8 +90,11 @@ Calendar fecha_actual= new GregorianCalendar();
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Hoy es ");
 
-        Fecha.setDateFormatString("dd MMM yyyy HH:mm:ss");
-        Fecha.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        Fecha.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        Fecha.setForeground(new java.awt.Color(255, 255, 255));
+
+        Hora.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        Hora.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PanelInfoFechaLayout = new javax.swing.GroupLayout(PanelInfoFecha);
         PanelInfoFecha.setLayout(PanelInfoFechaLayout);
@@ -90,16 +104,19 @@ Calendar fecha_actual= new GregorianCalendar();
                 .addGap(42, 42, 42)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Hora, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         PanelInfoFechaLayout.setVerticalGroup(
             PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoFechaLayout.createSequentialGroup()
                 .addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Hora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
 
@@ -226,7 +243,12 @@ Calendar fecha_actual= new GregorianCalendar();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ public static String fechaActual(){
+    Date fecha= new Date();
+        SimpleDateFormat mostrar_fecha= new SimpleDateFormat("dd/MM/YYYY");
+        return mostrar_fecha.format(fecha);
+    }
+        
     private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
         // TODO add your handling code here:
        
@@ -314,7 +336,8 @@ Calendar fecha_actual= new GregorianCalendar();
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
-    private com.toedter.calendar.JDateChooser Fecha;
+    private javax.swing.JLabel Fecha;
+    private javax.swing.JLabel Hora;
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;

@@ -5,8 +5,10 @@
 package Ventana;
 
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
+
 import javax.swing.JPanel;
 
 /**
@@ -18,13 +20,20 @@ public class Reportes extends javax.swing.JFrame {
     /**
      * Creates new form Reportes
      */
-    Calendar fecha_actual= new GregorianCalendar();
+    
     public Reportes() {
         initComponents();
         //Mando a llamar el Panel del menu lateral y lo muestro mandando a llamar la funcion MostrarPanelMenuLateral
         MenuLateral ML = new MenuLateral();
         MostrarPanelMenuLateral(ML);
-        this.Fecha.setCalendar(fecha_actual);
+        Fecha.setText(fechaActual());
+        
+        Calendar cal= Calendar.getInstance();
+        String hora;
+        
+        hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
+        
+        this.Hora.setText(hora);
     }
 
     
@@ -64,7 +73,8 @@ public class Reportes extends javax.swing.JFrame {
         MenuLateralPanel = new javax.swing.JPanel();
         PanelInfoFecha = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        Fecha = new com.toedter.calendar.JDateChooser();
+        Fecha = new javax.swing.JLabel();
+        Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -103,8 +113,11 @@ public class Reportes extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Hoy es ");
 
-        Fecha.setDateFormatString("dd MMM yyyy HH:mm:ss");
-        Fecha.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        Fecha.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        Fecha.setForeground(new java.awt.Color(255, 255, 255));
+
+        Hora.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        Hora.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PanelInfoFechaLayout = new javax.swing.GroupLayout(PanelInfoFecha);
         PanelInfoFecha.setLayout(PanelInfoFechaLayout);
@@ -114,16 +127,20 @@ public class Reportes extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Hora, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         PanelInfoFechaLayout.setVerticalGroup(
             PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoFechaLayout.createSequentialGroup()
                 .addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Hora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PanelInfoFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
 
@@ -222,7 +239,7 @@ public class Reportes extends javax.swing.JFrame {
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,14 +262,17 @@ public class Reportes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public static String fechaActual(){
+    Date fecha= new Date();
+        SimpleDateFormat mostrar_fecha= new SimpleDateFormat("dd/MM/YYYY");
+        return mostrar_fecha.format(fecha);
+    }
+    
     private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
         // TODO add your handling code here:
 
@@ -313,7 +333,8 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
-    private com.toedter.calendar.JDateChooser Fecha;
+    private javax.swing.JLabel Fecha;
+    private javax.swing.JLabel Hora;
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
