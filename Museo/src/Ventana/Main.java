@@ -21,6 +21,11 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
+        Ventana.Conexion objetoConexion = new Ventana.Conexion();
+        objetoConexion.estableceConexion();
+        
+        
     }
 
     /**
@@ -37,8 +42,8 @@ public class Main extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         LabelUsuario = new javax.swing.JLabel();
         ContraseñaLabel = new javax.swing.JLabel();
-        UsuarioTextField = new javax.swing.JTextField();
-        ContraseñaField = new javax.swing.JPasswordField();
+        Usuario = new javax.swing.JTextField();
+        Password = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
@@ -69,37 +74,37 @@ public class Main extends javax.swing.JFrame {
         ContraseñaLabel.setText("Contraseña: ");
         BG.add(ContraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, -1, -1));
 
-        UsuarioTextField.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        UsuarioTextField.setForeground(new java.awt.Color(204, 204, 204));
-        UsuarioTextField.setText("Ingrese su usuario");
-        UsuarioTextField.setBorder(null);
-        UsuarioTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+        Usuario.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        Usuario.setForeground(new java.awt.Color(204, 204, 204));
+        Usuario.setText("Ingrese su usuario");
+        Usuario.setBorder(null);
+        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UsuarioTextFieldMousePressed(evt);
+                UsuarioMousePressed(evt);
             }
         });
-        UsuarioTextField.addActionListener(new java.awt.event.ActionListener() {
+        Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioTextFieldActionPerformed(evt);
+                UsuarioActionPerformed(evt);
             }
         });
-        BG.add(UsuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 350, -1));
+        BG.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 350, -1));
 
-        ContraseñaField.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        ContraseñaField.setForeground(new java.awt.Color(204, 204, 204));
-        ContraseñaField.setText("jPasswordField1");
-        ContraseñaField.setBorder(null);
-        ContraseñaField.addMouseListener(new java.awt.event.MouseAdapter() {
+        Password.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        Password.setForeground(new java.awt.Color(204, 204, 204));
+        Password.setText("jPasswordField1");
+        Password.setBorder(null);
+        Password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                ContraseñaFieldMousePressed(evt);
+                PasswordMousePressed(evt);
             }
         });
-        ContraseñaField.addActionListener(new java.awt.event.ActionListener() {
+        Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaFieldActionPerformed(evt);
+                PasswordActionPerformed(evt);
             }
         });
-        BG.add(ContraseñaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 350, -1));
+        BG.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 350, -1));
         BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 350, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
@@ -131,27 +136,27 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsuarioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTextFieldActionPerformed
+    private void UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioTextFieldActionPerformed
+    }//GEN-LAST:event_UsuarioActionPerformed
     
     //Set para las ventanas 
     
-    private void UsuarioTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioTextFieldMousePressed
+    private void UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMousePressed
         // TODO add your handling code here:
-        UsuarioTextField.setText("");
-        UsuarioTextField.setForeground(Color.black);
-    }//GEN-LAST:event_UsuarioTextFieldMousePressed
+        Usuario.setText("");
+        Usuario.setForeground(Color.black);
+    }//GEN-LAST:event_UsuarioMousePressed
 
-    private void ContraseñaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaFieldActionPerformed
+    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseñaFieldActionPerformed
+    }//GEN-LAST:event_PasswordActionPerformed
 
-    private void ContraseñaFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaFieldMousePressed
+    private void PasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordMousePressed
         // TODO add your handling code here:
-        ContraseñaField.setText("");
-        ContraseñaField.setForeground(Color.black); 
-    }//GEN-LAST:event_ContraseñaFieldMousePressed
+        Password.setText("");
+        Password.setForeground(Color.black); 
+    }//GEN-LAST:event_PasswordMousePressed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -168,6 +173,9 @@ public class Main extends javax.swing.JFrame {
     } 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        Ventana.Login objetoLogin= new Ventana.Login();
+        objetoLogin.validarUsuario(Usuario, Password);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -207,10 +215,10 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JPasswordField ContraseñaField;
     private javax.swing.JLabel ContraseñaLabel;
     private javax.swing.JLabel LabelUsuario;
-    private javax.swing.JTextField UsuarioTextField;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField Usuario;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;

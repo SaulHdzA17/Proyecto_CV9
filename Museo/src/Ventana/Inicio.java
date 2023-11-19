@@ -9,8 +9,10 @@ package Ventana;
  * @author SAUL
  */
 public class Inicio {
+   
     public static void main(String[] args) {
         Main objetoMain = new Main();
         objetoMain.setVisible(true);
     }
+
 }

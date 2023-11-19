@@ -9,6 +9,7 @@ import java.sql.DriverManager;
  * @author SAUL
  */
 public class ConexionBD {
+    /*
     Connection conectar = null;
     String usuario = "root";
     String contraseña = "Alonso.172001";
@@ -29,4 +30,5 @@ public class ConexionBD {
         
         return conectar;
     }
+    */
 }

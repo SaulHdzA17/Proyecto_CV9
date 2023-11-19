@@ -259,7 +259,7 @@ public class MenuLateral extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 200, 60));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 190, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseEntered
@@ -426,8 +426,8 @@ public class MenuLateral extends javax.swing.JPanel {
      System.exit(0);
      // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-                                    
-
+                                       
+         
    
     
 
