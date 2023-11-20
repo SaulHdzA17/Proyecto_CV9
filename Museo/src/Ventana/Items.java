@@ -242,6 +242,7 @@ public class Items extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
  public static String fechaActual(){
     Date fecha= new Date();

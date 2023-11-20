@@ -325,6 +325,7 @@ public class Prestamos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public static String fechaActual(){

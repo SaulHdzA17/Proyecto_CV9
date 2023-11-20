@@ -26,6 +26,7 @@ public class Main extends javax.swing.JFrame {
         objetoConexion.estableceConexion();
         
         
+        
     }
 
     /**
@@ -134,6 +135,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioActionPerformed
