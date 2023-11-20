@@ -52,7 +52,7 @@ public class Conexion {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             conectar= DriverManager.getConnection("jdbc:mysql://localhost:3306/fillgaps", "root", "1234");
-            JOptionPane.showMessageDialog(null, "Conexion exitosa");
+           // JOptionPane.showMessageDialog(null, "Conexion exitosa");
         }catch (Exception e){
            JOptionPane.showMessageDialog(null, "Mejor nadota"+"----"+ e.toString());
            

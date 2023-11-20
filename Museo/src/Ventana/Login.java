@@ -26,7 +26,7 @@ public class Login {
     PreparedStatement ps = null;
     
     Ventana.Conexion objetoConexion = new Ventana.Conexion();
-    String consulta="select * from Usuario where Usuario.ingresoUsuario=(?) and Usuario.ingresoPassword=(?);";
+    String consulta="select * from Usuario3 where Usuario3.ingresoUsr=(?) and Usuario3.ingresoPsw=(?);";
         ps=objetoConexion.estableceConexion().prepareStatement(consulta);
         
         

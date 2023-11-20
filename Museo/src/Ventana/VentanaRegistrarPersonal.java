@@ -60,7 +60,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(195, 237, 246));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setText("Registrar Personal");
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -80,8 +81,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             }
         });
 
-        jSeparator1.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator1.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator1.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator1.setForeground(new java.awt.Color(64, 97, 150));
 
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelUsuario.setText("Usuario");
@@ -117,8 +118,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             }
         });
 
-        jSeparator2.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator2.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator2.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator2.setForeground(new java.awt.Color(64, 97, 150));
 
         jTextFieldContraseña.setForeground(new java.awt.Color(204, 204, 204));
         jTextFieldContraseña.setText("Ingrese la contraseña");
@@ -129,8 +130,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             }
         });
 
-        jSeparator3.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator3.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator3.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator3.setForeground(new java.awt.Color(64, 97, 150));
 
         TxtFieldCURP.setForeground(new java.awt.Color(204, 204, 204));
         TxtFieldCURP.setText("Ingrese el CURP");
@@ -142,8 +143,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             }
         });
 
-        jSeparator4.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator4.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator4.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator4.setForeground(new java.awt.Color(64, 97, 150));
 
         TxtFieldRFC.setForeground(new java.awt.Color(204, 204, 204));
         TxtFieldRFC.setText("Ingrese el RFC");
@@ -157,17 +158,16 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jSeparator6.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator6.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator6.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator6.setForeground(new java.awt.Color(64, 97, 150));
 
-        jSeparator7.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator7.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator7.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator7.setForeground(new java.awt.Color(64, 97, 150));
 
         TxtFieldFechaContratacion.setForeground(new java.awt.Color(204, 204, 204));
         TxtFieldFechaContratacion.setText("Fecha de Contratacion");
         TxtFieldFechaContratacion.setBorder(null);
         TxtFieldFechaContratacion.setPreferredSize(new java.awt.Dimension(106, 17));
-        TxtFieldFechaContratacion.setSize(new java.awt.Dimension(106, 17));
         TxtFieldFechaContratacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 TxtFieldFechaContratacionMousePressed(evt);
@@ -189,10 +189,12 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             }
         });
 
-        jSeparator8.setBackground(new java.awt.Color(195, 237, 246));
-        jSeparator8.setForeground(new java.awt.Color(195, 237, 246));
+        jSeparator8.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator8.setForeground(new java.awt.Color(64, 97, 150));
 
-        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registrar.png"))); // NOI18N
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
@@ -204,12 +206,10 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelRFC)
                             .addComponent(jLabelContraseña)
@@ -243,16 +243,16 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                                     .addComponent(TxtFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                                     .addComponent(jSeparator8)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jButtonRegistrar)))))
+                                .addGap(53, 53, 53)
+                                .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelNombre)
@@ -297,11 +297,11 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelNombre4)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButtonRegistrar)))
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

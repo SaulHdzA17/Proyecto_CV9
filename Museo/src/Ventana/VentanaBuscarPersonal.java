@@ -43,11 +43,13 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setText("Buscar Personal");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar por:"));
+        jPanel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         GrpBotonesFiltro.add(BotonFiltroID);
         BotonFiltroID.setText("ID");
@@ -98,10 +100,13 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Ingresa tu filtro de busqueda ");
 
         TxtFieldFiltro.setText("Ingresa a la persona que deseas buscar segun el filtro");
         TxtFieldFiltro.setBorder(null);
+
+        jSeparator1.setForeground(new java.awt.Color(64, 97, 150));
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
@@ -134,7 +139,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
                         .addComponent(TxtFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
