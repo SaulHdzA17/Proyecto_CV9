@@ -3,11 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventana;
+import static Ventana.Items.Eliminar;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -41,6 +49,70 @@ public class Personal extends javax.swing.JFrame {
        
     }
     
+    public void Mostrar(String tabla){
+        String sql="select * from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Id");
+       model.addColumn("Nombre");
+       model.addColumn("CURP");
+       model.addColumn("RFC");
+       model.addColumn("Fecha Contratación");
+       model.addColumn("Edad");
+       model.addColumn("Id Rol");
+       model.addColumn("Id Reporte");
+       model.addColumn("Id Item");
+       
+       TablaPersonal.setModel(model);
+       String [] datos = new String[9];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+       datos[1]=rs.getString(2);
+       datos[2]=rs.getString(3);
+       datos[3]=rs.getString(4);
+       datos[4]=rs.getString(5);
+       datos[5]=rs.getString(6);
+       datos[6]=rs.getString(7);
+       datos[7]=rs.getString(8);
+       datos[8]=rs.getString(9);
+       model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+    
+       public static boolean Eliminar(String id){
+    Conexion con = new Conexion();
+        Connection cn = con.estableceConexion();
+        PreparedStatement ps=null;
+        
+        String SQL="delete from Personal where ID="+id;
+        try{
+        ps=cn.prepareStatement(SQL);
+        ps.execute();
+        cn.close();
+        return true;
+        } catch (Exception e){
+        System.out.println(e.toString());
+        return false;
+        }
+        
+    
+    }
+    
+    
+    
     //Funciuon para mostrar la barra lateral. Modificar para que muestre la barra lateral del usuario correspondiente
     private void MostrarPanelMenuLateral(JPanel p){
         
@@ -72,12 +144,12 @@ public class Personal extends javax.swing.JFrame {
         Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaPersonal = new javax.swing.JTable();
         BotonAgregar = new javax.swing.JButton();
-        BotonActualizar = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -138,26 +210,18 @@ public class Personal extends javax.swing.JFrame {
 
         PanelContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPersonal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(1), "Jose", "Jose235as", "234", "ASD", "ASD", "2002", "20", null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "Nombre", "Usuario", "Contraseña", "CURP", "RFC", "Año contratacion", "Edad", "Rol"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
-        jScrollPane1.setViewportView(jTable1);
+        ));
+        jScrollPane1.setViewportView(TablaPersonal);
 
         BotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
         BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -165,21 +229,6 @@ public class Personal extends javax.swing.JFrame {
         BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregarActionPerformed(evt);
-            }
-        });
-
-        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
-        BotonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonActualizarMouseClicked(evt);
-            }
-        });
-        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonActualizarActionPerformed(evt);
             }
         });
 
@@ -212,6 +261,14 @@ public class Personal extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Personal.png"))); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mostrar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -221,32 +278,33 @@ public class Personal extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelContenidoLayout.createSequentialGroup()
-                                .addGap(395, 395, 395)
-                                .addComponent(BotonAgregar)
-                                .addGap(18, 18, 18)
-                                .addComponent(BotonActualizar)
-                                .addGap(18, 18, 18)
-                                .addComponent(BotonBorrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(BotonBuscar)))
-                        .addGap(0, 51, Short.MAX_VALUE)))
+                        .addGap(376, 376, 376)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonAgregar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonBorrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonBuscar)
+                        .addGap(0, 124, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -285,25 +343,34 @@ public class Personal extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        
+                int fila=TablaPersonal.getSelectedRowCount();
+        if(fila<1){
+            JOptionPane.showMessageDialog(null, "Seleccione un registro");
+        }
+        else{
+        if(Eliminar(TablaPersonal.getValueAt(TablaPersonal.getSelectedRow(),0).toString())){
+        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+       
+        }
+            }
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
-    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonActualizarActionPerformed
-
-    private void BotonActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActualizarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonActualizarMouseClicked
-
     private void BotonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonBuscarMouseClicked
         // TODO add your handling code here:
         VentanaBuscarPersonal VBP = new VentanaBuscarPersonal();
         MostrarPanel(VBP);
     }//GEN-LAST:event_BotonBuscarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+         Mostrar("Personal");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void MostrarPanel(JPanel p){
         
@@ -352,7 +419,6 @@ public class Personal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
@@ -361,9 +427,10 @@ public class Personal extends javax.swing.JFrame {
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
+    private javax.swing.JTable TablaPersonal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

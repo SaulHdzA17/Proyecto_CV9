@@ -4,6 +4,10 @@
  */
 package Ventana;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
@@ -11,6 +15,10 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 
 /**
@@ -40,6 +48,62 @@ public class Items extends javax.swing.JFrame {
         
     }
 
+    
+    public void Mostrar(String tabla){
+        String sql="select * from Item";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Id");
+       model.addColumn("Nombre");
+       model.addColumn("Descripcion");
+       model.addColumn("Id Prestamo");
+       model.addColumn("Id Personal");
+       model.addColumn("Campo");
+       
+       TablaItem.setModel(model);
+       String [] datos = new String[6];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+       datos[1]=rs.getString(2);
+       datos[2]=rs.getString(3);
+       datos[3]=rs.getString(4);
+       datos[4]=rs.getString(5);
+       datos[5]=rs.getString(6);
+       model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+    
+    public static boolean Eliminar(String id){
+    Conexion con = new Conexion();
+        Connection cn = con.estableceConexion();
+        PreparedStatement ps=null;
+        
+        String SQL="delete from Item where ID="+id;
+        try{
+        ps=cn.prepareStatement(SQL);
+        ps.execute();
+        cn.close();
+        return true;
+        } catch (Exception e){
+        System.out.println(e.toString());
+        return false;
+        }
+        
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,12 +121,12 @@ public class Items extends javax.swing.JFrame {
         Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaItem = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         BotonAgregar1 = new javax.swing.JButton();
-        BotonActualizar = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
+        Mostrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 37, 1040, 690));
@@ -124,25 +188,17 @@ public class Items extends javax.swing.JFrame {
 
         PanelContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaItem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "Nombre", "Descripción", "Estado", "ID Préstamo", "ID Personal", "Campo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
-        jScrollPane1.setViewportView(jTable1);
+        ));
+        jScrollPane1.setViewportView(TablaItem);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -159,16 +215,6 @@ public class Items extends javax.swing.JFrame {
         BotonAgregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregar1ActionPerformed(evt);
-            }
-        });
-
-        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
-        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonActualizarActionPerformed(evt);
             }
         });
 
@@ -192,6 +238,14 @@ public class Items extends javax.swing.JFrame {
             }
         });
 
+        Mostrar.setBackground(new java.awt.Color(255, 255, 255));
+        Mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mostrar.png"))); // NOI18N
+        Mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -204,12 +258,12 @@ public class Items extends javax.swing.JFrame {
                         .addGap(0, 27, Short.MAX_VALUE)
                         .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                .addComponent(Mostrar)
+                                .addGap(18, 18, 18)
                                 .addComponent(BotonAgregar1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonActualizar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(12, 12, 12)
                                 .addComponent(BotonBorrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(BotonBuscar))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(21, 21, 21))
@@ -224,8 +278,8 @@ public class Items extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(BotonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         BG.add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 790, 470));
@@ -244,8 +298,8 @@ public class Items extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
- public static String fechaActual(){
-    Date fecha= new Date();
+       public static String fechaActual(){
+        Date fecha= new Date();
         SimpleDateFormat mostrar_fecha= new SimpleDateFormat("dd/MM/YYYY");
         return mostrar_fecha.format(fecha);
     }
@@ -255,12 +309,19 @@ public class Items extends javax.swing.JFrame {
        
     }//GEN-LAST:event_BotonAgregar1ActionPerformed
 
-    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonActualizarActionPerformed
-
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        
+        int fila=TablaItem.getSelectedRowCount();
+        if(fila<1){
+            JOptionPane.showMessageDialog(null, "Seleccione un registro");
+        }
+        else{
+        if(Eliminar(TablaItem.getValueAt(TablaItem.getSelectedRow(),0).toString())){
+        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+       
+        }
+            }
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
@@ -272,6 +333,12 @@ public class Items extends javax.swing.JFrame {
         VentanaRegistrarItem VRI = new VentanaRegistrarItem();
         MostrarPanel(VRI);
     }//GEN-LAST:event_BotonAgregar1MouseClicked
+
+    private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
+        // TODO add your handling code here:
+      
+        Mostrar("Item");
+    }//GEN-LAST:event_MostrarActionPerformed
     private void MostrarPanelLateral(JPanel p){
         
 
@@ -333,18 +400,18 @@ public class Items extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
     private javax.swing.JLabel Fecha;
     private javax.swing.JLabel Hora;
     private javax.swing.JPanel MenuLateralPanel;
+    private javax.swing.JButton Mostrar;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
+    public javax.swing.JTable TablaItem;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

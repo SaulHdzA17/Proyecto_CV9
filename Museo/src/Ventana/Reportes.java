@@ -4,12 +4,20 @@
  */
 package Ventana;
 
+import static Ventana.Personal.Eliminar;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,7 +44,63 @@ public class Reportes extends javax.swing.JFrame {
         this.Hora.setText(hora);
     }
 
+    public void Mostrar(String tabla){
+        String sql="select * from Reportes";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Id");
+       model.addColumn("Descripcion");
+       model.addColumn("Fecha Inicio");
+       model.addColumn("Fecha Fin");
+       model.addColumn("Estado");
+       model.addColumn("Id Item");
+
+       
+       TablaReportes.setModel(model);
+       String [] datos = new String[6];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+       datos[1]=rs.getString(2);
+       datos[2]=rs.getString(3);
+       datos[3]=rs.getString(4);
+       datos[4]=rs.getString(5);
+       datos[5]=rs.getString(6);
+
+       model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }   
     
+              public static boolean Eliminar(String id){
+        Conexion con = new Conexion();
+        Connection cn = con.estableceConexion();
+        PreparedStatement ps=null;
+        
+        String SQL="delete from Reportes where ID="+id;
+        try{
+        ps=cn.prepareStatement(SQL);
+        ps.execute();
+        cn.close();
+        return true;
+        } catch (Exception e){
+        System.out.println(e.toString());
+        return false;
+        }
+        
+    
+    }
     //Funcion para desplegar el menulateral del admin. (Modificar para que se despliegue los diferentes menuslaterales dependiendo el usuario activo)
     private void MostrarPanelMenuLateral(JPanel p){
         
@@ -77,12 +141,12 @@ public class Reportes extends javax.swing.JFrame {
         Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaReportes = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         BotonAgregar1 = new javax.swing.JButton();
-        BotonActualizar = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -147,25 +211,17 @@ public class Reportes extends javax.swing.JFrame {
 
         PanelContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaReportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "Nombre", "Descripción", "Fecha Inicio", "Fecha Fin", "Estado", "ID Ítem"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
-        jScrollPane1.setViewportView(jTable1);
+        ));
+        jScrollPane1.setViewportView(TablaReportes);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -185,16 +241,6 @@ public class Reportes extends javax.swing.JFrame {
             }
         });
 
-        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        BotonActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
-        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonActualizarActionPerformed(evt);
-            }
-        });
-
         BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
         BotonBorrar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonBorrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,6 +256,14 @@ public class Reportes extends javax.swing.JFrame {
         BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         BotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mostrar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -219,10 +273,10 @@ public class Reportes extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(BotonAgregar1)
+                        .addGap(302, 302, 302)
+                        .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(BotonActualizar)
+                        .addComponent(BotonAgregar1)
                         .addGap(18, 18, 18)
                         .addComponent(BotonBorrar)
                         .addGap(18, 18, 18)
@@ -238,16 +292,16 @@ public class Reportes extends javax.swing.JFrame {
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(BotonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelContenidoLayout.createSequentialGroup()
                         .addComponent(BotonBuscar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -278,12 +332,20 @@ public static String fechaActual(){
 
     }//GEN-LAST:event_BotonAgregar1ActionPerformed
 
-    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonActualizarActionPerformed
-
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        
+             
+                int fila=TablaReportes.getSelectedRowCount();
+        if(fila<1){
+            JOptionPane.showMessageDialog(null, "Seleccione un registro");
+        }
+        else{
+        if(Eliminar(TablaReportes.getValueAt(TablaReportes.getSelectedRow(),0).toString())){
+        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+       
+        }
+            } 
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
@@ -291,6 +353,11 @@ public static String fechaActual(){
         VentanaRegistrarReporte VRR = new VentanaRegistrarReporte();
         MostrarPanel(VRR);
     }//GEN-LAST:event_BotonAgregar1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+                         Mostrar("Reportes");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,7 +396,6 @@ public static String fechaActual(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
@@ -338,9 +404,10 @@ public static String fechaActual(){
     private javax.swing.JPanel MenuLateralPanel;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
+    private javax.swing.JTable TablaReportes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

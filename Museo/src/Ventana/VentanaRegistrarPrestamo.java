@@ -4,12 +4,22 @@
  */
 package Ventana;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jauregui
  */
 public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
-
+    Conexion conect=new Conexion();
+    Connection conectar=conect.estableceConexion();
     /**
      * Creates new form VentanaRegistrarPrestamo
      */
@@ -17,6 +27,46 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void Guardar(){
+    String Identificador = Id.getText();
+    String FechaI =Inicio.getText();
+    String FechaF=Fin.getText();
+    String MotivoPrestamo=Motivo.getText();
+    String IdI=IdItem.getText();
+    String IdP=IdPersonal.getText();
+
+    String sql="Insert into Prestamo () values (?,?,?,?,?,?)";
+    try{
+    Statement st=conectar.createStatement();
+    ResultSet resultado= st.executeQuery("select * from Prestamo where ID like'"+Id.getText()+"'");
+    if (resultado.next()){
+    getToolkit().beep();
+    JOptionPane.showMessageDialog(null, "Ese identificador ya está ocupado");
+    Id.requestFocus();
+            } else if(Id.getText().isEmpty()){
+            getToolkit().beep();
+    JOptionPane.showMessageDialog(null, "Ingrese un identificador");
+    Id.requestFocus();
+            } else{
+            
+            PreparedStatement pasardatos =conectar.prepareStatement(sql);
+            
+            pasardatos.setString(1, Identificador);
+            pasardatos.setString(2, FechaI);
+            pasardatos.setString(3, FechaF);
+            pasardatos.setString(4, MotivoPrestamo);
+            pasardatos.setString(5, IdI);
+            pasardatos.setString(6, IdP);
+            pasardatos.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+   
+            }
+    
+    }catch (SQLException e){
+        Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
+    }
+    
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,18 +78,21 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
         BG = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListItems = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooserInicio = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooserFin = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaMotivo = new javax.swing.JTextArea();
         BotonRegistrar = new javax.swing.JButton();
+        Id = new javax.swing.JTextField();
+        Inicio = new javax.swing.JTextField();
+        Fin = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        Motivo = new javax.swing.JTextField();
+        IdItem = new javax.swing.JTextField();
+        t = new javax.swing.JLabel();
+        IdPersonal = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(790, 470));
 
@@ -49,15 +102,8 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setText("Registrar Préstamo");
 
-        jListItems.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jListItems);
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Seleccione el item a utilizar:");
+        jLabel2.setText("Identificador");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Fecha Inicio Prestamo:");
@@ -70,16 +116,26 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTextAreaMotivo.setColumns(20);
-        jTextAreaMotivo.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaMotivo);
-
         BotonRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         BotonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         BotonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registrar.png"))); // NOI18N
         BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRegistrarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Identificador del item");
+
+        t.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        t.setText("Identificador del personal");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -99,22 +155,25 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
                                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)
-                                    .addComponent(jDateChooserFin, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                                    .addComponent(jDateChooserInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1))
-                                .addGap(73, 73, 73)
+                                    .addComponent(Id)
+                                    .addComponent(Inicio)
+                                    .addComponent(Fin)
+                                    .addComponent(jLabel5)
+                                    .addComponent(Motivo, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
+                                .addGap(33, 33, 33)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2))
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 18, 18)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(t)
                             .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 69, Short.MAX_VALUE))))
+                                .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1))
+                            .addComponent(IdPersonal)
+                            .addComponent(IdItem))
+                        .addGap(0, 172, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,24 +185,35 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(BGLayout.createSequentialGroup()
                         .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
                         .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(12, 12, 12)
+                                .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooserFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Motivo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BGLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(IdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(t)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(IdPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1))))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -161,23 +231,33 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
     private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
         // TODO add your handling code here:
+        Guardar();
     }//GEN-LAST:event_BotonRegistrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+                Prestamos newframe = new Prestamos();
+        newframe.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton BotonRegistrar;
-    private com.toedter.calendar.JDateChooser jDateChooserFin;
-    private com.toedter.calendar.JDateChooser jDateChooserInicio;
+    private javax.swing.JTextField Fin;
+    private javax.swing.JTextField Id;
+    private javax.swing.JTextField IdItem;
+    private javax.swing.JTextField IdPersonal;
+    private javax.swing.JTextField Inicio;
+    private javax.swing.JTextField Motivo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jListItems;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextAreaMotivo;
+    private javax.swing.JLabel t;
     // End of variables declaration//GEN-END:variables
 }

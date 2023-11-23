@@ -4,14 +4,30 @@
  */
 package Ventana;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.CardLayout;
+import java.awt.BorderLayout;
+import javax.swing.*; 
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 
 /**
  *
  * @author jauregui
  */
 public class VentanaRegistrarPersonal extends javax.swing.JPanel {
-
+Conexion conect=new Conexion();
+    Connection conectar=conect.estableceConexion();
     /**
      * Creates new form VentanaRegistrarPersonal
      */
@@ -31,7 +47,7 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
-        TxtFieldNombre = new javax.swing.JTextField();
+        IdPersonal = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelContraseña = new javax.swing.JLabel();
@@ -40,20 +56,27 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jLabelRFC = new javax.swing.JLabel();
         jLabelEdad = new javax.swing.JLabel();
         jLabelCURP = new javax.swing.JLabel();
-        TxtFieldUsuario = new javax.swing.JTextField();
+        NombrePersonal = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextFieldContraseña = new javax.swing.JTextField();
+        CURP = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        TxtFieldCURP = new javax.swing.JTextField();
+        RFCPersonal = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        TxtFieldRFC = new javax.swing.JTextField();
+        FechaContratacion = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        TxtFieldFechaContratacion = new javax.swing.JTextField();
-        TxtFieldEdad = new javax.swing.JTextField();
+        Edad = new javax.swing.JTextField();
+        IdRol = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         jButtonRegistrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        IdReporte = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        IdItem = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(790, 470));
 
@@ -65,19 +88,18 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jLabel1.setText("Registrar Personal");
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelNombre.setText("Nombre");
+        jLabelNombre.setText("Identificador");
 
-        TxtFieldNombre.setForeground(new java.awt.Color(204, 204, 204));
-        TxtFieldNombre.setText("Ingresa el nombre");
-        TxtFieldNombre.setBorder(null);
-        TxtFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        IdPersonal.setForeground(new java.awt.Color(204, 204, 204));
+        IdPersonal.setBorder(null);
+        IdPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TxtFieldNombreMousePressed(evt);
+                IdPersonalMousePressed(evt);
             }
         });
-        TxtFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        IdPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFieldNombreActionPerformed(evt);
+                IdPersonalActionPerformed(evt);
             }
         });
 
@@ -85,74 +107,70 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(64, 97, 150));
 
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelUsuario.setText("Usuario");
+        jLabelUsuario.setText("Nombre");
 
         jLabelContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelContraseña.setText("Contraseña");
+        jLabelContraseña.setText("CURP");
 
         jLabelFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelFecha.setText("Fecha de Contratacion");
+        jLabelFecha.setText("Edad");
 
         jLabelNombre4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabelRFC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelRFC.setText("RFC");
+        jLabelRFC.setText("Fecha de contratación");
 
         jLabelEdad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelEdad.setText("Edad");
+        jLabelEdad.setText("Identificador de rol");
 
         jLabelCURP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelCURP.setText("CURP");
+        jLabelCURP.setText("RFC");
 
-        TxtFieldUsuario.setForeground(new java.awt.Color(204, 204, 204));
-        TxtFieldUsuario.setText("Ingresa el Usuario");
-        TxtFieldUsuario.setBorder(null);
-        TxtFieldUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        NombrePersonal.setForeground(new java.awt.Color(204, 204, 204));
+        NombrePersonal.setBorder(null);
+        NombrePersonal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TxtFieldUsuarioMousePressed(evt);
+                NombrePersonalMousePressed(evt);
             }
         });
-        TxtFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+        NombrePersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFieldUsuarioActionPerformed(evt);
+                NombrePersonalActionPerformed(evt);
             }
         });
 
         jSeparator2.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator2.setForeground(new java.awt.Color(64, 97, 150));
 
-        jTextFieldContraseña.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldContraseña.setText("Ingrese la contraseña");
-        jTextFieldContraseña.setBorder(null);
-        jTextFieldContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+        CURP.setForeground(new java.awt.Color(204, 204, 204));
+        CURP.setBorder(null);
+        CURP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldContraseñaMousePressed(evt);
+                CURPMousePressed(evt);
             }
         });
 
         jSeparator3.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator3.setForeground(new java.awt.Color(64, 97, 150));
 
-        TxtFieldCURP.setForeground(new java.awt.Color(204, 204, 204));
-        TxtFieldCURP.setText("Ingrese el CURP");
-        TxtFieldCURP.setBorder(null);
-        TxtFieldCURP.setPreferredSize(new java.awt.Dimension(78, 17));
-        TxtFieldCURP.addMouseListener(new java.awt.event.MouseAdapter() {
+        RFCPersonal.setForeground(new java.awt.Color(204, 204, 204));
+        RFCPersonal.setBorder(null);
+        RFCPersonal.setPreferredSize(new java.awt.Dimension(78, 17));
+        RFCPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TxtFieldCURPMousePressed(evt);
+                RFCPersonalMousePressed(evt);
             }
         });
 
         jSeparator4.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator4.setForeground(new java.awt.Color(64, 97, 150));
 
-        TxtFieldRFC.setForeground(new java.awt.Color(204, 204, 204));
-        TxtFieldRFC.setText("Ingrese el RFC");
-        TxtFieldRFC.setBorder(null);
-        TxtFieldRFC.setPreferredSize(new java.awt.Dimension(78, 17));
-        TxtFieldRFC.addMouseListener(new java.awt.event.MouseAdapter() {
+        FechaContratacion.setForeground(new java.awt.Color(204, 204, 204));
+        FechaContratacion.setBorder(null);
+        FechaContratacion.setPreferredSize(new java.awt.Dimension(78, 17));
+        FechaContratacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TxtFieldRFCMousePressed(evt);
+                FechaContratacionMousePressed(evt);
             }
         });
 
@@ -164,28 +182,26 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         jSeparator7.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator7.setForeground(new java.awt.Color(64, 97, 150));
 
-        TxtFieldFechaContratacion.setForeground(new java.awt.Color(204, 204, 204));
-        TxtFieldFechaContratacion.setText("Fecha de Contratacion");
-        TxtFieldFechaContratacion.setBorder(null);
-        TxtFieldFechaContratacion.setPreferredSize(new java.awt.Dimension(106, 17));
-        TxtFieldFechaContratacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        Edad.setForeground(new java.awt.Color(204, 204, 204));
+        Edad.setBorder(null);
+        Edad.setPreferredSize(new java.awt.Dimension(106, 17));
+        Edad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TxtFieldFechaContratacionMousePressed(evt);
+                EdadMousePressed(evt);
             }
         });
 
-        TxtFieldEdad.setForeground(new java.awt.Color(204, 204, 204));
-        TxtFieldEdad.setText("Ingrese la edad");
-        TxtFieldEdad.setBorder(null);
-        TxtFieldEdad.setPreferredSize(new java.awt.Dimension(78, 17));
-        TxtFieldEdad.addMouseListener(new java.awt.event.MouseAdapter() {
+        IdRol.setForeground(new java.awt.Color(204, 204, 204));
+        IdRol.setBorder(null);
+        IdRol.setPreferredSize(new java.awt.Dimension(78, 17));
+        IdRol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TxtFieldEdadMousePressed(evt);
+                IdRolMousePressed(evt);
             }
         });
-        TxtFieldEdad.addActionListener(new java.awt.event.ActionListener() {
+        IdRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFieldEdadActionPerformed(evt);
+                IdRolActionPerformed(evt);
             }
         });
 
@@ -201,6 +217,26 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Identificador de reporte");
+
+        jSeparator9.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator9.setForeground(new java.awt.Color(64, 97, 150));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Identificador de item");
+
+        jSeparator10.setBackground(new java.awt.Color(64, 97, 150));
+        jSeparator10.setForeground(new java.awt.Color(64, 97, 150));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -208,44 +244,67 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(188, 188, 188))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelRFC)
                             .addComponent(jLabelContraseña)
-                            .addComponent(TxtFieldNombre)
+                            .addComponent(IdPersonal)
                             .addComponent(jLabelNombre)
                             .addComponent(jLabelUsuario)
-                            .addComponent(TxtFieldUsuario)
+                            .addComponent(NombrePersonal)
                             .addComponent(jSeparator2)
                             .addComponent(jSeparator1)
                             .addComponent(jLabelCURP)
-                            .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(CURP, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                             .addComponent(jSeparator4)
-                            .addComponent(TxtFieldRFC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(FechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
-                            .addComponent(TxtFieldCURP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RFCPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator7))
                         .addGap(20, 20, 20)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelFecha)
-                                    .addComponent(jLabelNombre4)
-                                    .addComponent(TxtFieldFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                    .addComponent(jSeparator6)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelEdad)
-                                    .addComponent(TxtFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                    .addComponent(jSeparator8)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(190, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(IdItem)
+                                        .addGap(188, 188, 188))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(188, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabelFecha)
+                                            .addComponent(jLabelNombre4)
+                                            .addComponent(Edad, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                            .addComponent(jSeparator6)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelEdad)
+                                            .addComponent(IdRol, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                            .addComponent(jSeparator8)
+                                            .addComponent(IdReporte)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel3))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton1))
+                                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,53 +314,70 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelNombre)
-                        .addGap(12, 12, 12)
-                        .addComponent(TxtFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabelUsuario)
-                        .addGap(12, 12, 12)
-                        .addComponent(TxtFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelContraseña)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelCURP)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtFieldCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelRFC)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtFieldRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelNombre)
+                                .addGap(12, 12, 12)
+                                .addComponent(IdPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabelUsuario)
+                                .addGap(12, 12, 12)
+                                .addComponent(NombrePersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelContraseña)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelCURP)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RFCPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelRFC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelFecha)
                         .addGap(12, 12, 12)
-                        .addComponent(TxtFieldFechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelEdad)
                         .addGap(12, 12, 12)
-                        .addComponent(TxtFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IdRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IdReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelNombre4)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(11, 11, 11))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -316,74 +392,133 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldNombreActionPerformed
+    public void Guardar(){
+    String IdPr = IdPersonal.getText();
+    String Nombre =NombrePersonal.getText();
+    String clave=CURP.getText();
+    String RFC=RFCPersonal.getText();
+    String Fecha=FechaContratacion.getText();
+    String edadper= Edad.getText();
+      String idr= IdRol.getText();
+        String idrep= IdReporte.getText();
+          String idi= IdItem.getText();
+          
+    String sql="Insert into Personal () values (?,?,?,?,?,?,?,?,?)";
+    try{
+    Statement st=conectar.createStatement();
+    ResultSet resultado= st.executeQuery("select * from Personal where ID like'"+IdPersonal.getText()+"'");
+    if (resultado.next()){
+    getToolkit().beep();
+    JOptionPane.showMessageDialog(null, "Ese identificador ya está ocupado");
+    IdPersonal.requestFocus();
+            } else if(IdPersonal.getText().isEmpty()){
+            getToolkit().beep();
+    JOptionPane.showMessageDialog(null, "Ingrese un identificador");
+    IdPersonal.requestFocus();
+            } else{
+            
+            PreparedStatement pasardatos =conectar.prepareStatement(sql);
+            
+            pasardatos.setString(1, IdPr);
+            pasardatos.setString(2, Nombre);
+            pasardatos.setString(3, clave);
+            pasardatos.setString(4, RFC);
+            pasardatos.setString(5, Fecha);
+            pasardatos.setString(6, edadper);
+            pasardatos.setString(7, idr);
+            pasardatos.setString(8, idrep);
+            pasardatos.setString(9, idi);
+            pasardatos.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+   
+            }
+    
+    }catch (SQLException e){
+        Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
+    }
+    
+    }
+    
+    
+    private void IdPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdPersonalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFieldNombreActionPerformed
+    }//GEN-LAST:event_IdPersonalActionPerformed
 
-    private void TxtFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldUsuarioActionPerformed
+    private void NombrePersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombrePersonalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFieldUsuarioActionPerformed
+    }//GEN-LAST:event_NombrePersonalActionPerformed
 
-    private void TxtFieldEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldEdadActionPerformed
+    private void IdRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdRolActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFieldEdadActionPerformed
+    }//GEN-LAST:event_IdRolActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        // TODO add your handling code here:
+Guardar();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
-    private void TxtFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldNombreMousePressed
+    private void IdPersonalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IdPersonalMousePressed
         // TODO add your handling code here:
-        TxtFieldNombre.setText("");
-        TxtFieldNombre.setForeground(Color.black);
-    }//GEN-LAST:event_TxtFieldNombreMousePressed
+        IdPersonal.setText("");
+        IdPersonal.setForeground(Color.black);
+    }//GEN-LAST:event_IdPersonalMousePressed
 
-    private void TxtFieldUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldUsuarioMousePressed
+    private void NombrePersonalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombrePersonalMousePressed
         // TODO add your handling code here:
-        TxtFieldUsuario.setText("");
-        TxtFieldUsuario.setForeground(Color.black);
-    }//GEN-LAST:event_TxtFieldUsuarioMousePressed
+        NombrePersonal.setText("");
+        NombrePersonal.setForeground(Color.black);
+    }//GEN-LAST:event_NombrePersonalMousePressed
 
-    private void jTextFieldContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaMousePressed
+    private void CURPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CURPMousePressed
         // TODO add your handling code here:
-        jTextFieldContraseña.setText("");
-        jTextFieldContraseña.setForeground(Color.black);
-    }//GEN-LAST:event_jTextFieldContraseñaMousePressed
+        CURP.setText("");
+        CURP.setForeground(Color.black);
+    }//GEN-LAST:event_CURPMousePressed
 
-    private void TxtFieldCURPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldCURPMousePressed
+    private void RFCPersonalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RFCPersonalMousePressed
         // TODO add your handling code here:
-        TxtFieldCURP.setText("");
-        TxtFieldCURP.setForeground(Color.black);
-    }//GEN-LAST:event_TxtFieldCURPMousePressed
+        RFCPersonal.setText("");
+        RFCPersonal.setForeground(Color.black);
+    }//GEN-LAST:event_RFCPersonalMousePressed
 
-    private void TxtFieldRFCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldRFCMousePressed
+    private void FechaContratacionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FechaContratacionMousePressed
         // TODO add your handling code here:
-        TxtFieldRFC.setText("");
-        TxtFieldRFC.setForeground(Color.black);
-    }//GEN-LAST:event_TxtFieldRFCMousePressed
+        FechaContratacion.setText("");
+        FechaContratacion.setForeground(Color.black);
+    }//GEN-LAST:event_FechaContratacionMousePressed
 
-    private void TxtFieldFechaContratacionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldFechaContratacionMousePressed
+    private void EdadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EdadMousePressed
         // TODO add your handling code here:
-        TxtFieldFechaContratacion.setText("");
-        TxtFieldFechaContratacion.setForeground(Color.black);
-    }//GEN-LAST:event_TxtFieldFechaContratacionMousePressed
+        Edad.setText("");
+        Edad.setForeground(Color.black);
+    }//GEN-LAST:event_EdadMousePressed
 
-    private void TxtFieldEdadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtFieldEdadMousePressed
+    private void IdRolMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IdRolMousePressed
         // TODO add your handling code here:
-        TxtFieldEdad.setText("");
-        TxtFieldEdad.setForeground(Color.black);
-    }//GEN-LAST:event_TxtFieldEdadMousePressed
+        IdRol.setText("");
+        IdRol.setForeground(Color.black);
+    }//GEN-LAST:event_IdRolMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Personal newframe = new Personal();
+        newframe.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxtFieldCURP;
-    private javax.swing.JTextField TxtFieldEdad;
-    private javax.swing.JTextField TxtFieldFechaContratacion;
-    private javax.swing.JTextField TxtFieldNombre;
-    private javax.swing.JTextField TxtFieldRFC;
-    private javax.swing.JTextField TxtFieldUsuario;
+    private javax.swing.JTextField CURP;
+    private javax.swing.JTextField Edad;
+    private javax.swing.JTextField FechaContratacion;
+    private javax.swing.JTextField IdItem;
+    private javax.swing.JTextField IdPersonal;
+    private javax.swing.JTextField IdReporte;
+    private javax.swing.JTextField IdRol;
+    private javax.swing.JTextField NombrePersonal;
+    private javax.swing.JTextField RFCPersonal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelCURP;
     private javax.swing.JLabel jLabelContraseña;
     private javax.swing.JLabel jLabelEdad;
@@ -394,6 +529,7 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -401,6 +537,6 @@ public class VentanaRegistrarPersonal extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTextField jTextFieldContraseña;
+    private javax.swing.JSeparator jSeparator9;
     // End of variables declaration//GEN-END:variables
 }
