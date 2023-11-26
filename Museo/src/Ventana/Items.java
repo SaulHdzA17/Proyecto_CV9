@@ -104,6 +104,41 @@ public class Items extends javax.swing.JFrame {
         
     
     }
+    
+        public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Nombre", "Descripcion", "Campo"};
+        String [] registros = new String [4];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from Item where ID like'%"+buscar+"%' or Nombre like'%"+buscar+"%' or Descripcion like '%"+buscar+"%' or Campo like '%"+buscar+"%'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("Nombre");
+        registros[2]=rs.getString("Descripcion");
+        registros[3]=rs.getString("Campo");
+
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -326,6 +361,8 @@ public class Items extends javax.swing.JFrame {
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
+        VentanaBuscarItem VBI = new VentanaBuscarItem();
+        MostrarPanel(VBI);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked

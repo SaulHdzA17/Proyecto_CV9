@@ -110,6 +110,42 @@ public class Personal extends javax.swing.JFrame {
         
     
     }
+       
+        public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Nombre", "CURP", "RFC", "FechaContratacion", "Edad"};
+        String [] registros = new String [6];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from Personal where ID like'%"+buscar+"%' or Nombre like'%"+buscar+"%' or CURP like '%"+buscar+"%' or RFC like '%"+buscar+"%' or FechaContratacion like '%"+buscar+"%' or edad like '%"+buscar+"%'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("Nombre");
+        registros[2]=rs.getString("CURP");
+        registros[3]=rs.getString("RFC");
+        registros[4]=rs.getString("FechaContratacion");
+        registros[5]=rs.getString("Edad");
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }
     
     
     

@@ -101,6 +101,41 @@ public class Reportes extends javax.swing.JFrame {
         
     
     }
+              
+        public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Descripcion", "Fecha_Inicio", "Fecha_Fin", "Estado"};
+        String [] registros = new String [5];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from Reportes where ID like'%"+buscar+"%' or Descripcion like'%"+buscar+"%' or Fecha_Inicio like '%"+buscar+"%' or Fecha_Fin like '%"+buscar+"%'or Estado like '%"+buscar+"%'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("Descripcion");
+        registros[2]=rs.getString("Fecha_Inicio");
+        registros[3]=rs.getString("Fecha_Fin");
+        registros[4]=rs.getString("Estado");
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }              
     //Funcion para desplegar el menulateral del admin. (Modificar para que se despliegue los diferentes menuslaterales dependiendo el usuario activo)
     private void MostrarPanelMenuLateral(JPanel p){
         
@@ -255,6 +290,11 @@ public class Reportes extends javax.swing.JFrame {
         BotonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         BotonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         BotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        BotonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscarActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mostrar.png"))); // NOI18N
@@ -358,6 +398,12 @@ public static String fechaActual(){
         // TODO add your handling code here:
                          Mostrar("Reportes");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
+        // TODO add your handling code here:
+        VentanaBuscarReportes VBR = new VentanaBuscarReportes();
+        MostrarPanel(VBR);
+    }//GEN-LAST:event_BotonBuscarActionPerformed
 
     /**
      * @param args the command line arguments

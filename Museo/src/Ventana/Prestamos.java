@@ -101,6 +101,42 @@ public class Prestamos extends javax.swing.JFrame {
         
     
     }
+
+        public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "InicioPrestamo", "FinPrestamo", "Motivo"};
+        String [] registros = new String [4];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from Prestamo where ID like'%"+buscar+"%' or InicioPrestamo like'%"+buscar+"%' or FinPrestamo like '%"+buscar+"%' or Motivo like '%"+buscar+"%'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("InicioPrestamo");
+        registros[2]=rs.getString("FinPrestamo");
+        registros[3]=rs.getString("Motivo");
+
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }           
+           
     
     //Funcion para mostrar el menu lateral del admin
            private void MostrarPanelMenuLateral(JPanel p){
@@ -413,6 +449,8 @@ public class Prestamos extends javax.swing.JFrame {
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
+        VentanaBuscarPrestamos VBP = new VentanaBuscarPrestamos();
+        MostrarPanel(VBP);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
     private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
