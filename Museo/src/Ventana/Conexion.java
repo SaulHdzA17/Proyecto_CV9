@@ -39,19 +39,20 @@ public class Conexion {
     
     
     Connection conectar;
-    /*
-    String usuario="admin";
-    String password="12345";
-    String bd="login";
+    
+    //Cambiar valores dependiendo de la computadora 
+    String usuario="root";
+    String password="12345678";
+    String bd="FG";
     String ip="localhost";
     String puerto="3306";
-    String cadena ="jdbc:mysql://"+ip+":"+puerto+"/"+bd;*/
+    String cadena ="jdbc:mysql://"+ip+":"+puerto+"/"+bd;
     
     public Connection estableceConexion(){
     
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conectar= DriverManager.getConnection("jdbc:mysql://localhost:3306/fillgaps", "root", "1234");
+            conectar= DriverManager.getConnection(cadena, usuario, password);
            // JOptionPane.showMessageDialog(null, "Conexion exitosa");
         }catch (Exception e){
            JOptionPane.showMessageDialog(null, "Mejor nadota"+"----"+ e.toString());

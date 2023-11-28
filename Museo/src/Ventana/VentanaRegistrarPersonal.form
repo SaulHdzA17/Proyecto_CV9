@@ -491,6 +491,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="IdReporte">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator9">
           <Properties>
@@ -511,6 +516,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="IdItem">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator10">
           <Properties>
