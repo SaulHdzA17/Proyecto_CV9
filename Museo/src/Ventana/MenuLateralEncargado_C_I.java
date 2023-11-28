@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Ventana;
+import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -26,19 +29,448 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jLabel7 = new javax.swing.JLabel();
+        BotonInicio = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        BotonItems = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        BotonActividades = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        BotonReportes = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        BotonMensajes = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        BotonOrganizarSalas = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(224, 229, 233));
+        setPreferredSize(new java.awt.Dimension(250, 300));
+        setSize(new java.awt.Dimension(250, 0));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo-3.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 220));
+
+        BotonInicio.setBackground(new java.awt.Color(159, 195, 231));
+        BotonInicio.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        BotonInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonInicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonInicioMouseExited(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Inicio");
+
+        javax.swing.GroupLayout BotonInicioLayout = new javax.swing.GroupLayout(BotonInicio);
+        BotonInicio.setLayout(BotonInicioLayout);
+        BotonInicioLayout.setHorizontalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonInicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        BotonInicioLayout.setVerticalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonInicioLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 249, 250, 50));
+
+        BotonItems.setBackground(new java.awt.Color(159, 195, 231));
+        BotonItems.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonItemsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonItemsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonItemsMouseExited(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Items");
+
+        javax.swing.GroupLayout BotonItemsLayout = new javax.swing.GroupLayout(BotonItems);
+        BotonItems.setLayout(BotonItemsLayout);
+        BotonItemsLayout.setHorizontalGroup(
+            BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonItemsLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        BotonItemsLayout.setVerticalGroup(
+            BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonItemsLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        add(BotonItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 250, 50));
+
+        BotonActividades.setBackground(new java.awt.Color(159, 195, 231));
+        BotonActividades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonActividadesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonActividadesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonActividadesMouseExited(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Actividades");
+
+        javax.swing.GroupLayout BotonActividadesLayout = new javax.swing.GroupLayout(BotonActividades);
+        BotonActividades.setLayout(BotonActividadesLayout);
+        BotonActividadesLayout.setHorizontalGroup(
+            BotonActividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonActividadesLayout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        BotonActividadesLayout.setVerticalGroup(
+            BotonActividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonActividadesLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel4)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        add(BotonActividades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 250, 50));
+
+        BotonReportes.setBackground(new java.awt.Color(159, 195, 231));
+        BotonReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonReportesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonReportesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonReportesMouseExited(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Reportes");
+
+        javax.swing.GroupLayout BotonReportesLayout = new javax.swing.GroupLayout(BotonReportes);
+        BotonReportes.setLayout(BotonReportesLayout);
+        BotonReportesLayout.setHorizontalGroup(
+            BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        BotonReportesLayout.setVerticalGroup(
+            BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(15, 15, 15))
+        );
+
+        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 250, 45));
+
+        BotonMensajes.setBackground(new java.awt.Color(159, 195, 231));
+        BotonMensajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonMensajesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonMensajesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonMensajesMouseExited(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Mensajes");
+
+        javax.swing.GroupLayout BotonMensajesLayout = new javax.swing.GroupLayout(BotonMensajes);
+        BotonMensajes.setLayout(BotonMensajesLayout);
+        BotonMensajesLayout.setHorizontalGroup(
+            BotonMensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonMensajesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        BotonMensajesLayout.setVerticalGroup(
+            BotonMensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonMensajesLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(15, 15, 15))
+        );
+
+        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 250, 45));
+
+        BotonOrganizarSalas.setBackground(new java.awt.Color(159, 195, 231));
+        BotonOrganizarSalas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonOrganizarSalasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonOrganizarSalasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonOrganizarSalasMouseExited(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Organizar Salas");
+
+        javax.swing.GroupLayout BotonOrganizarSalasLayout = new javax.swing.GroupLayout(BotonOrganizarSalas);
+        BotonOrganizarSalas.setLayout(BotonOrganizarSalasLayout);
+        BotonOrganizarSalasLayout.setHorizontalGroup(
+            BotonOrganizarSalasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonOrganizarSalasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        BotonOrganizarSalasLayout.setVerticalGroup(
+            BotonOrganizarSalasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonOrganizarSalasLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(15, 15, 15))
+        );
+
+        add(BotonOrganizarSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 250, 45));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CerrarSesion.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 190, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseClicked
+        // TODO add your handling code here:
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof InicioAdmin){
+                System.out.print("El panel esta en inicioadmin");
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes){
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+                InicioAdmin iniadmin = new InicioAdmin();
+                iniadmin.setVisible(true);
+
+            }
+        }
+    }//GEN-LAST:event_BotonInicioMouseClicked
+
+    private void BotonInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseEntered
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonInicio.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonInicioMouseEntered
+
+    private void BotonInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseExited
+        // TODO add your handling code here:
+
+        Color nuevoColor = new Color(18,113,199);
+        BotonInicio.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonInicioMouseExited
+
+    private void BotonActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActividadesMouseClicked
+        // TODO add your handling code here:
+
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof Items){
+                System.out.print("El panel esta en: " +ventanacontenedora);
+            }else if(ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+
+                //Hago que la ventana Items se vea
+                Items iniadmin = new Items();
+                iniadmin.setVisible(true);
+
+            }
+        }
+    }//GEN-LAST:event_BotonActividadesMouseClicked
+
+    private void BotonActividadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActividadesMouseEntered
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonActividades.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonActividadesMouseEntered
+
+    private void BotonActividadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActividadesMouseExited
+        // TODO add your handling code here:
+
+        Color nuevoColor = new Color(18,113,199);
+        BotonActividades.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonActividadesMouseExited
+
+    private void BotonItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonItemsMouseClicked
+
+    private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonItemsMouseEntered
+
+    private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonItemsMouseExited
+
+    private void BotonReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseClicked
+        // TODO add your handling code here:
+
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof Reportes){
+                System.out.print("El panel esta en: "+ventanacontenedora);
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Mensajes){
+                //Se cierra la ventana en la que se esta para que se visualice la otra
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+
+                //Mando a llamar la pantalla y la establezco para que se visualice
+                Reportes R = new Reportes();
+                R.setVisible(true);
+
+            }
+        }
+    }//GEN-LAST:event_BotonReportesMouseClicked
+
+    private void BotonReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseEntered
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonReportes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonReportesMouseEntered
+
+    private void BotonReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseExited
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(18,113,199);
+        BotonReportes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonReportesMouseExited
+
+    private void BotonMensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseClicked
+        // TODO add your handling code here:
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof Mensajes){
+                System.out.print("El panel esta en Mensajes");
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+                Mensajes mensajes = new Mensajes();
+                mensajes.setVisible(true);
+
+            }
+        }
+    }//GEN-LAST:event_BotonMensajesMouseClicked
+
+    private void BotonMensajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseEntered
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonMensajes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonMensajesMouseEntered
+
+    private void BotonMensajesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseExited
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(18,113,199);
+        BotonMensajes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonMensajesMouseExited
+
+    private void BotonOrganizarSalasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseClicked
+        // TODO add your handling code here:
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof Mensajes){
+                System.out.print("El panel esta en Mensajes");
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+                Mensajes mensajes = new Mensajes();
+                mensajes.setVisible(true);
+
+            }
+        }
+    }//GEN-LAST:event_BotonOrganizarSalasMouseClicked
+
+    private void BotonOrganizarSalasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseEntered
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonMensajes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonOrganizarSalasMouseEntered
+
+    private void BotonOrganizarSalasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseExited
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(18,113,199);
+        BotonMensajes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonOrganizarSalasMouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BotonActividades;
+    private javax.swing.JPanel BotonInicio;
+    private javax.swing.JPanel BotonItems;
+    private javax.swing.JPanel BotonMensajes;
+    private javax.swing.JPanel BotonOrganizarSalas;
+    private javax.swing.JPanel BotonReportes;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
