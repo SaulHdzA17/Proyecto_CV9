@@ -26,7 +26,8 @@ public class Login {
     PreparedStatement ps = null;
     
     Ventana.Conexion objetoConexion = new Ventana.Conexion();
-    String consulta="select * from Usuario3 where Usuario3.ingresoUsr=(?) and Usuario3.ingresoPsw=(?);";
+    String consulta="select ID from Personal where Personal.usuario=(?) and Personal.contraseña=(?);";
+    
         ps=objetoConexion.estableceConexion().prepareStatement(consulta);
         
         
@@ -38,9 +39,14 @@ public class Login {
         rs= ps.executeQuery();
         
         if(rs.next()){
+            //Muestro y guardo el ID del usuario activo despues de un login exitoso
+            System.out.print("El ID del usuario es: "+ rs.getInt("id"));
+            SesionUsuario.setUsuarioActivo(rs.getInt("id"));
+            
             JOptionPane.showMessageDialog(null, "Usuario correcto");
             InicioAdmin objetoInicioAdmin = new InicioAdmin();
             objetoInicioAdmin.setVisible(true);
+            
         }
         
         else{

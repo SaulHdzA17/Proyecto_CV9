@@ -221,11 +221,15 @@ Conexion conect=new Conexion();
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Identificador de reporte");
 
+        IdReporte.setBorder(null);
+
         jSeparator9.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator9.setForeground(new java.awt.Color(64, 97, 150));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Identificador de item");
+
+        IdItem.setBorder(null);
 
         jSeparator10.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator10.setForeground(new java.awt.Color(64, 97, 150));

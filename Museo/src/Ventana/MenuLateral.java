@@ -53,6 +53,8 @@ public class MenuLateral extends javax.swing.JPanel {
         BotonInicio = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        BotonMensajes = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,7 +96,7 @@ public class MenuLateral extends javax.swing.JPanel {
             .addGroup(BotonPersonalLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 250, 45));
@@ -167,7 +169,7 @@ public class MenuLateral extends javax.swing.JPanel {
             .addGroup(BotonPrestamosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel5)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         add(BotonPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 250, 45));
@@ -203,8 +205,8 @@ public class MenuLateral extends javax.swing.JPanel {
             BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
                 .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel9)
+                .addGap(15, 15, 15))
         );
 
         add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 45));
@@ -260,65 +262,108 @@ public class MenuLateral extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 190, 50));
+
+        BotonMensajes.setBackground(new java.awt.Color(159, 195, 231));
+        BotonMensajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonMensajesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BotonMensajesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BotonMensajesMouseExited(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Mensajes");
+
+        javax.swing.GroupLayout BotonMensajesLayout = new javax.swing.GroupLayout(BotonMensajes);
+        BotonMensajes.setLayout(BotonMensajesLayout);
+        BotonMensajesLayout.setHorizontalGroup(
+            BotonMensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonMensajesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        BotonMensajesLayout.setVerticalGroup(
+            BotonMensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonMensajesLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(15, 15, 15))
+        );
+
+        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 250, 45));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
-        BotonPersonal.setBackground(nuevoColor); 
+        Color nuevoColor = new Color(16,106,182);
+        BotonPersonal.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonPersonalMouseEntered
 
     private void BotonPersonalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
-        BotonPersonal.setBackground(nuevoColor);
+                Color nuevoColor = new Color(18,113,199);
+        BotonPersonal.setBackground(nuevoColor); 
+
     }//GEN-LAST:event_BotonPersonalMouseExited
 
     private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
-        BotonItems.setBackground(nuevoColor); 
+        Color nuevoColor = new Color(16,106,182);
+        BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseEntered
 
     private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
-        BotonItems.setBackground(nuevoColor);
+        
+        Color nuevoColor = new Color(18,113,199);
+        BotonItems.setBackground(nuevoColor); 
+
     }//GEN-LAST:event_BotonItemsMouseExited
 
     private void BotonPrestamosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPrestamosMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
-        BotonPrestamos.setBackground(nuevoColor); 
+                Color nuevoColor = new Color(16,106,182);
+        BotonPrestamos.setBackground(nuevoColor);
+
     }//GEN-LAST:event_BotonPrestamosMouseEntered
 
     private void BotonPrestamosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPrestamosMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
-        BotonPrestamos.setBackground(nuevoColor);
+        Color nuevoColor = new Color(18,113,199);
+        BotonPrestamos.setBackground(nuevoColor); 
     }//GEN-LAST:event_BotonPrestamosMouseExited
 
     private void BotonReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
-        BotonReportes.setBackground(nuevoColor); 
+        Color nuevoColor = new Color(16,106,182);
+        BotonReportes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonReportesMouseEntered
 
     private void BotonReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
-        BotonReportes.setBackground(nuevoColor);
+                Color nuevoColor = new Color(18,113,199);
+        BotonReportes.setBackground(nuevoColor); 
+
     }//GEN-LAST:event_BotonReportesMouseExited
 
     private void BotonInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+
+        Color nuevoColor = new Color(18,113,199);
         BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonInicioMouseExited
 
     private void BotonInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(16,106,182);
         BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonInicioMouseEntered
 
@@ -329,7 +374,7 @@ public class MenuLateral extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof InicioAdmin){
                 System.out.print("El panel esta en inicioadmin");
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
                 InicioAdmin iniadmin = new InicioAdmin();
@@ -347,7 +392,7 @@ public class MenuLateral extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Personal){
                 System.out.print("El panel esta en: "+ventanacontenedora);
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
                 //Se cierra la ventana en la que se esta para que se visualice la otra
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
@@ -368,7 +413,7 @@ public class MenuLateral extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Items){
                 System.out.print("El panel esta en: " +ventanacontenedora);
-            }else if(ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
+            }else if(ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
                 
@@ -388,7 +433,7 @@ public class MenuLateral extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Prestamos){
                 System.out.print("El panel esta en: "+ventanacontenedora);
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Personal){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Personal){
                 //Se cierra la ventana en la que se esta para que se visualice la otra
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
@@ -409,7 +454,7 @@ public class MenuLateral extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Reportes){
                 System.out.print("El panel esta en: "+ventanacontenedora);
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Mensajes){
                 //Se cierra la ventana en la que se esta para que se visualice la otra
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
@@ -426,6 +471,35 @@ public class MenuLateral extends javax.swing.JPanel {
      System.exit(0);
      // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BotonMensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseClicked
+        // TODO add your handling code here:
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+        
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof Mensajes){
+                System.out.print("El panel esta en Mensajes");
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+                Mensajes mensajes = new Mensajes();
+                mensajes.setVisible(true);
+                
+            }
+        }
+    }//GEN-LAST:event_BotonMensajesMouseClicked
+
+    private void BotonMensajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseEntered
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonMensajes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonMensajesMouseEntered
+
+    private void BotonMensajesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseExited
+        // TODO add your handling code here:
+        Color nuevoColor = new Color(18,113,199);
+        BotonMensajes.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonMensajesMouseExited
                                        
          
    
@@ -434,11 +508,13 @@ public class MenuLateral extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BotonInicio;
     private javax.swing.JPanel BotonItems;
+    private javax.swing.JPanel BotonMensajes;
     private javax.swing.JPanel BotonPersonal;
     private javax.swing.JPanel BotonPrestamos;
     private javax.swing.JPanel BotonReportes;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
