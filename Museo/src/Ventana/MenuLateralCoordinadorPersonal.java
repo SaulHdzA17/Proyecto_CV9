@@ -11,12 +11,12 @@ import javax.swing.SwingUtilities;
  *
  * @author jauregui
  */
-public class MenuLateral_IC extends javax.swing.JPanel {
+public class MenuLateralCoordinadorPersonal extends javax.swing.JPanel {
 
     /**
-     * Creates new form MenuLateral_ICE
+     * Creates new form MenuLateralCR
      */
-    public MenuLateral_IC() {
+    public MenuLateralCoordinadorPersonal() {
         initComponents();
     }
 
@@ -32,17 +32,13 @@ public class MenuLateral_IC extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         BotonInicio = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        BotonItems = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        BotonReportes = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        BotonPersonal = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         BotonMensajes = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 229, 233));
-        setPreferredSize(new java.awt.Dimension(250, 680));
-        setSize(new java.awt.Dimension(250, 680));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo-3.png"))); // NOI18N
@@ -86,78 +82,42 @@ public class MenuLateral_IC extends javax.swing.JPanel {
 
         add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 249, 250, 50));
 
-        BotonItems.setBackground(new java.awt.Color(159, 195, 231));
-        BotonItems.addMouseListener(new java.awt.event.MouseAdapter() {
+        BotonPersonal.setBackground(new java.awt.Color(159, 195, 231));
+        BotonPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonItemsMouseClicked(evt);
+                BotonPersonalMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BotonItemsMouseEntered(evt);
+                BotonPersonalMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                BotonItemsMouseExited(evt);
+                BotonPersonalMouseExited(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Items");
+        jLabel3.setBackground(new java.awt.Color(159, 195, 231));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Personal");
 
-        javax.swing.GroupLayout BotonItemsLayout = new javax.swing.GroupLayout(BotonItems);
-        BotonItems.setLayout(BotonItemsLayout);
-        BotonItemsLayout.setHorizontalGroup(
-            BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonItemsLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout BotonPersonalLayout = new javax.swing.GroupLayout(BotonPersonal);
+        BotonPersonal.setLayout(BotonPersonalLayout);
+        BotonPersonalLayout.setHorizontalGroup(
+            BotonPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPersonalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
         );
-        BotonItemsLayout.setVerticalGroup(
-            BotonItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonItemsLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel5)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        add(BotonItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 250, 50));
-
-        BotonReportes.setBackground(new java.awt.Color(159, 195, 231));
-        BotonReportes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonReportesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BotonReportesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BotonReportesMouseExited(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Reportes");
-
-        javax.swing.GroupLayout BotonReportesLayout = new javax.swing.GroupLayout(BotonReportes);
-        BotonReportes.setLayout(BotonReportesLayout);
-        BotonReportesLayout.setHorizontalGroup(
-            BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        BotonReportesLayout.setVerticalGroup(
-            BotonReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonReportesLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(15, 15, 15))
+        BotonPersonalLayout.setVerticalGroup(
+            BotonPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPersonalLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel3)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 250, 45));
+        add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 250, 45));
 
         BotonMensajes.setBackground(new java.awt.Color(159, 195, 231));
         BotonMensajes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,7 +154,7 @@ public class MenuLateral_IC extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 250, -1));
+        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, 45));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -205,7 +165,7 @@ public class MenuLateral_IC extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 190, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 190, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseClicked
@@ -238,50 +198,38 @@ public class MenuLateral_IC extends javax.swing.JPanel {
         BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonInicioMouseExited
 
-    private void BotonItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonItemsMouseClicked
-
-    private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonItemsMouseEntered
-
-    private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonItemsMouseExited
-
-    private void BotonReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseClicked
+    private void BotonPersonalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseClicked
         // TODO add your handling code here:
 
         JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
 
         if(ventanacontenedora != null){
-            if(ventanacontenedora instanceof Reportes){
+            if(ventanacontenedora instanceof Personal){
                 System.out.print("El panel esta en: "+ventanacontenedora);
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Mensajes){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
                 //Se cierra la ventana en la que se esta para que se visualice la otra
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
 
                 //Mando a llamar la pantalla y la establezco para que se visualice
-                Reportes R = new Reportes();
-                R.setVisible(true);
+                Personal P = new Personal();
+                P.setVisible(true);
 
             }
         }
-    }//GEN-LAST:event_BotonReportesMouseClicked
+    }//GEN-LAST:event_BotonPersonalMouseClicked
 
-    private void BotonReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseEntered
+    private void BotonPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseEntered
         // TODO add your handling code here:
         Color nuevoColor = new Color(16,106,182);
-        BotonReportes.setBackground(nuevoColor);
-    }//GEN-LAST:event_BotonReportesMouseEntered
+        BotonPersonal.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonPersonalMouseEntered
 
-    private void BotonReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseExited
+    private void BotonPersonalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPersonalMouseExited
         // TODO add your handling code here:
         Color nuevoColor = new Color(18,113,199);
-        BotonReportes.setBackground(nuevoColor);
-    }//GEN-LAST:event_BotonReportesMouseExited
+        BotonPersonal.setBackground(nuevoColor);
+    }//GEN-LAST:event_BotonPersonalMouseExited
 
     private void BotonMensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseClicked
         // TODO add your handling code here:
@@ -320,14 +268,12 @@ public class MenuLateral_IC extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BotonInicio;
-    private javax.swing.JPanel BotonItems;
     private javax.swing.JPanel BotonMensajes;
-    private javax.swing.JPanel BotonReportes;
+    private javax.swing.JPanel BotonPersonal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
