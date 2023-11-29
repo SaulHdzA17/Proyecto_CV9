@@ -36,9 +36,8 @@ public class Mensajes extends javax.swing.JFrame {
      */
     public Mensajes() {
         initComponents();
-        
-        MenuLateral ML = new MenuLateral();
-        MostrarPanelLateral(ML);
+      
+        TipoMenu();
        
         Fecha.setText(fechaActual());
         Calendar cal= Calendar.getInstance();
@@ -222,7 +221,58 @@ public class Mensajes extends javax.swing.JFrame {
         // TODO add your handling code here:
         MostrarMensajes();
     }//GEN-LAST:event_VerMensajesMouseClicked
-
+    
+    
+    private void TipoMenu(){
+        TipoDeMenuLateral tipoMenu = new TipoDeMenuLateral();
+        
+        String rol = tipoMenu.MostrarMenu();
+        System.out.println("El rol del usuario activo es: " + rol);
+        //MenuLateral ML = new MenuLateral();
+        //MostrarPanel(ML);
+        
+        switch(rol){
+            case "Director":
+                MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);
+                break;
+                
+            case "Conservador":
+            case "Restaurador":
+            case "Investigador":
+            case "Catalogador": //Analizar si aqui se debe de poner a lso educadores
+                MenuLateral_IC MLIC = new MenuLateral_IC();
+                MostrarPanelLateral(MLIC);
+                break;
+                
+            case "Encargado de CIE":
+                MenuLateralEncargado_C_I MLECIE = new MenuLateralEncargado_C_I();
+                MostrarPanelLateral(MLECIE);
+                break;
+                
+            case "Coordinador de personal":
+                MenuLateralCoordinadorPersonal MLCP = new MenuLateralCoordinadorPersonal();
+                MostrarPanelLateral(MLCP);
+                break;
+                
+            case "Coordinador de personal operativo y taquillas":
+                /*MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);*/
+                break;
+                
+            case "Jefe de seguridad":
+                /*MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);*/
+                break;
+            case "Guardias":
+                /*MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);*/
+                break;
+                
+            default:
+                JOptionPane.showMessageDialog(null, "Error al desplegar el menu lateral");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -281,6 +331,7 @@ public class Mensajes extends javax.swing.JFrame {
         PanelContenido.revalidate();
         PanelContenido.repaint();
     }
+    
     public static String fechaActual(){
         Date fecha= new Date();
         SimpleDateFormat mostrar_fecha= new SimpleDateFormat("dd/MM/YYYY");

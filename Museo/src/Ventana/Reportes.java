@@ -32,8 +32,7 @@ public class Reportes extends javax.swing.JFrame {
     public Reportes() {
         initComponents();
         //Mando a llamar el Panel del menu lateral y lo muestro mandando a llamar la funcion MostrarPanelMenuLateral
-        MenuLateral ML = new MenuLateral();
-        MostrarPanelMenuLateral(ML);
+        TipoMenu();
         Fecha.setText(fechaActual());
         
         Calendar cal= Calendar.getInstance();
@@ -102,7 +101,7 @@ public class Reportes extends javax.swing.JFrame {
     
     }
               
-        public DefaultTableModel buscar1(String buscar){
+    public DefaultTableModel buscar1(String buscar){
     
         String [] nombreColumna={"Id", "Descripcion", "Fecha_Inicio", "Fecha_Fin", "Estado"};
         String [] registros = new String [5];
@@ -136,7 +135,8 @@ public class Reportes extends javax.swing.JFrame {
         }
         return modelo;
     }              
-    //Funcion para desplegar el menulateral del admin. (Modificar para que se despliegue los diferentes menuslaterales dependiendo el usuario activo)
+    
+    //Funcion para desplegar el menu lateral.
     private void MostrarPanelMenuLateral(JPanel p){
         
 
@@ -158,6 +158,57 @@ public class Reportes extends javax.swing.JFrame {
         PanelContenido.add(p,BorderLayout.CENTER);
         PanelContenido.revalidate();
         PanelContenido.repaint();
+    }
+    
+    private void TipoMenu(){
+        TipoDeMenuLateral tipoMenu = new TipoDeMenuLateral();
+        
+        String rol = tipoMenu.MostrarMenu();
+        System.out.println("El rol del usuario activo es: " + rol);
+        //MenuLateral ML = new MenuLateral();
+        //MostrarPanel(ML);
+        
+        switch(rol){
+            case "Director":
+                MenuLateral ML = new MenuLateral();
+                MostrarPanelMenuLateral(ML);
+                break;
+                
+            case "Conservador":
+            case "Restaurador":
+            case "Investigador":
+            case "Catalogador": //Analizar si aqui se debe de poner a lso educadores
+                MenuLateral_IC MLIC = new MenuLateral_IC();
+                MostrarPanelMenuLateral(MLIC);
+                break;
+                
+            case "Encargado de CIE":
+                MenuLateralEncargado_C_I MLECIE = new MenuLateralEncargado_C_I();
+                MostrarPanelMenuLateral(MLECIE);
+                break;
+                
+            case "Coordinador de personal":
+                MenuLateralCoordinadorPersonal MLCP = new MenuLateralCoordinadorPersonal();
+                MostrarPanelMenuLateral(MLCP);
+                break;
+                
+            case "Coordinador de personal operativo y taquillas":
+                /*MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);*/
+                break;
+                
+            case "Jefe de seguridad":
+                /*MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);*/
+                break;
+            case "Guardias":
+                /*MenuLateral ML = new MenuLateral();
+                MostrarPanelLateral(ML);*/
+                break;
+                
+            default:
+                JOptionPane.showMessageDialog(null, "Error al desplegar el menu lateral");
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
