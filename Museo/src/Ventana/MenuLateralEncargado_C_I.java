@@ -45,8 +45,8 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 229, 233));
-        setPreferredSize(new java.awt.Dimension(250, 300));
-        setSize(new java.awt.Dimension(250, 0));
+        setPreferredSize(new java.awt.Dimension(250, 680));
+        setSize(new java.awt.Dimension(250, 690));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo-3.png"))); // NOI18N
