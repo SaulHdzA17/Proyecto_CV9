@@ -248,8 +248,8 @@ public class MenuLateral_IC extends javax.swing.JPanel {
             }else if(ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Mensajes  || ventanacontenedora instanceof Reportes){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
-                InicioAdmin iniadmin = new InicioAdmin();
-                iniadmin.setVisible(true);
+                Items items = new Items();
+                items.setVisible(true);
 
             }
         }
@@ -257,10 +257,14 @@ public class MenuLateral_IC extends javax.swing.JPanel {
 
     private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
         // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseEntered
 
     private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
         // TODO add your handling code here:
+        Color nuevoColor = new Color(18,113,199);
+        BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseExited
 
     private void BotonReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseClicked

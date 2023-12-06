@@ -157,7 +157,7 @@ public class MenuLateral_CR extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, -1));
+        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 250, -1));
 
         BotonPrestamos.setBackground(new java.awt.Color(159, 195, 231));
         BotonPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -199,7 +199,7 @@ public class MenuLateral_CR extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        add(BotonPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 250, -1));
+        add(BotonPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -324,10 +324,14 @@ public class MenuLateral_CR extends javax.swing.JPanel {
 
     private void BotonPrestamosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPrestamosMouseEntered
         // TODO add your handling code here:
+        Color nuevoColor = new Color(16,106,182);
+        BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonPrestamosMouseEntered
 
     private void BotonPrestamosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPrestamosMouseExited
         // TODO add your handling code here:
+        Color nuevoColor = new Color(18,113,199);
+        BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonPrestamosMouseExited
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

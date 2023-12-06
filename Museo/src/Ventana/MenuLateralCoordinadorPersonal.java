@@ -175,7 +175,7 @@ public class MenuLateralCoordinadorPersonal extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof InicioAdmin){
                 System.out.print("El panel esta en inicioadmin");
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes){
+            }else if(ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal ){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
                 InicioAdmin iniadmin = new InicioAdmin();
@@ -193,7 +193,6 @@ public class MenuLateralCoordinadorPersonal extends javax.swing.JPanel {
 
     private void BotonInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseExited
         // TODO add your handling code here:
-
         Color nuevoColor = new Color(18,113,199);
         BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonInicioMouseExited
@@ -206,7 +205,7 @@ public class MenuLateralCoordinadorPersonal extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Personal){
                 System.out.print("El panel esta en: "+ventanacontenedora);
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
+            }else if(ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof InicioAdmin){
                 //Se cierra la ventana en la que se esta para que se visualice la otra
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
@@ -238,7 +237,7 @@ public class MenuLateralCoordinadorPersonal extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Mensajes){
                 System.out.print("El panel esta en Mensajes");
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
+            }else if( ventanacontenedora instanceof Personal || ventanacontenedora instanceof InicioAdmin){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
                 Mensajes mensajes = new Mensajes();

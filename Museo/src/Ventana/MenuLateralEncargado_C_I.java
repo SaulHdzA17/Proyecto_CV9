@@ -234,7 +234,7 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 250, 45));
+        add(BotonMensajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 250, 45));
 
         BotonOrganizarSalas.setBackground(new java.awt.Color(159, 195, 231));
         BotonOrganizarSalas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -271,7 +271,7 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        add(BotonOrganizarSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 250, 45));
+        add(BotonOrganizarSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 250, 45));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -292,7 +292,7 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof InicioAdmin){
                 System.out.print("El panel esta en inicioadmin");
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Actividades || ventanacontenedora instanceof OrganizarSalas || ventanacontenedora instanceof Reportes){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
                 InicioAdmin iniadmin = new InicioAdmin();
@@ -321,15 +321,15 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
         JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
 
         if(ventanacontenedora != null){
-            if(ventanacontenedora instanceof Items){
+            if(ventanacontenedora instanceof Actividades){
                 System.out.print("El panel esta en: " +ventanacontenedora);
-            }else if(ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof Prestamos){
+            }else if(ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Items || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof OrganizarSalas){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
 
                 //Hago que la ventana Items se vea
-                Items iniadmin = new Items();
-                iniadmin.setVisible(true);
+                Actividades act = new Actividades();
+                act.setVisible(true);
 
             }
         }
@@ -350,14 +350,33 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseClicked
         // TODO add your handling code here:
+        JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        if(ventanacontenedora != null){
+            if(ventanacontenedora instanceof Items){
+                System.out.print("El panel esta en inicioadmin");
+            }else if(ventanacontenedora instanceof InicioAdmin|| ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof Actividades || ventanacontenedora instanceof OrganizarSalas || ventanacontenedora instanceof Reportes){
+                System.out.println("El panel esta en: "+ ventanacontenedora);
+                ventanacontenedora.dispose();
+                Items items = new Items();
+                items.setVisible(true);
+
+            }
+        }
     }//GEN-LAST:event_BotonItemsMouseClicked
 
     private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
         // TODO add your handling code here:
+                
+        Color nuevoColor = new Color(16,106,182);
+        BotonActividades.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseEntered
 
     private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
         // TODO add your handling code here:
+
+        Color nuevoColor = new Color(18,113,199);
+        BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseExited
 
     private void BotonReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseClicked
@@ -368,7 +387,7 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Reportes){
                 System.out.print("El panel esta en: "+ventanacontenedora);
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Mensajes){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof InicioAdmin || ventanacontenedora instanceof OrganizarSalas || ventanacontenedora instanceof Actividades || ventanacontenedora instanceof Mensajes){
                 //Se cierra la ventana en la que se esta para que se visualice la otra
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
@@ -400,7 +419,7 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
         if(ventanacontenedora != null){
             if(ventanacontenedora instanceof Mensajes){
                 System.out.print("El panel esta en Mensajes");
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof OrganizarSalas || ventanacontenedora instanceof Actividades || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
                 Mensajes mensajes = new Mensajes();
@@ -427,13 +446,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
         JFrame ventanacontenedora = (JFrame) SwingUtilities.getWindowAncestor(this);
 
         if(ventanacontenedora != null){
-            if(ventanacontenedora instanceof Mensajes){
-                System.out.print("El panel esta en Mensajes");
-            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Personal || ventanacontenedora instanceof Prestamos || ventanacontenedora instanceof Reportes || ventanacontenedora instanceof InicioAdmin){
+            if(ventanacontenedora instanceof OrganizarSalas){
+                System.out.print("El panel esta en Salas");
+            }else if(ventanacontenedora instanceof Items || ventanacontenedora instanceof Actividades  || ventanacontenedora instanceof Mensajes || ventanacontenedora instanceof InicioAdmin){
                 System.out.println("El panel esta en: "+ ventanacontenedora);
                 ventanacontenedora.dispose();
-                Mensajes mensajes = new Mensajes();
-                mensajes.setVisible(true);
+                OrganizarSalas os = new OrganizarSalas();
+                os.setVisible(true);
 
             }
         }
