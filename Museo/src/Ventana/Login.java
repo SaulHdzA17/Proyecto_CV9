@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class Login {
     
-    public void validarUsuario(JTextField Usuario, JPasswordField Password){
+    public int validarUsuario(JTextField Usuario, JPasswordField Password){
         
     try{
         
@@ -46,17 +46,23 @@ public class Login {
             JOptionPane.showMessageDialog(null, "Usuario correcto");
             InicioAdmin objetoInicioAdmin = new InicioAdmin();
             objetoInicioAdmin.setVisible(true);
+            return 1;
+            
             
         }
         
         else{
             JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+            return 0;
         }
         
         
     }catch(Exception e){
         JOptionPane.showMessageDialog(null, "MEJOR NADOTA"+ e.toString());
-    }}
+    }
+    return 0;
+    
+    }
 
 
     

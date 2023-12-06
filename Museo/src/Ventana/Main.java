@@ -192,7 +192,14 @@ public class Main extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Ventana.Login objetoLogin= new Ventana.Login();
-        objetoLogin.validarUsuario(Usuario, Password);
+        int v = objetoLogin.validarUsuario(Usuario, Password);
+        
+        if(v == 1){
+            this.dispose();
+        }else{
+            //nada
+        }
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

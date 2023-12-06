@@ -55,37 +55,42 @@ public class Personal extends javax.swing.JFrame {
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
-       System.out.println(sql);
-       DefaultTableModel model = new DefaultTableModel();
+       
+        DefaultTableModel model = new DefaultTableModel();
        
        model.addColumn("Id");
        model.addColumn("Nombre");
+       model.addColumn("Usuario");
+       model.addColumn("Contraseña");
        model.addColumn("CURP");
        model.addColumn("RFC");
        model.addColumn("Fecha Contratación");
+       model.addColumn("Correo");
+       model.addColumn("Escolaridad");
        model.addColumn("Edad");
-       model.addColumn("Id Rol");
-       model.addColumn("Id Reporte");
-       model.addColumn("Id Item");
+       model.addColumn("Rol");
        
        TablaPersonal.setModel(model);
-       String [] datos = new String[9];
+       String [] datos = new String[11];
+       
        try {
        st = conexion.createStatement();
        ResultSet rs= st.executeQuery(sql);
-       while(rs.next())  
+       
+       while(rs.next())  {
            
-       {
-       datos[0]=rs.getString(1);
-       datos[1]=rs.getString(2);
-       datos[2]=rs.getString(3);
-       datos[3]=rs.getString(4);
-       datos[4]=rs.getString(5);
-       datos[5]=rs.getString(6);
-       datos[6]=rs.getString(7);
-       datos[7]=rs.getString(8);
-       datos[8]=rs.getString(9);
-       model.addRow(datos);
+            datos[0]=rs.getString(1);
+            datos[1]=rs.getString(2);
+            datos[2]=rs.getString(3);
+            datos[3]=rs.getString(4);
+            datos[4]=rs.getString(5);
+            datos[5]=rs.getString(6);
+            datos[6]=rs.getString(7);
+            datos[7]=rs.getString(8);
+            datos[8]=rs.getString(9);
+            datos[9]=rs.getString(10);
+            datos[10]=rs.getString(11);
+            model.addRow(datos);
        }
        
        }catch(SQLException e){
@@ -93,7 +98,7 @@ public class Personal extends javax.swing.JFrame {
        }
     }
     
-       public static boolean Eliminar(String id){
+    public static boolean Eliminar(String id){
     Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
