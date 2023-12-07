@@ -258,13 +258,13 @@ public class MenuLateral_IC extends javax.swing.JPanel {
     private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
         // TODO add your handling code here:
         Color nuevoColor = new Color(16,106,182);
-        BotonInicio.setBackground(nuevoColor);
+        BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseEntered
 
     private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
         // TODO add your handling code here:
         Color nuevoColor = new Color(18,113,199);
-        BotonInicio.setBackground(nuevoColor);
+        BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseExited
 
     private void BotonReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseClicked

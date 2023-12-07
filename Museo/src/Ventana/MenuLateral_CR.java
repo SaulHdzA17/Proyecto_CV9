@@ -325,13 +325,13 @@ public class MenuLateral_CR extends javax.swing.JPanel {
     private void BotonPrestamosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPrestamosMouseEntered
         // TODO add your handling code here:
         Color nuevoColor = new Color(16,106,182);
-        BotonInicio.setBackground(nuevoColor);
+        BotonPrestamos.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonPrestamosMouseEntered
 
     private void BotonPrestamosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPrestamosMouseExited
         // TODO add your handling code here:
         Color nuevoColor = new Color(18,113,199);
-        BotonInicio.setBackground(nuevoColor);
+        BotonPrestamos.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonPrestamosMouseExited
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
