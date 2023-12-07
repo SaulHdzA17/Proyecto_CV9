@@ -368,13 +368,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
     private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
          // TODO add your handling code here:
         Color nuevoColor = new Color(16,106,182);
-        BotonActividades.setBackground(nuevoColor);
+        BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseEntered
 
     private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
         // TODO add your handling code here:
         Color nuevoColor = new Color(18,113,199);
-        BotonActividades.setBackground(nuevoColor);
+        BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseExited
 
     private void BotonReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseClicked
@@ -459,13 +459,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
     private void BotonOrganizarSalasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseEntered
         // TODO add your handling code here:
         Color nuevoColor = new Color(16,106,182);
-        BotonMensajes.setBackground(nuevoColor);
+        BotonOrganizarSalas.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonOrganizarSalasMouseEntered
 
     private void BotonOrganizarSalasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseExited
         // TODO add your handling code here:
         Color nuevoColor = new Color(18,113,199);
-        BotonMensajes.setBackground(nuevoColor);
+        BotonOrganizarSalas.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonOrganizarSalasMouseExited
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

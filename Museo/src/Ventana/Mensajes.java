@@ -68,6 +68,7 @@ public class Mensajes extends javax.swing.JFrame {
         TablaMensajes = new javax.swing.JTable();
         VerMensajes = new javax.swing.JButton();
         NuevoMensaje = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -141,7 +142,11 @@ public class Mensajes extends javax.swing.JFrame {
 
             }
         ));
-        TablaMensajes.setEnabled(false);
+        TablaMensajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaMensajesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaMensajes);
 
         VerMensajes.setText("Ver mis mensajes");
@@ -163,6 +168,10 @@ public class Mensajes extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(64, 97, 150));
+        jLabel1.setText("Mensajes");
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -177,12 +186,17 @@ public class Mensajes extends javax.swing.JFrame {
                         .addComponent(VerMensajes)
                         .addGap(18, 18, 18)
                         .addComponent(NuevoMensaje)
-                        .addGap(180, 180, 180))))
+                        .addGap(180, 180, 180))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(300, 300, 300))))
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(43, 43, 43)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -221,6 +235,11 @@ public class Mensajes extends javax.swing.JFrame {
         // TODO add your handling code here:
         MostrarMensajes();
     }//GEN-LAST:event_VerMensajesMouseClicked
+
+    private void TablaMensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMensajesMouseClicked
+        // TODO add your handling code here:
+        PasarValoresPanelDetallesMensaje();
+    }//GEN-LAST:event_TablaMensajesMouseClicked
     
     
     private void TipoMenu(){
@@ -271,6 +290,29 @@ public class Mensajes extends javax.swing.JFrame {
                 
             default:
                 JOptionPane.showMessageDialog(null, "Error al desplegar el menu lateral");
+        }
+    }
+    
+    private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaMensajes.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String emisor = String.valueOf(TablaMensajes.getValueAt(rowIndex, 0));  
+            String asunto = String.valueOf(TablaMensajes.getValueAt(rowIndex, 1));  
+            String mensaje = String.valueOf(TablaMensajes.getValueAt(rowIndex, 2));
+            String fecha = String.valueOf(TablaMensajes.getValueAt(rowIndex, 3));
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesMensaje DM = new DetallesMensaje(emisor,asunto, mensaje,fecha);
+            MostrarPanel(DM);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un mensaje para ver sus detalles");
         }
     }
     /**
@@ -427,6 +469,7 @@ public class Mensajes extends javax.swing.JFrame {
     private javax.swing.JPanel PanelInfoFecha;
     public javax.swing.JTable TablaMensajes;
     private javax.swing.JButton VerMensajes;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

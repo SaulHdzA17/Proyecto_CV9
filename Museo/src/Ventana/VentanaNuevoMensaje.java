@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql. CallableStatement;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -89,6 +90,11 @@ public class VentanaNuevoMensaje extends javax.swing.JPanel {
         });
 
         BotonCancelar.setText("Cancelar");
+        BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCancelarActionPerformed(evt);
+            }
+        });
 
         TablaReceptor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -230,6 +236,11 @@ public class VentanaNuevoMensaje extends javax.swing.JPanel {
         InsertarMensaje();
     }//GEN-LAST:event_BotonEnviarMouseClicked
 
+    private void BotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarActionPerformed
+        // TODO add your handling code here:
+        RegresarVentanaanterior();
+    }//GEN-LAST:event_BotonCancelarActionPerformed
+
     private void SeleccionarReceptor(){
         try{
             int fila = TablaReceptor.getSelectedRow();
@@ -369,7 +380,18 @@ public class VentanaNuevoMensaje extends javax.swing.JPanel {
         }
     }
 
+    private void RegresarVentanaanterior(){
+        // Cerrar el panel actual
+        java.awt.Window window = SwingUtilities.getWindowAncestor(this);
+        if (window instanceof java.awt.Frame) {
+            java.awt.Frame frame = (java.awt.Frame) window;
+            frame.dispose();  // Cierra la ventana actual
+        }
 
+        // Mostrar la ventana anterior (Actividades)
+        Actividades actividades = new Actividades();
+        actividades.setVisible(true);
+    }
 
 
 
