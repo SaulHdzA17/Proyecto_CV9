@@ -130,6 +130,11 @@ public class Actividades extends javax.swing.JFrame {
 
             }
         ));
+        TablaActividades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaActividadesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaActividades);
 
         BotonAgregar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -268,6 +273,11 @@ public class Actividades extends javax.swing.JFrame {
 
         //Mostrar("Item");
     }//GEN-LAST:event_MostrarActionPerformed
+
+    private void TablaActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaActividadesMouseClicked
+        // TODO add your handling code here:
+        PasarValoresPanelDetallesMensaje();
+    }//GEN-LAST:event_TablaActividadesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -419,6 +429,27 @@ public class Actividades extends javax.swing.JFrame {
        }
     }
 
+    private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaActividades.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String asunto = String.valueOf(TablaActividades.getValueAt(rowIndex, 1));  
+            String descripcion = String.valueOf(TablaActividades.getValueAt(rowIndex, 2));
+            String fecha = String.valueOf(TablaActividades.getValueAt(rowIndex, 3));
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesActividades DM = new DetallesActividades(asunto, descripcion,fecha);
+            MostrarPanel(DM);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un mensaje para ver sus detalles");
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton BotonAgregar1;

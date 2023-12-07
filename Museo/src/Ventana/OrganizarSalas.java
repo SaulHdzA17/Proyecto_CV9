@@ -6,9 +6,13 @@ package Ventana;
 
 import static Ventana.Items.fechaActual;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -51,7 +55,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
         Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TablaItem = new javax.swing.JTable();
+        TablaSalas = new javax.swing.JTable();
         BotonAgregar1 = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
@@ -116,7 +120,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
         PanelContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        TablaItem.setModel(new javax.swing.table.DefaultTableModel(
+        TablaSalas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -126,7 +130,12 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(TablaItem);
+        TablaSalas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaSalasMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(TablaSalas);
 
         BotonAgregar1.setBackground(new java.awt.Color(255, 255, 255));
         BotonAgregar1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -234,18 +243,18 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
-        VentanaRegistrarItem VRI = new VentanaRegistrarItem();
-        MostrarPanel(VRI);
     }//GEN-LAST:event_BotonAgregar1MouseClicked
 
     private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
         // TODO add your handling code here:
+        RegistrarOrganizacionSala ros = new RegistrarOrganizacionSala();
+        MostrarPanel(ros);
     }//GEN-LAST:event_BotonAgregar1ActionPerformed
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
 
-        int fila=TablaItem.getSelectedRowCount();
+        int fila=TablaSalas.getSelectedRowCount();
         /*if(fila<1){
             JOptionPane.showMessageDialog(null, "Seleccione un registro");
         }
@@ -265,9 +274,14 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
         // TODO add your handling code here:
-
+        MostrarRegistros();
         //Mostrar("Item");
     }//GEN-LAST:event_MostrarActionPerformed
+
+    private void TablaSalasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaSalasMouseClicked
+        // TODO add your handling code here:
+        PasarValoresPanelDetallesMensaje();
+    }//GEN-LAST:event_TablaSalasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -305,7 +319,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
     }
 
     //Metodos para deplegar menus
-        private void MostrarPanelLateral(JPanel p){
+    private void MostrarPanelLateral(JPanel p){
         
 
         
@@ -384,6 +398,62 @@ public class OrganizarSalas extends javax.swing.JFrame {
         }
     }
     
+    public void MostrarRegistros(){
+        String sql="select * from Sala";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       
+        DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Id");
+       model.addColumn("Tematica");
+       model.addColumn("Informacion");
+       model.addColumn("Fecha");
+       
+       TablaSalas.setModel(model);
+       String [] datos = new String[4];
+       
+       try {
+       st = conexion.createStatement();
+       java.sql.ResultSet rs= st.executeQuery(sql);
+       
+       while(rs.next())  {
+           
+            datos[0]=rs.getString(1);
+            datos[1]=rs.getString(2);
+            datos[2]=rs.getString(3);
+            datos[3]=rs.getString(4);
+ 
+            model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+    
+    private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaSalas.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String asunto = String.valueOf(TablaSalas.getValueAt(rowIndex, 1));  
+            String descripcion = String.valueOf(TablaSalas.getValueAt(rowIndex, 2));
+            String fecha = String.valueOf(TablaSalas.getValueAt(rowIndex, 3));
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesSala DS = new DetallesSala(asunto, descripcion,fecha);
+            MostrarPanel(DS);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un mensaje para ver sus detalles");
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton BotonAgregar1;
@@ -395,7 +465,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
     private javax.swing.JButton Mostrar;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
-    public javax.swing.JTable TablaItem;
+    public javax.swing.JTable TablaSalas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

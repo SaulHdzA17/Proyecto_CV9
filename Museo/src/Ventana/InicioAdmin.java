@@ -127,7 +127,7 @@ public class InicioAdmin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        BG.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 380, -1, 60));
+        BG.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 370, 40, 40));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -138,7 +138,7 @@ public class InicioAdmin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 374, 70, 60));
+        BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,7 +215,7 @@ public class InicioAdmin extends javax.swing.JFrame {
                 MostrarPanelLateral(MLECIE);
                 break;
                 
-            case "Coordinador de personal":
+            case "Coordinador del personal de administracion":
                 MenuLateralCoordinadorPersonal MLCP = new MenuLateralCoordinadorPersonal();
                 MostrarPanelLateral(MLCP);
                 break;

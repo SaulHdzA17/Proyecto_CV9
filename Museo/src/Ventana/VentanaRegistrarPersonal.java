@@ -231,7 +231,7 @@ Conexion conect=new Conexion();
             }
         });
 
-        cboRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un rol", "Director", "Conservador", "Restaurador", "Encargado de Catalogadores_Investigadores", "Catalogador", "Investigador", "Educador", "Coordinador del personal de administracion", "Encargado del personal operativo y taquillas", "Administrador de sistemas informaticos", "Jefe de guardias de seguridad", "Guardia", " " }));
+        cboRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un rol", "Director", "Conservador", "Restaurador", "Encargado de Catalogadores_Investigadores", "Catalogador", "Investigador", "Educador", "Coordinador del personal de administracion", "Encargado del personal operativo y taquillas", "Administrador de sistemas informaticos", "Jefe de guardias de seguridad", "Guardia" }));
         cboRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboRolesActionPerformed(evt);
@@ -322,7 +322,7 @@ Conexion conect=new Conexion();
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 91, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -391,10 +391,10 @@ Conexion conect=new Conexion();
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(180, 180, 180)
                                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
