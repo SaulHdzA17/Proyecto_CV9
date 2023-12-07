@@ -182,7 +182,7 @@ public class Reportes extends javax.swing.JFrame {
                 MostrarPanelMenuLateral(MLIC);
                 break;
                 
-            case "Encargado de CIE":
+            case "Encargado de Catalogadores_Investigadores":
                 MenuLateralEncargado_C_I MLECIE = new MenuLateralEncargado_C_I();
                 MostrarPanelMenuLateral(MLECIE);
                 break;

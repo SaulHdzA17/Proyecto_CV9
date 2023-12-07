@@ -43,7 +43,7 @@ public class Conexion {
     //Cambiar valores dependiendo de la computadora 
     String usuario="root";
     String password="12345678";
-    String bd="FG_V4";
+    String bd="FG_V5";
     String ip="localhost";
     String puerto="3306";
     String cadena ="jdbc:mysql://"+ip+":"+puerto+"/"+bd;

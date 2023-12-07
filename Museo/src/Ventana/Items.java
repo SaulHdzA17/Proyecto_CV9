@@ -421,7 +421,7 @@ public class Items extends javax.swing.JFrame {
                 MostrarPanelLateral(MLIC);
                 break;
                 
-            case "Encargado de CIE":
+            case "Encargado de Catalogadores_Investigadores":
                 MenuLateralEncargado_C_I MLECIE = new MenuLateralEncargado_C_I();
                 MostrarPanelLateral(MLECIE);
                 break;

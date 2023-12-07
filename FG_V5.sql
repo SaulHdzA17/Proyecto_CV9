@@ -1,14 +1,19 @@
 -- Crear la base de datos
-CREATE DATABASE IF NOT EXISTS FG_V3;
-USE FG_V3;
+CREATE DATABASE IF NOT EXISTS FG_V5;
+USE FG_V5;
 
 -- Crear la tabla Director
-CREATE TABLE IF NOT EXISTS Director (
+CREATE TABLE IF NOT EXISTS AdminSistema (
    id INT PRIMARY KEY AUTO_INCREMENT,
    nombre VARCHAR(255),
    correo VARCHAR(255),
    usuario VARCHAR(255),
-   contraseña VARCHAR(255)
+   contraseña VARCHAR(255),
+   curp VARCHAR(255),
+   rfc VARCHAR(255),
+   escolaridad VARCHAR(255),
+   edad INT(10),
+   telefono VARCHAR(22)
 
 );
 
@@ -26,9 +31,7 @@ CREATE TABLE IF NOT EXISTS Personal (
    edad INT(10),
    telefono VARCHAR(22),
    rol VARCHAR(50),
-   director_id INT,
-   FOREIGN KEY (director_id) REFERENCES Director(id)
-
+   registrado_por INT
 );
 
 -- Crear la tabla Item
@@ -80,7 +83,7 @@ CREATE TABLE IF NOT EXISTS Chat (
 );
 
 -- Crear Tabla para bitacora de incidentes
-CREATE TABLE IF NOT EXISTS bitacora (
+CREATE TABLE IF NOT EXISTS Bitacora (
     id_reporte INT AUTO_INCREMENT PRIMARY KEY,
     descripcion_incidente TEXT,
     fecha_incidente DATE,
@@ -107,38 +110,51 @@ CREATE TABLE IF NOT EXISTS Visitante (
     FOREIGN KEY (id_usuario_registrador) REFERENCES Personal(id)
 );
 
+-- Tabla para registrar actividades
+CREATE TABLE IF NOT EXISTS Actividad (
+    id_actividad INT AUTO_INCREMENT PRIMARY KEY,
+    asunto TEXT,
+    descripcion_actividad TEXT,
+    fecha_actividad DATE,
+    id_usuario_registrador INT,
+    FOREIGN KEY (id_usuario_registrador) REFERENCES Personal(id)
+);
+
+-- Tabla para registrar Salas
+CREATE TABLE IF NOT EXISTS Sala (
+    id_sala INT AUTO_INCREMENT PRIMARY KEY,
+    tematica TEXT,
+    informacion_sala TEXT,
+    fecha_sala DATE,
+    id_usuario_registrador INT,
+    FOREIGN KEY (id_usuario_registrador) REFERENCES Personal(id)
+);
+
 
 -- Insertar al director en la tabla Director
-INSERT INTO Director (nombre, correo, usuario, contraseña)
-VALUES ('Ramon', 'ramon@gmail.com','ramon123','123');
+INSERT INTO AdminSistema (nombre, correo, usuario, contraseña, curp, rfc, escolaridad, edad, telefono)
+VALUES ('Ramon', 'ramon@gmail.com','ramon123','123', 'ABC1111111', 'ABC22222222', 'Ing en Sistemas', '21', '5566778899');
 
-SELECT * FROM Director;
+ SELECT * FROM AdminSistema;
 
 -- Insertar un nuevo registro en la tabla 'Personal'
-INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, director_id)
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
 VALUES ('Juan Pérez', 'juan123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Investigador', 1);
 
 SELECT * FROM Personal;
 
 -- Insertar un nuevo registro en la tabla 'Personal'
-INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, director_id)
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
 VALUES ('jose', 'jose123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Catalogador', 1);
 
 -- Insertar un nuevo registro en la tabla 'Personal'
-INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, director_id)
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
 VALUES ('Pedro', 'Pedro123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Catalogador', 1);
 
 -- Insertar un nuevo registro en la tabla 'Personal'
-INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, director_id)
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
 VALUES ('Y', 'Y123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Coordinador de personal', 1);
 
--- Eliminar la restricción de clave externa (foreign key)
-ALTER TABLE Personal
-DROP FOREIGN KEY nombre_de_la_foreign_key;
-
--- Eliminar el campo director_id
-ALTER TABLE Personal
-DROP COLUMN director_id;
 
 SELECT * FROM Chat
 WHERE emisor_id = 1
