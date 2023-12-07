@@ -269,7 +269,7 @@ public class Mensajes extends javax.swing.JFrame {
                 MostrarPanelLateral(MLECIE);
                 break;
                 
-            case "Coordinador de personal":
+            case "Coordinador del personal de administracion":
                 MenuLateralCoordinadorPersonal MLCP = new MenuLateralCoordinadorPersonal();
                 MostrarPanelLateral(MLCP);
                 break;
