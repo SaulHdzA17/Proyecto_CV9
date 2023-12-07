@@ -245,7 +245,7 @@ public class Mensajes extends javax.swing.JFrame {
                 MostrarPanelLateral(MLIC);
                 break;
                 
-            case "Encargado de CIE":
+            case "Encargado de Catalogadores_Investigadores":
                 MenuLateralEncargado_C_I MLECIE = new MenuLateralEncargado_C_I();
                 MostrarPanelLateral(MLECIE);
                 break;
@@ -358,6 +358,7 @@ public class Mensajes extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
        
         model.addColumn("Emisor");
+        model.addColumn("Asunto");
         model.addColumn("Mensaje");
         model.addColumn("Fecha");
 
@@ -365,7 +366,7 @@ public class Mensajes extends javax.swing.JFrame {
         TablaMensajes.setModel(model);
        
         //Obtener Datos
-        String [] datos = new String[3];
+        String [] datos = new String[4];
         try {
             //Preparar la conuslta 
             ps = conexion.prepareStatement(consulta);
@@ -400,6 +401,7 @@ public class Mensajes extends javax.swing.JFrame {
                  datos[0]= (NombreEmisor != null) ? NombreEmisor: String.valueOf(idEmisor);
                  datos[1]=rs.getString(4);
                  datos[2]=rs.getString(5);
+                 datos[3]=rs.getString(6);
                  model.addRow(datos);
             }
        
