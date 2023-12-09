@@ -42,7 +42,7 @@ public class Conexion {
     
     //Cambiar valores dependiendo de la computadora 
     String usuario="root";
-    String password="12345678";
+    String password="1234";
     String bd="FG_V5";
     String ip="localhost";
     String puerto="3306";

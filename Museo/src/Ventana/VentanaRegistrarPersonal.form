@@ -57,16 +57,14 @@
                               <Component id="jLabelUsuario" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelContraseña" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" pref="280" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="FechaContratacion" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Component id="jLabelNombre4" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                                  <Component id="jLabelNombre4" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="FechaContratacion" min="-2" pref="293" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -95,21 +93,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jSeparator9" alignment="0" max="32767" attributes="0"/>
-                          <Component id="TxtEdad" alignment="0" pref="257" max="32767" attributes="0"/>
-                          <Component id="jSeparator8" alignment="0" max="32767" attributes="0"/>
-                      </Group>
                       <Component id="jLabelFecha" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="TxtCorreo" min="-2" pref="291" max="-2" attributes="0"/>
-                      <Component id="jSeparator6" min="-2" pref="291" max="-2" attributes="0"/>
                       <Component id="jLabelEdad" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboRoles" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtEscolaridad" min="-2" pref="263" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtTelefono" min="-2" pref="263" max="-2" attributes="0"/>
-                      <Component id="jSeparator10" min="-2" pref="263" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonRegistrar" min="-2" pref="180" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -117,8 +105,18 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButton2" min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jSeparator10" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtTelefono" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparator9" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtEdad" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparator8" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtEscolaridad" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cboRoles" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparator6" alignment="0" pref="291" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="113" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
