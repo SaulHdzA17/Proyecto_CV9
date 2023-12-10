@@ -309,10 +309,10 @@ Conexion conect=new Conexion();
                     .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jSeparator10, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,7 +322,7 @@ Conexion conect=new Conexion();
                         .addComponent(TxtEscolaridad, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(cboRoles, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)))
-                .addGap(0, 113, Short.MAX_VALUE))
+                .addGap(0, 134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,10 +447,20 @@ Conexion conect=new Conexion();
         TxtTelefono.setText("");
 
     }//GEN-LAST:event_jButton2ActionPerformed
+    private void RegresarVentanaanterior(){
+        // Cerrar el panel actual
+        java.awt.Window window = SwingUtilities.getWindowAncestor(this);
+        if (window instanceof java.awt.Frame) {
+            java.awt.Frame frame = (java.awt.Frame) window;
+            frame.dispose();  // Cierra la ventana actual
+        }
 
+        // Mostrar la ventana anterior (Actividades)
+        Personal personal = new Personal();
+        personal.setVisible(true);
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Personal newframe = new Personal();
-        newframe.setVisible(true);
+       RegresarVentanaanterior();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed

@@ -63,38 +63,52 @@ public class VentanaNuevoMensaje extends javax.swing.JPanel {
         TxtEmisor = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(792, 465));
-        setSize(new java.awt.Dimension(792, 465));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
+        BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setText("Nuevo Mensaje");
+        BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 16, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Seleccione al personal al cual desea mandar un mensaje:");
+        BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("De:");
+        BG.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 161, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Mensaje:");
+        BG.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 284, -1, -1));
 
         TxtMensaje.setColumns(20);
         TxtMensaje.setRows(5);
         jScrollPane3.setViewportView(TxtMensaje);
 
-        BotonEnviar.setText("Enviar");
+        BG.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 307, 595, -1));
+
+        BotonEnviar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Enviar.png"))); // NOI18N
         BotonEnviar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonEnviarMouseClicked(evt);
             }
         });
+        BG.add(BotonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 50, 50));
 
-        BotonCancelar.setText("Cancelar");
+        BotonCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
         BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCancelarActionPerformed(evt);
             }
         });
+        BG.add(BotonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 50, 50));
+        BG.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 189, 261, 10));
 
         TablaReceptor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,114 +128,29 @@ public class VentanaNuevoMensaje extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(TablaReceptor);
 
-        jLabel6.setText("Para:");
+        BG.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 69, 260, 60));
+        BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 135, 600, 10));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Para:");
+        BG.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 161, -1, -1));
+        BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 189, 248, 10));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Asunto:");
+        BG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 211, -1, -1));
 
         TxtAsunto.setBorder(null);
+        BG.add(TxtAsunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 226, 597, 30));
+        BG.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 600, 10));
 
         TxtReceptor.setBorder(null);
         TxtReceptor.setEnabled(false);
+        BG.add(TxtReceptor, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 158, 248, 25));
 
         TxtEmisor.setBorder(null);
         TxtEmisor.setEnabled(false);
-
-        javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
-        BG.setLayout(BGLayout);
-        BGLayout.setHorizontalGroup(
-            BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BGLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(9, 9, 9)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(15, 23, Short.MAX_VALUE))
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                                    .addComponent(TxtReceptor))
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(TxtEmisor))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtAsunto, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(BGLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel4)))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotonEnviar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonCancelar)
-                .addGap(32, 32, 32))
-        );
-        BGLayout.setVerticalGroup(
-            BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BGLayout.createSequentialGroup()
-                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addGap(42, 42, 42)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6)
-                                    .addComponent(TxtReceptor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtEmisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtAsunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BotonEnviar)
-                            .addComponent(BotonCancelar))
-                        .addGap(33, 33, 33))
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(41, Short.MAX_VALUE))))
-        );
+        BG.add(TxtEmisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 157, 261, 26));
 
         add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 480));
     }// </editor-fold>//GEN-END:initComponents
@@ -389,8 +318,8 @@ public class VentanaNuevoMensaje extends javax.swing.JPanel {
         }
 
         // Mostrar la ventana anterior (Actividades)
-        Actividades actividades = new Actividades();
-        actividades.setVisible(true);
+        Mensajes mensajes = new Mensajes();
+        mensajes.setVisible(true);
     }
 
 

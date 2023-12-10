@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -234,10 +235,20 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-                Reportes newframe = new Reportes();
-        newframe.setVisible(true);
+    RegresarVentanaanterior();
     }//GEN-LAST:event_jButton1ActionPerformed
+    private void RegresarVentanaanterior(){
+        // Cerrar el panel actual
+        java.awt.Window window = SwingUtilities.getWindowAncestor(this);
+        if (window instanceof java.awt.Frame) {
+            java.awt.Frame frame = (java.awt.Frame) window;
+            frame.dispose();  // Cierra la ventana actual
+        }
 
+        // Mostrar la ventana anterior (Actividades)
+        Reportes reportes = new Reportes();
+        reportes.setVisible(true);
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     Id.setText("");

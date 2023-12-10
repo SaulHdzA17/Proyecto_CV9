@@ -159,6 +159,13 @@ VALUES ('Y', 'Y123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'C
 INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
 VALUES ('T', 'T123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Encargado de Catalogadores_Investigadores', 2);
 
+-- Insertar un nuevo registro en la tabla 'Personal'
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
+VALUES ('V', 'V123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Director', 1);
+
+-- Insertar un nuevo registro en la tabla 'Item'
+INSERT INTO Item (nombre, clasificacion, descripcion, estado, prestamo)
+VALUES ('Retrato', 'Pintura', 'Arte del siglo XV', 'Buen estado', 'Museo local');
 
 SELECT * FROM Chat
 WHERE emisor_id = 1
