@@ -51,9 +51,9 @@ public class DetallesActividades extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setText("Actividad");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Fecha de Actividad:");
 
-        txtfechaactividad.setText("jTextField1");
         txtfechaactividad.setBorder(null);
         txtfechaactividad.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtfechaactividad.addActionListener(new java.awt.event.ActionListener() {
@@ -62,18 +62,20 @@ public class DetallesActividades extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Asunto:");
 
-        txtasunto.setText("jTextField3");
         txtasunto.setBorder(null);
 
-        jLabel5.setText("Mensaje:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Descripción de actividad:");
 
         txtdesripcionactividad.setColumns(20);
         txtdesripcionactividad.setRows(5);
         jScrollPane1.setViewportView(txtdesripcionactividad);
 
-        txtRegresar.setText("Regresar");
+        txtRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        txtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
         txtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRegresarActionPerformed(evt);
@@ -90,7 +92,7 @@ public class DetallesActividades extends javax.swing.JPanel {
                     .addGroup(BGLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtRegresar))
+                        .addComponent(txtRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -101,14 +103,14 @@ public class DetallesActividades extends javax.swing.JPanel {
                     .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtasunto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BGLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtRegresar)
+                    .addComponent(txtRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(BGLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(26, 26, 26)
@@ -127,7 +129,7 @@ public class DetallesActividades extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

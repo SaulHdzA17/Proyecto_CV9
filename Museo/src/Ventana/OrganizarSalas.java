@@ -7,6 +7,7 @@ package Ventana;
 import static Ventana.Items.fechaActual;
 import java.awt.BorderLayout;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
@@ -179,50 +180,45 @@ public class OrganizarSalas extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Organizar Salas");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/OrganizarSalas.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
-            PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
+            PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                            .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(68, 68, 68))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
+                        .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(85, 85, 85)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(PanelContenidoLayout.createSequentialGroup()
-                                .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1, Short.MAX_VALUE))
-                            .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(9, 9, 9))
         );
 
         BG.add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 790, 470));
@@ -240,14 +236,50 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Tematica", "Informacion", "Fecha"};
+        String [] registros = new String [4];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from Sala where id_sala like'%"+buscar+"%' or tematica like'%"+buscar+"%' or informacion_sala like '%"+buscar+"%' or fecha_sala like '%"+buscar+"%'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        java.sql.ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("Tematica");
+        registros[2]=rs.getString("Informacion");
+        registros[3]=rs.getString("Fecha");
 
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }
+    
+    
+    
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonAgregar1MouseClicked
 
     private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
         // TODO add your handling code here:
-        RegistrarOrganizacionSala ros = new RegistrarOrganizacionSala();
+        VentanaRegistrarOrganizacionSala ros = new VentanaRegistrarOrganizacionSala();
         MostrarPanel(ros);
     }//GEN-LAST:event_BotonAgregar1ActionPerformed
 
@@ -268,8 +300,8 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
-        VentanaBuscarItem VBI = new VentanaBuscarItem();
-        MostrarPanel(VBI);
+        VentanaBuscarSala VBS = new VentanaBuscarSala();
+        MostrarPanel(VBS);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed

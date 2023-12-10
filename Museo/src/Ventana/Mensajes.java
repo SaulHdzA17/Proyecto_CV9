@@ -149,7 +149,8 @@ public class Mensajes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaMensajes);
 
-        VerMensajes.setText("Ver mis mensajes");
+        VerMensajes.setBackground(new java.awt.Color(255, 255, 255));
+        VerMensajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ListarMensajes.png"))); // NOI18N
         VerMensajes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VerMensajesMouseClicked(evt);
@@ -161,7 +162,8 @@ public class Mensajes extends javax.swing.JFrame {
             }
         });
 
-        NuevoMensaje.setText("Nuevo Mensaje");
+        NuevoMensaje.setBackground(new java.awt.Color(255, 255, 255));
+        NuevoMensaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AgregarMensajes.png"))); // NOI18N
         NuevoMensaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NuevoMensajeMouseClicked(evt);
@@ -170,38 +172,37 @@ public class Mensajes extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
-        jLabel1.setText("Mensajes");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mensajes.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelContenidoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
+                        .addComponent(VerMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(NuevoMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(309, 309, 309))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(VerMensajes)
-                        .addGap(18, 18, 18)
-                        .addComponent(NuevoMensaje)
-                        .addGap(180, 180, 180))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(300, 300, 300))))
+                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))))
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenidoLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VerMensajes)
-                    .addComponent(NuevoMensaje))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VerMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NuevoMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 

@@ -42,7 +42,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="579" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtRegresar" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegresar" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
                           <Component id="txtasunto" alignment="0" pref="579" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="94" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -66,7 +66,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txtRegresar" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtRegresar" min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
                           <Component id="jScrollPane1" min="-2" pref="153" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace pref="11" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,12 +106,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fecha de Actividad:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtfechaactividad">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -127,12 +129,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Asunto:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtasunto">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField3"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -142,7 +146,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mensaje:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Descripci&#xf3;n de actividad:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -162,7 +169,12 @@
         </Container>
         <Component class="javax.swing.JButton" name="txtRegresar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Regresar"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagenes/Regresar.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRegresarActionPerformed"/>
