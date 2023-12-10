@@ -155,6 +155,10 @@ VALUES ('Pedro', 'Pedro123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01'
 INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
 VALUES ('Y', 'Y123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Coordinador de personal', 1);
 
+-- Insertar un nuevo registro en la tabla 'Personal'
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
+VALUES ('T', 'T123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Encargado de Catalogadores_Investigadores', 2);
+
 
 SELECT * FROM Chat
 WHERE emisor_id = 1

@@ -38,7 +38,7 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
     
     
         public void BuscarId(String tabla){
-        String sql="select ID from Item";
+        String sql="select id from Item";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -65,7 +65,7 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
     }
         
       public void BuscarNombre(String tabla){
-        String sql="select Nombre from Item";
+        String sql="select nombre from Item";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -91,8 +91,35 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
        }
     }
       
-      public void BuscarDesc(String tabla){
-        String sql="select Descripcion from Item";
+      public void BuscarClasificacion(String tabla){
+        String sql="select clasificacion from Item";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Clasificacion");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+      
+      public void BuscarDescripcion(String tabla){
+        String sql="select descripcion from Item";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -117,16 +144,16 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
        JOptionPane.showMessageDialog(null, "Error" + e.toString());
        }
     }
-      
-      public void BuscarCampo(String tabla){
-        String sql="select Campo from Item";
+
+        public void BuscarEstado(String tabla){
+        String sql="select estado from Item";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
        System.out.println(sql);
        DefaultTableModel model = new DefaultTableModel();
        
-       model.addColumn("Campo");
+       model.addColumn("Estado");
               
        tablaLista.setModel(model);
        String [] datos = new String[1];
@@ -144,7 +171,32 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
        JOptionPane.showMessageDialog(null, "Error" + e.toString());
        }
     }
-      
+      public void BuscarPrestamo(String tabla){
+        String sql="select prestamo from Item";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Prestamo");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }      
        
       
       
@@ -159,6 +211,8 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
         BotonFiltroNombre = new javax.swing.JRadioButton();
         BotonFiltroCURP = new javax.swing.JRadioButton();
         BotonFiltroRFC = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         Filtro = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -195,7 +249,7 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
         });
 
         GrpBotonesFiltro.add(BotonFiltroCURP);
-        BotonFiltroCURP.setText("Descripcion");
+        BotonFiltroCURP.setText("Clasificacion");
         BotonFiltroCURP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonFiltroCURPActionPerformed(evt);
@@ -203,10 +257,24 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
         });
 
         GrpBotonesFiltro.add(BotonFiltroRFC);
-        BotonFiltroRFC.setText("Campo");
+        BotonFiltroRFC.setText("Descripcion");
         BotonFiltroRFC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonFiltroRFCActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setText("Estado");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("Prestamo");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
             }
         });
 
@@ -219,8 +287,10 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
                     .addComponent(BotonFiltroID)
                     .addComponent(BotonFiltroNombre)
                     .addComponent(BotonFiltroRFC)
-                    .addComponent(BotonFiltroCURP))
-                .addGap(0, 40, Short.MAX_VALUE))
+                    .addComponent(BotonFiltroCURP)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +303,11 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
                 .addComponent(BotonFiltroCURP)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotonFiltroRFC)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -282,11 +356,11 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
                                     .addComponent(Filtro, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                                     .addComponent(jSeparator1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(BGLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,11 +376,11 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Filtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGap(14, 14, 14)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -327,7 +401,7 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
     private void BotonFiltroIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroIDActionPerformed
         // TODO add your handling code here:
         
-        BuscarId("Personal");
+        BuscarId("Item");
     }//GEN-LAST:event_BotonFiltroIDActionPerformed
 
     
@@ -351,13 +425,23 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
 
     private void BotonFiltroCURPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroCURPActionPerformed
         // TODO add your handling code here:
-        BuscarDesc("Item");
+        BuscarClasificacion("Item");
     }//GEN-LAST:event_BotonFiltroCURPActionPerformed
 
     private void BotonFiltroRFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroRFCActionPerformed
         // TODO add your handling code here:
-        BuscarCampo("Item");
+        BuscarDescripcion("Item");
     }//GEN-LAST:event_BotonFiltroRFCActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        BuscarEstado("Item");
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        BuscarPrestamo("Item");
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -372,6 +456,8 @@ public class VentanaBuscarItem extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tablaLista;

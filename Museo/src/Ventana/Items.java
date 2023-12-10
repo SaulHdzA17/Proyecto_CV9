@@ -58,10 +58,10 @@ public class Items extends javax.swing.JFrame {
        
        model.addColumn("Id");
        model.addColumn("Nombre");
+       model.addColumn("Clasificacion");
        model.addColumn("Descripcion");
-       model.addColumn("Id Prestamo");
-       model.addColumn("Id Personal");
-       model.addColumn("Campo");
+       model.addColumn("Estado");
+       model.addColumn("Prestamo");
        
        TablaItem.setModel(model);
        String [] datos = new String[6];
