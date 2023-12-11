@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS Personal (
    rol VARCHAR(50),
    registrado_por INT
 );
-
+select * from Personal;
 -- Crear la tabla Item
 CREATE TABLE IF NOT EXISTS Item (
    id INT PRIMARY KEY AUTO_INCREMENT,

@@ -44,7 +44,7 @@ public class Reportes extends javax.swing.JFrame {
     }
 
     public void Mostrar(String tabla){
-        String sql="select * from Reportes";
+        String sql="select * from Reporte";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -56,11 +56,10 @@ public class Reportes extends javax.swing.JFrame {
        model.addColumn("Fecha Inicio");
        model.addColumn("Fecha Fin");
        model.addColumn("Estado");
-       model.addColumn("Id Item");
 
        
        TablaReportes.setModel(model);
-       String [] datos = new String[6];
+       String [] datos = new String[5];
        try {
        st = conexion.createStatement();
        ResultSet rs= st.executeQuery(sql);
@@ -72,7 +71,6 @@ public class Reportes extends javax.swing.JFrame {
        datos[2]=rs.getString(3);
        datos[3]=rs.getString(4);
        datos[4]=rs.getString(5);
-       datos[5]=rs.getString(6);
 
        model.addRow(datos);
        }

@@ -23,7 +23,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author axel
+ * @author tania
  */
 public class Items extends javax.swing.JFrame {
     //
@@ -90,7 +90,7 @@ public class Items extends javax.swing.JFrame {
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
         
-        String SQL="delete from Item where ID="+id;
+        String SQL="delete from Item where id="+id;
         try{
         ps=cn.prepareStatement(SQL);
         ps.execute();
@@ -106,10 +106,10 @@ public class Items extends javax.swing.JFrame {
     
     public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Nombre", "Descripcion", "Campo"};
-        String [] registros = new String [4];
+        String [] nombreColumna={"Id", "Nombre", "Descripcion", "Estado", "Prestamo"};
+        String [] registros = new String [5];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Item where ID like'%"+buscar+"%' or Nombre like'%"+buscar+"%' or Descripcion like '%"+buscar+"%' or Campo like '%"+buscar+"%'";
+        String sql="select * from Item where id like'"+buscar+"' or nombre like'"+buscar+"' or descripcion like '"+buscar+"' or estado like '"+buscar+"' or prestamo like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -125,7 +125,8 @@ public class Items extends javax.swing.JFrame {
         registros[0]=rs.getString("Id");
         registros[1]=rs.getString("Nombre");
         registros[2]=rs.getString("Descripcion");
-        registros[3]=rs.getString("Campo");
+        registros[3]=rs.getString("Estado");
+        registros[4]=rs.getString("Prestamo");
 
        
    

@@ -39,7 +39,7 @@ public class VentanaBuscarPrestamos extends javax.swing.JPanel {
     
     
         public void BuscarId(String tabla){
-        String sql="select ID from Prestamo";
+        String sql="select id from Prestamo";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -66,7 +66,7 @@ public class VentanaBuscarPrestamos extends javax.swing.JPanel {
     }
         
       public void BuscarInicio(String tabla){
-        String sql="select InicioPrestamo from Prestamo";
+        String sql="select incio_prestamo from Prestamo";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -93,7 +93,7 @@ public class VentanaBuscarPrestamos extends javax.swing.JPanel {
     }
       
       public void BuscarFin(String tabla){
-        String sql="select FinPrestamo from Prestamo";
+        String sql="select fin_prestamo from Prestamo";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -120,7 +120,7 @@ public class VentanaBuscarPrestamos extends javax.swing.JPanel {
     }
       
       public void BuscarMotivo(String tabla){
-        String sql="select Motivo from Prestamo";
+        String sql="select motivo from Prestamo";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();

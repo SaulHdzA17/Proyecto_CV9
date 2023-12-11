@@ -119,7 +119,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="96" green="61" red="40" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Buscar Prestamos"/>
+            <Property name="text" type="java.lang.String" value="Buscar Reportes"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">

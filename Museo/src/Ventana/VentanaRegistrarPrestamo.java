@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,46 +29,40 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void Guardar(){
-    String Identificador = Id.getText();
-    String FechaI =Inicio.getText();
-    String FechaF=Fin.getText();
-    String MotivoPrestamo=Motivo.getText();
-    String IdI=IdItem.getText();
-    String IdP=IdPersonal.getText();
-
-    String sql="Insert into Prestamo () values (?,?,?,?,?,?)";
-    try{
-    Statement st=conectar.createStatement();
-    ResultSet resultado= st.executeQuery("select * from Prestamo where ID like'"+Id.getText()+"'");
-    if (resultado.next()){
-    getToolkit().beep();
-    JOptionPane.showMessageDialog(null, "Ese identificador ya está ocupado");
-    Id.requestFocus();
-            } else if(Id.getText().isEmpty()){
-            getToolkit().beep();
-    JOptionPane.showMessageDialog(null, "Ingrese un identificador");
-    Id.requestFocus();
-            } else{
-            
-            PreparedStatement pasardatos =conectar.prepareStatement(sql);
-            
-            pasardatos.setString(1, Identificador);
-            pasardatos.setString(2, FechaI);
-            pasardatos.setString(3, FechaF);
-            pasardatos.setString(4, MotivoPrestamo);
-            pasardatos.setString(5, IdI);
-            pasardatos.setString(6, IdP);
-            pasardatos.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro exitoso");
-   
-            }
+    public void RegistrarPrestamo(){
     
+    SimpleDateFormat ip = new SimpleDateFormat("yyyy-MM-dd");
+    String fecha_inicio = ip.format(InicioP.getCalendar().getTime());
+    System.out.print("Formato de fecha de inicio de prestamo: " + fecha_inicio);
+    
+    SimpleDateFormat fp = new SimpleDateFormat("yyyy-MM-dd");
+    String fecha_fin = fp.format(FinP.getCalendar().getTime());
+    System.out.print("Formato de fecha de fin de prestamo: " + fecha_fin);
+    
+    String M = Motivo.getText();
+    //Obtengo el ID del usuario activo 
+    int idusuarioactivo = SesionUsuario.getUsuarioActivo();
+
+          
+    String sql = "INSERT INTO Prestamo (incio_prestamo, fin_prestamo, motivo, personal_id) VALUES (?,?,?,?)";
+    
+    try{  
+        PreparedStatement pasardatos =conectar.prepareStatement(sql);
+            
+        pasardatos.setString(1, fecha_inicio);
+        pasardatos.setString(2, fecha_fin);
+        pasardatos.setString(3, M);
+        pasardatos.setInt(4, idusuarioactivo);
+
+        
+        pasardatos.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Registro exitoso"); 
+        
     }catch (SQLException e){
         Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
     }
     
-    }    
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,22 +74,15 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
         BG = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         BotonRegistrar = new javax.swing.JButton();
-        Id = new javax.swing.JTextField();
-        Inicio = new javax.swing.JTextField();
-        Fin = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         Motivo = new javax.swing.JTextField();
-        IdItem = new javax.swing.JTextField();
-        t = new javax.swing.JLabel();
-        IdPersonal = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        InicioP = new com.toedter.calendar.JDateChooser();
+        FinP = new com.toedter.calendar.JDateChooser();
 
         setPreferredSize(new java.awt.Dimension(790, 470));
 
@@ -104,19 +92,14 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setText("Registrar Préstamo");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Identificador");
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Fecha Inicio Prestamo (AAAA-MM-DD):");
+        jLabel3.setText("Fecha Inicio Prestamo ");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Fecha Fin Prestamo (AAAA-MM-DD):");
+        jLabel4.setText("Fecha Fin Prestamo ");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Motivo");
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         BotonRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         BotonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,12 +109,6 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
                 BotonRegistrarActionPerformed(evt);
             }
         });
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Identificador del item");
-
-        t.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        t.setText("Identificador del personal");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
@@ -156,81 +133,51 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
             .addGroup(BGLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel2))
-                                .addGap(243, 243, 243))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Motivo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Fin, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Inicio, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Id))
-                                .addGap(36, 36, 36)))
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addContainerGap(481, Short.MAX_VALUE))
+                    .addGroup(BGLayout.createSequentialGroup()
                         .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addComponent(jLabel6)
-                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(t)
-                                .addComponent(IdPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                                .addComponent(IdItem)))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Motivo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BGLayout.createSequentialGroup()
+                                        .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(InicioP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FinP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(27, 27, 27)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BGLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(InicioP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FinP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Motivo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6))
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(IdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(t)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(IdPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Motivo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -247,7 +194,7 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
     private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
         // TODO add your handling code here:
-        Guardar();
+        RegistrarPrestamo();
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -268,12 +215,9 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    Id.setText("");
-    Inicio.setText("");
-    Fin.setText("");
+    InicioP.setDate(null);  
+    FinP.setDate(null); 
     Motivo.setText("");
-    IdItem.setText("");
-    IdPersonal.setText("");    
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -282,21 +226,14 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton BotonRegistrar;
-    private javax.swing.JTextField Fin;
-    private javax.swing.JTextField Id;
-    private javax.swing.JTextField IdItem;
-    private javax.swing.JTextField IdPersonal;
-    private javax.swing.JTextField Inicio;
+    private com.toedter.calendar.JDateChooser FinP;
+    private com.toedter.calendar.JDateChooser InicioP;
     private javax.swing.JTextField Motivo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel t;
     // End of variables declaration//GEN-END:variables
 }

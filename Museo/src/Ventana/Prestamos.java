@@ -56,12 +56,10 @@ public class Prestamos extends javax.swing.JFrame {
        model.addColumn("Inicio Prestamo");
        model.addColumn("Fin Prestamo");
        model.addColumn("Motivo");
-       model.addColumn("Id Item");
-       model.addColumn("Id Personal");
-
+      
        
        TablaPrestamos.setModel(model);
-       String [] datos = new String[6];
+       String [] datos = new String[4];
        try {
        st = conexion.createStatement();
        ResultSet rs= st.executeQuery(sql);
@@ -72,8 +70,6 @@ public class Prestamos extends javax.swing.JFrame {
        datos[1]=rs.getString(2);
        datos[2]=rs.getString(3);
        datos[3]=rs.getString(4);
-       datos[4]=rs.getString(5);
-       datos[5]=rs.getString(6);
 
        model.addRow(datos);
        }
@@ -83,7 +79,7 @@ public class Prestamos extends javax.swing.JFrame {
        }
     }    
     
-           public static boolean Eliminar(String id){
+        public static boolean Eliminar(String id){
         Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;

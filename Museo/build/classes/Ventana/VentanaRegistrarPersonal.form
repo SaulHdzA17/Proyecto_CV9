@@ -565,7 +565,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha de contrataci&#xf2;n (AAAA-MM-DD)"/>
+            <Property name="text" type="java.lang.String" value="Fecha de contrataci&#xf2;n "/>
           </Properties>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="FechaContratacion">

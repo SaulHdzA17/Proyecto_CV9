@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -45,16 +46,12 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Boton_Registrar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        Id = new javax.swing.JTextField();
-        Desc = new javax.swing.JTextField();
-        Inicio = new javax.swing.JTextField();
-        Fin = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        IdItem = new javax.swing.JTextField();
+        DescripcionR = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Estado = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        FechaI = new com.toedter.calendar.JDateChooser();
+        FechaF = new com.toedter.calendar.JDateChooser();
 
         setPreferredSize(new java.awt.Dimension(790, 470));
 
@@ -68,10 +65,10 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
         jLabel2.setText("Descripcion del Reporte");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Fecha de Inicio (AAAA-MM-DD):");
+        jLabel3.setText("Fecha de Inicio");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Fecha Fin (AAAA-MM-DD):");
+        jLabel4.setText("Fecha Fin");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Estado del Reporte:");
@@ -84,12 +81,6 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Identificador");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Identificador del item");
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +89,7 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
             }
         });
 
-        Estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un estado", "En proceso", "Finalizado" }));
+        Estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un estado de reporte", "Pendiente", "En proceso", "Finalizado" }));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Limpiar.png"))); // NOI18N
@@ -117,23 +108,19 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(BGLayout.createSequentialGroup()
-                        .addComponent(Boton_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addComponent(IdItem)
-                    .addComponent(Estado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Fin)
-                    .addComponent(Inicio)
-                    .addComponent(Desc)
-                    .addComponent(Id)
+                        .addComponent(Boton_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Estado, 0, 316, Short.MAX_VALUE)
+                    .addComponent(DescripcionR)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FechaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(FechaF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(445, Short.MAX_VALUE))
         );
         BGLayout.setVerticalGroup(
@@ -141,37 +128,28 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
             .addGroup(BGLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(DescripcionR, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Boton_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Boton_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -185,52 +163,52 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
             .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    public void Guardar(){
-    String Identificador = Id.getText();
-    String Descripcion =Desc.getText();
-    String FInicio=Inicio.getText();
-    String FFinal=Fin.getText();
-    String E=Estado.getSelectedItem().toString();
-    String IdI= IdItem.getText();
-    String sql="Insert into Reportes () values (?,?,?,?,?,?)";
-    try{
-    Statement st=conectar.createStatement();
-    ResultSet resultado= st.executeQuery("select * from Reportes where ID like'"+Id.getText()+"'");
-    if (resultado.next()){
-    getToolkit().beep();
-    JOptionPane.showMessageDialog(null, "Ese identificador ya está ocupado");
-    Id.requestFocus();
-            } else if(Id.getText().isEmpty()){
-            getToolkit().beep();
-    JOptionPane.showMessageDialog(null, "Ingrese un identificador");
-    Id.requestFocus();
-            } else{
-            
-            PreparedStatement pasardatos =conectar.prepareStatement(sql);
-            
-            pasardatos.setString(1, Identificador);
-            pasardatos.setString(2, Descripcion);
-            pasardatos.setString(3, FInicio);
-            pasardatos.setString(4, FFinal);
-            pasardatos.setString(5, E);
-            pasardatos.setString(6, IdI);
-            pasardatos.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro exitoso");
-   
-            }
+
+    public void RegistrarReporte(){
     
+    String D = DescripcionR.getText();  
+    
+    SimpleDateFormat ip = new SimpleDateFormat("yyyy-MM-dd");
+    String fecha_inicio = ip.format(FechaI.getCalendar().getTime());
+    System.out.print("Formato de fecha de inicio de reporte: " + fecha_inicio);
+    
+    SimpleDateFormat fp = new SimpleDateFormat("yyyy-MM-dd");
+    String fecha_fin = fp.format(FechaF.getCalendar().getTime());
+    System.out.print("Formato de fecha de fin de reporte: " + fecha_fin);
+    
+    
+    String E = Estado.getSelectedItem().toString();
+    //Obtengo el ID del usuario activo 
+    int idusuarioactivo = SesionUsuario.getUsuarioActivo();
+
+          
+    String sql = "INSERT INTO Reporte (descripcion, fecha_inicio, fecha_fin, estado, personal_id) VALUES (?,?,?,?,?)";
+    
+    try{  
+        PreparedStatement pasardatos =conectar.prepareStatement(sql);
+        
+        pasardatos.setString(1, D);
+        pasardatos.setString(2, fecha_inicio);
+        pasardatos.setString(3, fecha_fin);
+        pasardatos.setString(4, E);
+        pasardatos.setInt(5, idusuarioactivo);
+
+        
+        pasardatos.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Registro exitoso"); 
+        
     }catch (SQLException e){
         Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
     }
     
-    }
+    }     
     
     
     
     
     private void Boton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_RegistrarActionPerformed
         // TODO add your handling code here:
-                Guardar();
+    RegistrarReporte();
     }//GEN-LAST:event_Boton_RegistrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -251,12 +229,10 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    Id.setText("");
-    Desc.setText("");
-    Inicio.setText("");
-    Fin.setText("");
-    IdItem.setText("");    
-        
+    DescripcionR.setText("");
+    FechaI.setDate(null);  
+    FechaF.setDate(null);    
+    Estado.setSelectedItem("Seleccione un estado de reporte");    
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -264,12 +240,10 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton Boton_Registrar;
-    private javax.swing.JTextField Desc;
+    private javax.swing.JTextField DescripcionR;
     private javax.swing.JComboBox<String> Estado;
-    private javax.swing.JTextField Fin;
-    private javax.swing.JTextField Id;
-    private javax.swing.JTextField IdItem;
-    private javax.swing.JTextField Inicio;
+    private com.toedter.calendar.JDateChooser FechaF;
+    private com.toedter.calendar.JDateChooser FechaI;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -277,7 +251,5 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

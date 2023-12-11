@@ -68,10 +68,11 @@ public class Personal extends javax.swing.JFrame {
        model.addColumn("Correo");
        model.addColumn("Escolaridad");
        model.addColumn("Edad");
+       model.addColumn("Telefono");
        model.addColumn("Rol");
        
        TablaPersonal.setModel(model);
-       String [] datos = new String[11];
+       String [] datos = new String[12];
        
        try {
        st = conexion.createStatement();
@@ -90,6 +91,8 @@ public class Personal extends javax.swing.JFrame {
             datos[8]=rs.getString(9);
             datos[9]=rs.getString(10);
             datos[10]=rs.getString(11);
+            datos[11]=rs.getString(12);
+            
             model.addRow(datos);
        }
        
@@ -103,7 +106,7 @@ public class Personal extends javax.swing.JFrame {
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
         
-        String SQL="delete from Personal where ID="+id;
+        String SQL="delete from Personal where id="+id;
         try{
         ps=cn.prepareStatement(SQL);
         ps.execute();
@@ -119,10 +122,10 @@ public class Personal extends javax.swing.JFrame {
        
         public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Nombre", "CURP", "RFC", "FechaContratacion", "Edad"};
+        String [] nombreColumna={"Id", "Nombre", "Usuario", "Contraseña", "CURP", "RFC"};
         String [] registros = new String [6];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Personal where ID like'%"+buscar+"%' or Nombre like'%"+buscar+"%' or CURP like '%"+buscar+"%' or RFC like '%"+buscar+"%' or FechaContratacion like '%"+buscar+"%' or edad like '%"+buscar+"%'";
+        String sql="select * from Personal where id like'"+buscar+"' or nombre like '"+buscar+"' or usuario like '"+buscar+"' or contraseña like '"+buscar+"' or curp like '"+buscar+"' or rfc like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -137,10 +140,11 @@ public class Personal extends javax.swing.JFrame {
         while(rs.next()){
         registros[0]=rs.getString("Id");
         registros[1]=rs.getString("Nombre");
-        registros[2]=rs.getString("CURP");
-        registros[3]=rs.getString("RFC");
-        registros[4]=rs.getString("FechaContratacion");
-        registros[5]=rs.getString("Edad");
+        registros[2]=rs.getString("Usuario");
+        registros[3]=rs.getString("Contraseña");
+        registros[4]=rs.getString("CURP");
+        registros[5]=rs.getString("RFC");
+
        
    
         modelo.addRow(registros);

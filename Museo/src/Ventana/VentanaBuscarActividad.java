@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author jauregui
+ * @author tania
  */
 public class VentanaBuscarActividad extends javax.swing.JPanel {
 

@@ -39,7 +39,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
     
     
         public void BuscarId(String tabla){
-        String sql="select ID from Personal";
+        String sql="select id from Personal";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -66,7 +66,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
     }
         
       public void BuscarNombre(String tabla){
-        String sql="select Nombre from Personal";
+        String sql="select nombre from Personal";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -91,9 +91,62 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
        JOptionPane.showMessageDialog(null, "Error" + e.toString());
        }
     }
+      public void BuscarUsuario(String tabla){
+        String sql="select usuario from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Usuario");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }   
       
-      public void BuscarCURP(String tabla){
-        String sql="select CURP from Personal";
+ 
+      public void BuscarContraseña(String tabla){
+        String sql="select contraseña from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Contraseña");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+     public void BuscarCURP(String tabla){
+        String sql="select curp from Personal";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -118,9 +171,9 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
        JOptionPane.showMessageDialog(null, "Error" + e.toString());
        }
     }
-      
+     
       public void BuscarRFC(String tabla){
-        String sql="select RFC from Personal";
+        String sql="select rfc from Personal";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -147,14 +200,14 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
     }
       
       public void BuscarFecha(String tabla){
-        String sql="select FechaContratacion from Personal";
+        String sql="select fecha_contratacion from Personal";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
        System.out.println(sql);
        DefaultTableModel model = new DefaultTableModel();
        
-       model.addColumn("Fechya Contratacion ");
+       model.addColumn("Fecha Contratacion ");
               
        tablaLista.setModel(model);
        String [] datos = new String[1];
@@ -172,6 +225,61 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
        JOptionPane.showMessageDialog(null, "Error" + e.toString());
        }
     }
+      
+      public void BuscarCorreo(String tabla){
+        String sql="select correo from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Correo");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+      
+      public void BuscarEscolaridad(String tabla){
+        String sql="select escolaridad from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Escolaridad");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }      
+
       public void BuscarEdad(String tabla){
         String sql="select edad from Personal";
         Statement st;
@@ -197,8 +305,61 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
        }catch(SQLException e){
        JOptionPane.showMessageDialog(null, "Error" + e.toString());
        }
-    }      
+    }   
       
+      public void BuscarTelefono(String tabla){
+        String sql="select telefono from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Telefono");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }
+      
+      public void BuscarRol(String tabla){
+        String sql="select rol from Personal";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Rol");
+              
+       tablaLista.setModel(model);
+       String [] datos = new String[1];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+              model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }      
       
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -213,6 +374,12 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
         BotonFiltroRFC = new javax.swing.JRadioButton();
         BotonFiltroEdad = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         Filtro = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -250,7 +417,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
         });
 
         GrpBotonesFiltro.add(BotonFiltroCURP);
-        BotonFiltroCURP.setText("CURP");
+        BotonFiltroCURP.setText("Usuario");
         BotonFiltroCURP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonFiltroCURPActionPerformed(evt);
@@ -258,7 +425,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
         });
 
         GrpBotonesFiltro.add(BotonFiltroRFC);
-        BotonFiltroRFC.setText("RFC");
+        BotonFiltroRFC.setText("Contraseña");
         BotonFiltroRFC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonFiltroRFCActionPerformed(evt);
@@ -266,17 +433,59 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
         });
 
         GrpBotonesFiltro.add(BotonFiltroEdad);
-        BotonFiltroEdad.setText("Edad");
+        BotonFiltroEdad.setText("RFC");
         BotonFiltroEdad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonFiltroEdadActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setText("Fecha Contratacion");
+        jRadioButton1.setText("CURP");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("Fecha Contratacion");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton3.setText("Correo");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton4.setText("Escolaridad");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton5.setText("Edad");
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton6.setText("Telefono");
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton7.setText("Rol");
+        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton7ActionPerformed(evt);
             }
         });
 
@@ -284,15 +493,18 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonFiltroID)
-                    .addComponent(BotonFiltroNombre)
-                    .addComponent(BotonFiltroEdad)
-                    .addComponent(BotonFiltroRFC)
-                    .addComponent(BotonFiltroCURP)
-                    .addComponent(jRadioButton1))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(BotonFiltroID)
+            .addComponent(BotonFiltroNombre)
+            .addComponent(BotonFiltroEdad)
+            .addComponent(BotonFiltroRFC)
+            .addComponent(BotonFiltroCURP)
+            .addComponent(jRadioButton1)
+            .addComponent(jRadioButton2)
+            .addComponent(jRadioButton3)
+            .addComponent(jRadioButton4)
+            .addComponent(jRadioButton5)
+            .addComponent(jRadioButton6)
+            .addComponent(jRadioButton7)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,7 +521,18 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
                 .addComponent(jRadioButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotonFiltroEdad)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButton7))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -439,28 +662,58 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        BuscarFecha("Personal");
+        BuscarCURP("Personal");
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void BotonFiltroCURPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroCURPActionPerformed
         // TODO add your handling code here:
-        BuscarCURP("Personal");
+        BuscarUsuario("Personal");
     }//GEN-LAST:event_BotonFiltroCURPActionPerformed
 
     private void BotonFiltroRFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroRFCActionPerformed
         // TODO add your handling code here:
-        BuscarRFC("Personal");
+        BuscarContraseña("Personal");
     }//GEN-LAST:event_BotonFiltroRFCActionPerformed
 
     private void BotonFiltroEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroEdadActionPerformed
         // TODO add your handling code here:
-        BuscarEdad("Personal");
+        BuscarRFC("Personal");
     }//GEN-LAST:event_BotonFiltroEdadActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         RegresarVentanaanterior();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        BuscarFecha("Personal");
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+        BuscarCorreo("Personal");
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+        BuscarEscolaridad("Personal");
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        // TODO add your handling code here:
+        BuscarEdad("Personal");
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        // TODO add your handling code here:}
+        BuscarTelefono("Personal");
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+        // TODO add your handling code here:
+        BuscarRol("Personal");
+    }//GEN-LAST:event_jRadioButton7ActionPerformed
 
     private void RegresarVentanaanterior(){
         // Cerrar el panel actual
@@ -489,6 +742,12 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tablaLista;

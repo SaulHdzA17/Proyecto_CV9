@@ -250,7 +250,7 @@ Conexion conect=new Conexion();
 
         TxtTelefono.setBorder(null);
 
-        jLabel5.setText("Fecha de contrataciòn (AAAA-MM-DD)");
+        jLabel5.setText("Fecha de contrataciòn ");
 
         FechaContratacion.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {

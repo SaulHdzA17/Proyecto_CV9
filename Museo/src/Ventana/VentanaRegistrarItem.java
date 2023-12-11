@@ -377,6 +377,7 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
           NombreItem.setText("");
           ClasificacionItem.setText("");
           DescripcionItem.setText("");
+          EstadoItem.setSelectedItem("Seleccionar estado");
           PrestamoItem.setText("");
          
         

@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author jauregui
+ * @author tania
  */
 public class VentanaBuscarSala extends javax.swing.JPanel {
 

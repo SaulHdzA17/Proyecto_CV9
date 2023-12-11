@@ -39,7 +39,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
     
     
         public void BuscarId(String tabla){
-        String sql="select ID from Reportes";
+        String sql="select id from Reporte";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -65,7 +65,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
        }
     }
         public void BuscarDesc(String tabla){
-        String sql="select Descripcion from Reportes";
+        String sql="select descripcion from Reporte";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -92,7 +92,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
     }
         
       public void BuscarInicio(String tabla){
-        String sql="select Fecha_Inicio from Reportes";
+        String sql="select fecha_inicio from Reporte";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -119,7 +119,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
     }
       
       public void BuscarFin(String tabla){
-        String sql="select Fecha_Fin from Reportes";
+        String sql="select fecha_fin from Reporte";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -146,7 +146,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
     }
       
       public void BuscarEstado(String tabla){
-        String sql="select Estado from Reportes";
+        String sql="select estado from Reporte";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();
@@ -201,7 +201,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
-        jLabel1.setText("Buscar Prestamos");
+        jLabel1.setText("Buscar Reportes");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar por:"));
@@ -378,7 +378,7 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
     private void BotonFiltroIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroIDActionPerformed
         // TODO add your handling code here:
         
-        BuscarId("Reportes");
+        BuscarId("Reporte");
     }//GEN-LAST:event_BotonFiltroIDActionPerformed
 
     
@@ -397,22 +397,22 @@ public class VentanaBuscarReportes extends javax.swing.JPanel {
 
     private void BotonFiltroNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroNombreActionPerformed
         // TODO add your handling code here:
-        BuscarDesc("Reportes");
+        BuscarDesc("Reporte");
     }//GEN-LAST:event_BotonFiltroNombreActionPerformed
 
     private void BotonFiltroCURPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroCURPActionPerformed
         // TODO add your handling code here:
-        BuscarInicio("Reportes");
+        BuscarInicio("Reporte");
     }//GEN-LAST:event_BotonFiltroCURPActionPerformed
 
     private void BotonFiltroRFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltroRFCActionPerformed
         // TODO add your handling code here:
-        BuscarFin("Reportes");
+        BuscarFin("Reporte");
     }//GEN-LAST:event_BotonFiltroRFCActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        BuscarEstado("Reportes");
+        BuscarEstado("Reporte");
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
