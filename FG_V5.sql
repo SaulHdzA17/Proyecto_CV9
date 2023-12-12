@@ -58,10 +58,11 @@ CREATE TABLE IF NOT EXISTS Reporte (
    FOREIGN KEY (personal_id) REFERENCES Personal(id)
    -- Otras columnas específicas del reporte
 );
+Select * from Reporte where id =1 or fecha_inicio =2023-12-07;
 
 CREATE TABLE IF NOT EXISTS Prestamo (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-   incio_prestamo DATE,
+   inicio_prestamo DATE,
    fin_prestamo DATE,
    motivo TEXT,
    personal_id INT,
@@ -69,7 +70,7 @@ CREATE TABLE IF NOT EXISTS Prestamo (
    FOREIGN KEY (personal_id) REFERENCES Personal(id),
    FOREIGN KEY (item_id) REFERENCES Item(id)
 );
-
+select * from Prestamo;
 -- Crear la tabla Chat
 CREATE TABLE IF NOT EXISTS Chat (
    id INT PRIMARY KEY AUTO_INCREMENT,
@@ -112,7 +113,7 @@ CREATE TABLE IF NOT EXISTS Visitante (
 
 -- Tabla para registrar actividades
 CREATE TABLE IF NOT EXISTS Actividad (
-    id_actividad INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     asunto TEXT,
     descripcion_actividad TEXT,
     fecha_actividad DATE,
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS Actividad (
 
 -- Tabla para registrar Salas
 CREATE TABLE IF NOT EXISTS Sala (
-    id_sala INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     tematica TEXT,
     informacion_sala TEXT,
     fecha_sala DATE,

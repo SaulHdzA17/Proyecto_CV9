@@ -100,10 +100,10 @@ public class Prestamos extends javax.swing.JFrame {
 
         public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "InicioPrestamo", "FinPrestamo", "Motivo"};
+        String [] nombreColumna={"Id", "Inicio_Prestamo","Fin_Prestamo"};
         String [] registros = new String [4];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Prestamo where ID like'%"+buscar+"%' or InicioPrestamo like'%"+buscar+"%' or FinPrestamo like '%"+buscar+"%' or Motivo like '%"+buscar+"%'";
+        String sql="Select * from Prestamo where id like '"+buscar+"' or inicio_prestamo like '"+buscar+"' or fin_prestamo like '"+buscar+"' or motivo like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -117,9 +117,10 @@ public class Prestamos extends javax.swing.JFrame {
         
         while(rs.next()){
         registros[0]=rs.getString("Id");
-        registros[1]=rs.getString("InicioPrestamo");
-        registros[2]=rs.getString("FinPrestamo");
+        registros[1]=rs.getString("Inicio_Prestamo");
+        registros[2]=rs.getString("Fin_Prestamo");
         registros[3]=rs.getString("Motivo");
+
 
        
    

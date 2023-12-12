@@ -39,7 +39,7 @@ public class VentanaBuscarActividad extends javax.swing.JPanel {
     
     
         public void BuscarId(String tabla){
-        String sql="select id_actividad from Actividad";
+        String sql="select id from Actividad";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();

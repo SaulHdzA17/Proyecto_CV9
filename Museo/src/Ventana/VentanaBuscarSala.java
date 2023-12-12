@@ -39,7 +39,7 @@ public class VentanaBuscarSala extends javax.swing.JPanel {
     
     
         public void BuscarId(String tabla){
-        String sql="select id_sala from Sala";
+        String sql="select id from Sala";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();

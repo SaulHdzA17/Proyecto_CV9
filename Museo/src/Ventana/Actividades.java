@@ -239,10 +239,10 @@ public class Actividades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Asunto", "Descripcion", "Fecha Actividad"};
+        String [] nombreColumna={"Id", "Asunto", "Descripcion_Actividad", "Fecha_Actividad"};
         String [] registros = new String [4];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Actividad where id_actividad like'%"+buscar+"%' or asunto like'%"+buscar+"%' or descripcion_actividad like '%"+buscar+"%' or fecha_actividad like '%"+buscar+"%'";
+        String sql="select * from Actividad where id like '"+buscar+"' or asunto like '"+buscar+"' or descripcion_actividad like '"+buscar+"' or fecha_actividad like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -257,8 +257,8 @@ public class Actividades extends javax.swing.JFrame {
         while(rs.next()){
         registros[0]=rs.getString("Id");
         registros[1]=rs.getString("Asunto");
-        registros[2]=rs.getString("Descripcion");
-        registros[3]=rs.getString("Fecha Actividad");
+        registros[2]=rs.getString("Descripcion_Actividad");
+        registros[3]=rs.getString("Fecha_Actividad");
 
        
    
@@ -271,6 +271,27 @@ public class Actividades extends javax.swing.JFrame {
         }
         return modelo;
     }
+    
+    
+     public static boolean Eliminar(String id){
+    Conexion con = new Conexion();
+        Connection cn = con.estableceConexion();
+        PreparedStatement ps=null;
+        
+        String SQL="delete from Item where id="+id;
+        try{
+        ps=cn.prepareStatement(SQL);
+        ps.execute();
+        cn.close();
+        return true;
+        } catch (Exception e){
+        System.out.println(e.toString());
+        return false;
+        }
+        
+    
+    }
+     
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
         VentanaRegistrarActividad VRA = new VentanaRegistrarActividad();
@@ -286,15 +307,15 @@ public class Actividades extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         int fila=TablaActividades.getSelectedRowCount();
-        /*if(fila<1){
+        if(fila<1){
             JOptionPane.showMessageDialog(null, "Seleccione un registro");
         }
         else{
-            if(Eliminar(TablaItem.getValueAt(TablaItem.getSelectedRow(),0).toString())){
-                JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-
+        if(Eliminar(TablaActividades.getValueAt(TablaActividades.getSelectedRow(),0).toString())){
+        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+       
+        }
             }
-        }*/
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed

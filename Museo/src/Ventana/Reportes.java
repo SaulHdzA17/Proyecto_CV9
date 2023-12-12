@@ -80,12 +80,12 @@ public class Reportes extends javax.swing.JFrame {
        }
     }   
     
-              public static boolean Eliminar(String id){
+        public static boolean Eliminar(String id){
         Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
         
-        String SQL="delete from Reportes where ID="+id;
+        String SQL="delete from Reporte where id="+id;
         try{
         ps=cn.prepareStatement(SQL);
         ps.execute();
@@ -101,10 +101,10 @@ public class Reportes extends javax.swing.JFrame {
               
     public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Descripcion", "Fecha_Inicio", "Fecha_Fin", "Estado"};
+        String [] nombreColumna={"Id", "Descripcion", "Fecha_Inicio","Fecha_Fin", "Estado"};
         String [] registros = new String [5];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Reportes where ID like'%"+buscar+"%' or Descripcion like'%"+buscar+"%' or Fecha_Inicio like '%"+buscar+"%' or Fecha_Fin like '%"+buscar+"%'or Estado like '%"+buscar+"%'";
+        String sql="select * from Reporte where id like '"+buscar+"' or descripcion like '"+buscar+"' or fecha_inicio like '"+buscar+"' or fecha_fin like '"+buscar+"' or estado like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -122,7 +122,8 @@ public class Reportes extends javax.swing.JFrame {
         registros[2]=rs.getString("Fecha_Inicio");
         registros[3]=rs.getString("Fecha_Fin");
         registros[4]=rs.getString("Estado");
-       
+        
+ 
    
         modelo.addRow(registros);
         

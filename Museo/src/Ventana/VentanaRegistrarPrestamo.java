@@ -44,7 +44,7 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
     int idusuarioactivo = SesionUsuario.getUsuarioActivo();
 
           
-    String sql = "INSERT INTO Prestamo (incio_prestamo, fin_prestamo, motivo, personal_id) VALUES (?,?,?,?)";
+    String sql = "INSERT INTO Prestamo (inicio_prestamo, fin_prestamo, motivo, personal_id) VALUES (?,?,?,?)";
     
     try{  
         PreparedStatement pasardatos =conectar.prepareStatement(sql);

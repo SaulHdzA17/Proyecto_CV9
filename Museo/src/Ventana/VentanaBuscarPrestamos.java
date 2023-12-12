@@ -66,7 +66,7 @@ public class VentanaBuscarPrestamos extends javax.swing.JPanel {
     }
         
       public void BuscarInicio(String tabla){
-        String sql="select incio_prestamo from Prestamo";
+        String sql="select inicio_prestamo from Prestamo";
         Statement st;
         Conexion con = new Conexion();
         Connection conexion = con.estableceConexion();

@@ -122,10 +122,10 @@ public class Personal extends javax.swing.JFrame {
        
         public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Nombre", "Usuario", "Contraseña", "CURP", "RFC"};
-        String [] registros = new String [6];
+        String [] nombreColumna={"Id", "Nombre", "Usuario", "Contraseña", "CURP", "RFC", "Fecha_Contratacion", "Correo", "Escolaridad", "Edad", "Telefono", "Rol"};
+        String [] registros = new String [12];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Personal where id like'"+buscar+"' or nombre like '"+buscar+"' or usuario like '"+buscar+"' or contraseña like '"+buscar+"' or curp like '"+buscar+"' or rfc like '"+buscar+"'";
+        String sql="select * from Personal where id like'"+buscar+"' or nombre like '"+buscar+"' or usuario like '"+buscar+"' or contraseña like '"+buscar+"' or curp like '"+buscar+"' or rfc like '"+buscar+"' or fecha_contratacion like '"+buscar+"' or correo like '"+buscar+"' or escolaridad like '"+buscar+"' or edad like '"+buscar+"' or telefono like '"+buscar+"' or rol like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -144,6 +144,14 @@ public class Personal extends javax.swing.JFrame {
         registros[3]=rs.getString("Contraseña");
         registros[4]=rs.getString("CURP");
         registros[5]=rs.getString("RFC");
+        registros[6]=rs.getString("Fecha_Contratacion");
+        registros[7]=rs.getString("Correo");
+        registros[8]=rs.getString("Escolaridad");
+        registros[9]=rs.getString("Edad");
+        registros[10]=rs.getString("Telefono");
+        registros[11]=rs.getString("Rol");
+        
+        
 
        
    

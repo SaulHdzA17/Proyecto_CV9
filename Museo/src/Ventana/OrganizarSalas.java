@@ -238,10 +238,10 @@ public class OrganizarSalas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Tematica", "Informacion", "Fecha"};
+        String [] nombreColumna={"Id", "Tematica", "Informacion_Sala", "Fecha_Sala"};
         String [] registros = new String [4];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Sala where id_sala like'%"+buscar+"%' or tematica like'%"+buscar+"%' or informacion_sala like '%"+buscar+"%' or fecha_sala like '%"+buscar+"%'";
+        String sql="select * from Sala where id like'%"+buscar+"%' or tematica like'%"+buscar+"%' or informacion_sala like '%"+buscar+"%' or fecha_sala like '%"+buscar+"%'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -256,8 +256,8 @@ public class OrganizarSalas extends javax.swing.JFrame {
         while(rs.next()){
         registros[0]=rs.getString("Id");
         registros[1]=rs.getString("Tematica");
-        registros[2]=rs.getString("Informacion");
-        registros[3]=rs.getString("Fecha");
+        registros[2]=rs.getString("Informacion_Sala");
+        registros[3]=rs.getString("Fecha_Sala");
 
        
    
