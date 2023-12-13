@@ -24,6 +24,10 @@ public class Actividades extends javax.swing.JFrame {
     /**
      * Creates new form Actividades
      */
+    
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();
+    
     public Actividades() {
         initComponents();
         //Despliego el tipo de menu
@@ -62,6 +66,7 @@ public class Actividades extends javax.swing.JFrame {
         BotonBuscar = new javax.swing.JButton();
         Mostrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BotonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,6 +188,14 @@ public class Actividades extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actividades.png"))); // NOI18N
 
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -192,13 +205,15 @@ public class Actividades extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
+                        .addGap(71, 71, 71))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -214,12 +229,15 @@ public class Actividades extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Mostrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonAgregar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Mostrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BotonActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
         );
 
         BG.add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 790, 470));
@@ -278,7 +296,7 @@ public class Actividades extends javax.swing.JFrame {
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
         
-        String SQL="delete from Item where id="+id;
+        String SQL="delete from Actividad where id="+id;
         try{
         ps=cn.prepareStatement(SQL);
         ps.execute();
@@ -292,6 +310,26 @@ public class Actividades extends javax.swing.JFrame {
     
     }
      
+     
+    public void Actualizar(){
+
+        int fila = TablaActividades.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaActividades.getValueAt(fila, 0).toString());
+        String A =TablaActividades.getValueAt(fila,1).toString();
+        String D =TablaActividades.getValueAt(fila,2).toString();
+        String F =TablaActividades.getValueAt(fila,3).toString();
+           
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update Actividad set asunto='"+A+"', descripcion_actividad='"+D+"', fecha_actividad='"+F+"' where id='"+id+"'");
+            actu.executeUpdate();
+            MostrarRegistros();
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}          
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
         VentanaRegistrarActividad VRA = new VentanaRegistrarActividad();
@@ -333,8 +371,13 @@ public class Actividades extends javax.swing.JFrame {
 
     private void TablaActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaActividadesMouseClicked
         // TODO add your handling code here:
-        PasarValoresPanelDetallesMensaje();
+      //  PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_TablaActividadesMouseClicked
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        Actualizar();
+    }//GEN-LAST:event_BotonActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -486,7 +529,7 @@ public class Actividades extends javax.swing.JFrame {
        }
     }
 
-    private void PasarValoresPanelDetallesMensaje(){
+ /*   private void PasarValoresPanelDetallesMensaje(){
         int rowIndex = TablaActividades.getSelectedRow();
 
         // Verifica si hay alguna fila seleccionada
@@ -506,9 +549,11 @@ public class Actividades extends javax.swing.JFrame {
             // No hay fila seleccionada, maneja la situación en consecuencia
             JOptionPane.showMessageDialog(null, "Seleccione un mensaje para ver sus detalles");
         }
-    }
+    }*/
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;

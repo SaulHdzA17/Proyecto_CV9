@@ -32,6 +32,9 @@ public class Items extends javax.swing.JFrame {
     /**
      * Creates new form Items
      */
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();
+    
     public Items() {
 
         initComponents();
@@ -96,20 +99,21 @@ public class Items extends javax.swing.JFrame {
         ps.execute();
         cn.close();
         return true;
+        
         } catch (Exception e){
         System.out.println(e.toString());
         return false;
         }
-        
+     
     
     }
     
     public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Nombre", "Descripcion", "Estado", "Prestamo"};
-        String [] registros = new String [5];
+        String [] nombreColumna={"Id", "Nombre", "Clasificacion", "Descripcion", "Estado", "Prestamo"};
+        String [] registros = new String [6];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
-        String sql="select * from Item where id like'"+buscar+"' or nombre like'"+buscar+"' or descripcion like '"+buscar+"' or estado like '"+buscar+"' or prestamo like '"+buscar+"'";
+        String sql="select * from Item where id like'"+buscar+"' or clasificacion like '"+buscar+"' or nombre like'"+buscar+"' or descripcion like '"+buscar+"' or estado like '"+buscar+"' or prestamo like '"+buscar+"'";
         Connection cn = null;
         Conexion con = new Conexion();
         PreparedStatement ps=null;
@@ -124,9 +128,10 @@ public class Items extends javax.swing.JFrame {
         while(rs.next()){
         registros[0]=rs.getString("Id");
         registros[1]=rs.getString("Nombre");
-        registros[2]=rs.getString("Descripcion");
-        registros[3]=rs.getString("Estado");
-        registros[4]=rs.getString("Prestamo");
+        registros[2]=rs.getString("Clasificacion");
+        registros[3]=rs.getString("Descripcion");
+        registros[4]=rs.getString("Estado");
+        registros[5]=rs.getString("Prestamo");
 
        
    
@@ -139,6 +144,31 @@ public class Items extends javax.swing.JFrame {
         }
         return modelo;
     }
+    
+    public void Actualizar(){
+
+        int fila = TablaItem.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaItem.getValueAt(fila, 0).toString());
+        String N =TablaItem.getValueAt(fila,1).toString();
+        String C =TablaItem.getValueAt(fila,2).toString();
+        String D =TablaItem.getValueAt(fila,3).toString();
+        String E =TablaItem.getValueAt(fila,4).toString();
+        String P =TablaItem.getValueAt(fila,5).toString();
+    
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update Item set nombre='"+N+"', clasificacion='"+C+"', descripcion='"+D+"', estado='"+E+"', prestamo='"+P+"' where id='"+id+"'");
+            actu.executeUpdate();
+            Mostrar("Item");
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,6 +192,7 @@ public class Items extends javax.swing.JFrame {
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
         Mostrar = new javax.swing.JButton();
+        BotonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 37, 1040, 690));
@@ -281,6 +312,14 @@ public class Items extends javax.swing.JFrame {
             }
         });
 
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -298,9 +337,11 @@ public class Items extends javax.swing.JFrame {
                                 .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(177, 177, 177)))
+                                .addGap(127, 127, 127)))
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
@@ -313,11 +354,12 @@ public class Items extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -380,6 +422,11 @@ public class Items extends javax.swing.JFrame {
       
         Mostrar("Item");
     }//GEN-LAST:event_MostrarActionPerformed
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        Actualizar();
+    }//GEN-LAST:event_BotonActualizarActionPerformed
     private void MostrarPanelLateral(JPanel p){
         
 
@@ -494,6 +541,7 @@ public class Items extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;

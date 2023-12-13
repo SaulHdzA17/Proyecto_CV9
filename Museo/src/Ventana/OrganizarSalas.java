@@ -4,6 +4,7 @@
  */
 package Ventana;
 
+import static Ventana.Actividades.Eliminar;
 import static Ventana.Items.fechaActual;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -21,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class OrganizarSalas extends javax.swing.JFrame {
 
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();
     /**
      * Creates new form OrganizarSalas
      */
@@ -62,6 +65,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
         BotonBuscar = new javax.swing.JButton();
         Mostrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BotonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,6 +187,14 @@ public class OrganizarSalas extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/OrganizarSalas.png"))); // NOI18N
 
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -192,13 +204,15 @@ public class OrganizarSalas extends javax.swing.JFrame {
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -213,12 +227,13 @@ public class OrganizarSalas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(9, 9, 9))
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         BG.add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 790, 470));
@@ -270,9 +285,48 @@ public class OrganizarSalas extends javax.swing.JFrame {
         }
         return modelo;
     }
+
+
+
     
+    public void Actualizar(){
+
+        int fila = TablaSalas.getSelectedRow();
     
+        int id =Integer.parseInt(this.TablaSalas.getValueAt(fila, 0).toString());
+        String T =TablaSalas.getValueAt(fila,1).toString();
+        String I =TablaSalas.getValueAt(fila,2).toString();
+        String F =TablaSalas.getValueAt(fila,3).toString();
+           
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update Sala set tematica='"+T+"', informacion_sala='"+I+"', fecha_sala='"+F+"' where id='"+id+"'");
+            actu.executeUpdate();
+            MostrarRegistros();
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}    
     
+     public static boolean Eliminar(String id){
+    Conexion con = new Conexion();
+        Connection cn = con.estableceConexion();
+        PreparedStatement ps=null;
+        
+        String SQL="delete from Sala where id="+id;
+        try{
+        ps=cn.prepareStatement(SQL);
+        ps.execute();
+        cn.close();
+        return true;
+        } catch (Exception e){
+        System.out.println(e.toString());
+        return false;
+        }
+        
+    
+    }    
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonAgregar1MouseClicked
@@ -287,15 +341,15 @@ public class OrganizarSalas extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         int fila=TablaSalas.getSelectedRowCount();
-        /*if(fila<1){
+        if(fila<1){
             JOptionPane.showMessageDialog(null, "Seleccione un registro");
         }
         else{
-            if(Eliminar(TablaItem.getValueAt(TablaItem.getSelectedRow(),0).toString())){
-                JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-
+        if(Eliminar(TablaSalas.getValueAt(TablaSalas.getSelectedRow(),0).toString())){
+        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+       
+        }
             }
-        }*/
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
@@ -312,8 +366,13 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
     private void TablaSalasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaSalasMouseClicked
         // TODO add your handling code here:
-        PasarValoresPanelDetallesMensaje();
+       // PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_TablaSalasMouseClicked
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        Actualizar();
+    }//GEN-LAST:event_BotonActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,7 +524,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
        }
     }
     
-    private void PasarValoresPanelDetallesMensaje(){
+/*    private void PasarValoresPanelDetallesMensaje(){
         int rowIndex = TablaSalas.getSelectedRow();
 
         // Verifica si hay alguna fila seleccionada
@@ -485,9 +544,12 @@ public class OrganizarSalas extends javax.swing.JFrame {
             // No hay fila seleccionada, maneja la situación en consecuencia
             JOptionPane.showMessageDialog(null, "Seleccione un mensaje para ver sus detalles");
         }
-    }
+    }*/
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;

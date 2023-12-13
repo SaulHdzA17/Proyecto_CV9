@@ -21,14 +21,19 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author axel
+ * @author tania
  */
 public class Prestamos extends javax.swing.JFrame {
 
     /**
      * Creates new form Prestamos
      */
-     Calendar fecha_actual= new GregorianCalendar();
+    
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();
+    
+    Calendar fecha_actual= new GregorianCalendar();
+    
     public Prestamos() {
         initComponents();
         //Mando a llamar la funcion mostrarPanelLateral
@@ -100,7 +105,7 @@ public class Prestamos extends javax.swing.JFrame {
 
         public DefaultTableModel buscar1(String buscar){
     
-        String [] nombreColumna={"Id", "Inicio_Prestamo","Fin_Prestamo"};
+        String [] nombreColumna={"Id", "Inicio_Prestamo","Fin_Prestamo", "Motivo"};
         String [] registros = new String [4];
         DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
         String sql="Select * from Prestamo where id like '"+buscar+"' or inicio_prestamo like '"+buscar+"' or fin_prestamo like '"+buscar+"' or motivo like '"+buscar+"'";
@@ -132,7 +137,27 @@ public class Prestamos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "No se encontró");
         }
         return modelo;
-    }           
+    }
+        
+    public void Actualizar(){
+
+        int fila = TablaPrestamos.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaPrestamos.getValueAt(fila, 0).toString());
+        String IP =TablaPrestamos.getValueAt(fila,1).toString();
+        String FP =TablaPrestamos.getValueAt(fila,2).toString();
+        String M =TablaPrestamos.getValueAt(fila,3).toString();
+    
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update Prestamo set inicio_prestamo='"+IP+"', fin_prestamo='"+FP+"', motivo='"+M+"'where id='"+id+"'");
+            actu.executeUpdate();
+            Mostrar("Prestamo");
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}            
            
     
     //Funcion para mostrar el menu lateral del admin
@@ -237,6 +262,7 @@ public class Prestamos extends javax.swing.JFrame {
         BotonBorrar = new javax.swing.JButton();
         BotonAgregar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        BotonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -397,6 +423,14 @@ public class Prestamos extends javax.swing.JFrame {
             }
         });
 
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -408,9 +442,11 @@ public class Prestamos extends javax.swing.JFrame {
                 .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(512, 512, 512)
+                .addGap(467, 467, 467)
                 .addComponent(BotonAgregar1)
                 .addGap(18, 18, 18)
                 .addComponent(BotonActualizar1)
@@ -445,7 +481,8 @@ public class Prestamos extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -530,6 +567,11 @@ public class Prestamos extends javax.swing.JFrame {
                  Mostrar("Prestamo");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        Actualizar();
+    }//GEN-LAST:event_BotonActualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,6 +609,7 @@ public class Prestamos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonActualizar1;
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonAgregar1;

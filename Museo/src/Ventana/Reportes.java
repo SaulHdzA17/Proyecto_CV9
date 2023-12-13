@@ -21,13 +21,15 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author axel
+ * @author tania
  */
 public class Reportes extends javax.swing.JFrame {
 
     /**
      * Creates new form Reportes
      */
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();
     
     public Reportes() {
         initComponents();
@@ -134,6 +136,28 @@ public class Reportes extends javax.swing.JFrame {
         }
         return modelo;
     }              
+
+    public void Actualizar(){
+
+        int fila = TablaReportes.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaReportes.getValueAt(fila, 0).toString());
+        String D =TablaReportes.getValueAt(fila,1).toString();
+        String FI =TablaReportes.getValueAt(fila,2).toString();
+        String FF =TablaReportes.getValueAt(fila,3).toString();
+        String E =TablaReportes.getValueAt(fila,4).toString();
+    
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update Reporte set descripcion='"+D+"', fecha_inicio='"+FI+"', fecha_fin='"+FF+"', estado='"+E+"' where id='"+id+"'");
+            actu.executeUpdate();
+            Mostrar("Reporte");
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}     
+
     
     //Funcion para desplegar el menu lateral.
     private void MostrarPanelMenuLateral(JPanel p){
@@ -232,6 +256,7 @@ public class Reportes extends javax.swing.JFrame {
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        BotonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -354,6 +379,14 @@ public class Reportes extends javax.swing.JFrame {
             }
         });
 
+        BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
         PanelContenidoLayout.setHorizontalGroup(
@@ -369,8 +402,10 @@ public class Reportes extends javax.swing.JFrame {
                         .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addGap(0, 38, Short.MAX_VALUE)
@@ -388,6 +423,7 @@ public class Reportes extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -452,6 +488,11 @@ public static String fechaActual(){
         MostrarPanel(VBR);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        Actualizar();
+    }//GEN-LAST:event_BotonActualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -489,6 +530,7 @@ public static String fechaActual(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar1;
     private javax.swing.JButton BotonBorrar;
     private javax.swing.JButton BotonBuscar;
