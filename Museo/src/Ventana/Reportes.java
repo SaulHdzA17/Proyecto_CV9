@@ -43,6 +43,8 @@ public class Reportes extends javax.swing.JFrame {
         hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
         
         this.Hora.setText(hora);
+        
+        Mostrar("Reportes");
     }
 
     public void Mostrar(String tabla){

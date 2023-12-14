@@ -48,6 +48,8 @@ public class Items extends javax.swing.JFrame {
         
         this.Hora.setText(hora);
         
+        Mostrar("Item");
+        
     }
 
     

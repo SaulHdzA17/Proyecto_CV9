@@ -47,6 +47,8 @@ public class Prestamos extends javax.swing.JFrame {
         hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
         
         this.Hora.setText(hora);
+        
+        Mostrar("Prestamo");
     }
     
     public void Mostrar(String tabla){
