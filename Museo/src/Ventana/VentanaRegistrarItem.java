@@ -76,7 +76,9 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Registro exitoso"); 
         
         }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Verifique los datos que ingresó");
             Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Verifique los datos que ingresó");
         }
               }
           

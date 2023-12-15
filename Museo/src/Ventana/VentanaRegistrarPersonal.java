@@ -429,7 +429,7 @@ Conexion conect=new Conexion();
         // TODO add your handling code here:
         String mensaje = "El Rol elegido es: ";
         mensaje = mensaje + cboRoles.getSelectedItem().toString();
-        JOptionPane.showMessageDialog(null, "DOS: " + mensaje);
+        JOptionPane.showMessageDialog(null, ""+ mensaje);
     }//GEN-LAST:event_cboRolesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -544,9 +544,17 @@ Conexion conect=new Conexion();
     //Obtengo el ID del usuario activo 
     int idusuarioactivo = SesionUsuario.getUsuarioActivo();
 
-          
+      
     String sql = "INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, correo, escolaridad, edad, telefono, rol, registrado_por) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-    
+     if(nombre.isEmpty()|| usuario.isEmpty()|| contraseña.isEmpty()|| CURP.isEmpty()|| RFC.isEmpty()|| correo.isEmpty()|| escolaridad.isEmpty()|| telefono.isEmpty()){
+          JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        }else{
+            if(ff.equals(null)){
+          JOptionPane.showMessageDialog(null, "Indique una fecha");
+          }else{  
+          if(rol.equalsIgnoreCase("Seleccione un rol")){
+          JOptionPane.showMessageDialog(null, "Seleccione un rol");
+          }else{ 
     try{  
         PreparedStatement pasardatos =conectar.prepareStatement(sql);
             
@@ -568,9 +576,10 @@ Conexion conect=new Conexion();
         
     }catch (SQLException e){
         Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
+        JOptionPane.showMessageDialog(null, "Verifique los datos que ingresó");
     }
     
-    }
+    }}}}
     
     
 

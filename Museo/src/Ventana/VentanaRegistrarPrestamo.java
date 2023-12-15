@@ -45,7 +45,12 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
           
     String sql = "INSERT INTO Prestamo (inicio_prestamo, fin_prestamo, motivo, personal_id) VALUES (?,?,?,?)";
-    
+    if(M.isEmpty()){
+          JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        }else{
+            if(ip.equals(null)||fp.equals(null)){
+          JOptionPane.showMessageDialog(null, "Indique una fecha");
+          }else{
     try{  
         PreparedStatement pasardatos =conectar.prepareStatement(sql);
             
@@ -59,10 +64,11 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Registro exitoso"); 
         
     }catch (SQLException e){
+        JOptionPane.showMessageDialog(null, "Verifique los datos que ingresó");
         Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
     }
     
-    }   
+    }  }} 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

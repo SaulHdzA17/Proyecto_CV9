@@ -212,7 +212,13 @@ public class VentanaRegistrarOrganizacionSala extends javax.swing.JPanel {
 
           
         String sql = "INSERT INTO Sala (tematica, informacion_sala, fecha_sala, id_usuario_registrador) VALUES (?,?,?,?)";
-    
+        
+        if(asunto.isEmpty()|| descripcion.isEmpty()){
+          JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        }else{
+            if(ff.equals(null)){
+          JOptionPane.showMessageDialog(null, "Indique una fecha");
+          }else{
         try{  
             PreparedStatement pasardatos =conectar.prepareStatement(sql);
             
@@ -227,8 +233,9 @@ public class VentanaRegistrarOrganizacionSala extends javax.swing.JPanel {
         
         }catch (SQLException e){
             Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Verifique los datos que ingresó");
         }
-    }
+    }}}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private com.toedter.calendar.JDateChooser SelectorFecha;

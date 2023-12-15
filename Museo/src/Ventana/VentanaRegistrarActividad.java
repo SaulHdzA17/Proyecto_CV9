@@ -202,7 +202,14 @@ public class VentanaRegistrarActividad extends javax.swing.JPanel {
 
           
         String sql = "INSERT INTO Actividad (asunto, descripcion_actividad, fecha_actividad, id_usuario_registrador) VALUES (?,?,?,?)";
-    
+        
+        if(asunto.isEmpty()|| descripcion.isEmpty()){
+          JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        }else{
+            if(ff.equals(null)){
+          JOptionPane.showMessageDialog(null, "Indique una fecha");
+          }else{
+        
         try{  
             PreparedStatement pasardatos =conectar.prepareStatement(sql);
             
@@ -217,8 +224,9 @@ public class VentanaRegistrarActividad extends javax.swing.JPanel {
         
         }catch (SQLException e){
             Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Verifique los datos que ingresó");
         }
-    }
+    }}}
 
     private void RegresarVentanaanterior(){
         // Cerrar el panel actual

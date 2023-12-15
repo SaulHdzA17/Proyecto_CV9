@@ -184,6 +184,15 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
           
     String sql = "INSERT INTO Reporte (descripcion, fecha_inicio, fecha_fin, estado, personal_id) VALUES (?,?,?,?,?)";
     
+     if(D.isEmpty()){
+          JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        }else{
+            if(ip.equals(null)||fp.equals(null)){
+          JOptionPane.showMessageDialog(null, "Indique una fecha");
+          }else{  
+          if(E.equalsIgnoreCase("Seleccione un estado de reporte")){
+          JOptionPane.showMessageDialog(null, "Seleccione un estado de reporte");
+          }else{ 
     try{  
         PreparedStatement pasardatos =conectar.prepareStatement(sql);
         
@@ -201,7 +210,7 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
         Logger.getLogger(VentanaRegistrarItem.class.getName()).log(Level.SEVERE, null, e);
     }
     
-    }     
+    }   }}}  
     
     
     
