@@ -206,9 +206,10 @@ Conexion conect=new Conexion();
             }
         });
 
-        jButtonRegistrar.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registrar.png"))); // NOI18N
+        jButtonRegistrar.setBackground(new java.awt.Color(195, 216, 245));
+        jButtonRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButtonRegistrar.setForeground(new java.awt.Color(64, 97, 150));
+        jButtonRegistrar.setText("REGISTRAR");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);

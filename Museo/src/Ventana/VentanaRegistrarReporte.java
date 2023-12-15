@@ -73,8 +73,10 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Estado del Reporte:");
 
-        Boton_Registrar.setBackground(new java.awt.Color(255, 255, 255));
-        Boton_Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registrar.png"))); // NOI18N
+        Boton_Registrar.setBackground(new java.awt.Color(195, 216, 245));
+        Boton_Registrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Boton_Registrar.setForeground(new java.awt.Color(64, 97, 150));
+        Boton_Registrar.setText("REGISTRAR");
         Boton_Registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Boton_RegistrarActionPerformed(evt);

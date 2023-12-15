@@ -107,9 +107,10 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Motivo");
 
-        BotonRegistrar.setBackground(new java.awt.Color(255, 255, 255));
-        BotonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registrar.png"))); // NOI18N
+        BotonRegistrar.setBackground(new java.awt.Color(195, 216, 245));
+        BotonRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        BotonRegistrar.setForeground(new java.awt.Color(64, 97, 150));
+        BotonRegistrar.setText("REGISTRAR");
         BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRegistrarActionPerformed(evt);

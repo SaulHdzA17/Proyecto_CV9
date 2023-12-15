@@ -70,8 +70,10 @@ public class VentanaRegistrarOrganizacionSala extends javax.swing.JPanel {
         txtinformacion.setRows(5);
         jScrollPane1.setViewportView(txtinformacion);
 
-        btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registrar.png"))); // NOI18N
+        btnAgregar.setBackground(new java.awt.Color(195, 216, 245));
+        btnAgregar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(64, 97, 150));
+        btnAgregar.setText("REGISTRAR");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
