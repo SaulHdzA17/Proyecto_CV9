@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventana;
-import static Ventana.Items.Eliminar;
+
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -104,24 +104,42 @@ public class Personal extends javax.swing.JFrame {
        }
     }
     
-    public static boolean Eliminar(String id){
+ /*   public static boolean Eliminar(String id){
     Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
         
         String SQL="delete from Personal where id="+id;
+        
         try{
+            
         ps=cn.prepareStatement(SQL);
         ps.execute();
         cn.close();
         return true;
         } catch (Exception e){
+            
         System.out.println(e.toString());
         return false;
         }
         
     
-    }
+    }*/
+    
+    
+    public void Eliminar(){
+        
+        int fila=TablaPersonal.getSelectedRow();
+        String valor =TablaPersonal.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Personal where id='"+valor+"'");
+                delete.executeUpdate();
+                Mostrar("Personal");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+         
        
         public DefaultTableModel buscar1(String buscar){
     
@@ -174,19 +192,10 @@ public class Personal extends javax.swing.JFrame {
     
         int id =Integer.parseInt(this.TablaPersonal.getValueAt(fila, 0).toString());
         String N =TablaPersonal.getValueAt(fila,1).toString();
-        String U =TablaPersonal.getValueAt(fila,2).toString();
-        String C =TablaPersonal.getValueAt(fila,3).toString();
-        String CURP =TablaPersonal.getValueAt(fila,4).toString();
-        String RFC =TablaPersonal.getValueAt(fila,5).toString();
-        String F =TablaPersonal.getValueAt(fila,6).toString();
-        String CO =TablaPersonal.getValueAt(fila,7).toString();
-        String ES =TablaPersonal.getValueAt(fila,8).toString();
-        String E =TablaPersonal.getValueAt(fila,9).toString();
-        String T =TablaPersonal.getValueAt(fila,10).toString();
-        String R =TablaPersonal.getValueAt(fila,11).toString();
+
     
         try {
-            PreparedStatement actu= connection.prepareStatement("Update Personal set nombre='"+N+"', usuario='"+U+"', contraseña='"+C+"', curp='"+CURP+"', rfc='"+RFC+"', fecha_contratacion='"+F+"', correo='"+CO+"', escolaridad='"+ES+"', edad='"+E+"', telefono='"+T+"', rol='"+R+"' where id='"+id+"'");
+            PreparedStatement actu= connection.prepareStatement("Update Personal set nombre='"+N+"' where id='"+id+"'");
             actu.executeUpdate();
             Mostrar("Personal");
             JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
@@ -488,17 +497,8 @@ public class Personal extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
-        
-                int fila=TablaPersonal.getSelectedRowCount();
-        if(fila<1){
-            JOptionPane.showMessageDialog(null, "Seleccione un registro");
-        }
-        else{
-        if(Eliminar(TablaPersonal.getValueAt(TablaPersonal.getSelectedRow(),0).toString())){
-        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-       
-        }
-            }
+        Eliminar();
+
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed

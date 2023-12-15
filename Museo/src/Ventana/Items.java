@@ -90,7 +90,7 @@ public class Items extends javax.swing.JFrame {
        }
     }
     
-    public static boolean Eliminar(String id){
+  /*  public static boolean Eliminar(String id){
     Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
@@ -108,7 +108,22 @@ public class Items extends javax.swing.JFrame {
         }
      
     
-    }
+    }*/
+    
+    public void Eliminar(){
+        
+        int fila=TablaItem.getSelectedRow();
+        String valor =TablaItem.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Item where id='"+valor+"'");
+                delete.executeUpdate();
+                Mostrar("Item");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+         
+    
     
     public DefaultTableModel buscar1(String buscar){
     
@@ -394,17 +409,10 @@ public class Items extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        Eliminar();
         
-        int fila=TablaItem.getSelectedRowCount();
-        if(fila<1){
-            JOptionPane.showMessageDialog(null, "Seleccione un registro");
-        }
-        else{
-        if(Eliminar(TablaItem.getValueAt(TablaItem.getSelectedRow(),0).toString())){
-        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-       
-        }
-            }
+        
+            
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed

@@ -4,7 +4,7 @@
  */
 package Ventana;
 
-import static Ventana.Personal.Eliminar;
+
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -86,7 +86,7 @@ public class Prestamos extends javax.swing.JFrame {
        }
     }    
     
-        public static boolean Eliminar(String id){
+  /*      public static boolean Eliminar(String id){
         Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
@@ -103,7 +103,21 @@ public class Prestamos extends javax.swing.JFrame {
         }
         
     
-    }
+    }*/
+    
+    public void Eliminar(){
+        
+        int fila=TablaPrestamos.getSelectedRow();
+        String valor =TablaPrestamos.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Prestamo where id='"+valor+"'");
+                delete.executeUpdate();
+                Mostrar("Prestamo");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+         
 
         public DefaultTableModel buscar1(String buscar){
     
@@ -519,19 +533,9 @@ public class Prestamos extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        Eliminar();
         
-               // TODO add your handling code here:
-        
-                int fila=TablaPrestamos.getSelectedRowCount();
-        if(fila<1){
-            JOptionPane.showMessageDialog(null, "Seleccione un registro");
-        }
-        else{
-        if(Eliminar(TablaPrestamos.getValueAt(TablaPrestamos.getSelectedRow(),0).toString())){
-        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-       
-        }
-            }
+
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed

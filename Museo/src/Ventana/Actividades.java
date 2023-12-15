@@ -293,7 +293,7 @@ public class Actividades extends javax.swing.JFrame {
     }
     
     
-     public static boolean Eliminar(String id){
+  /*   public static boolean Eliminar(String id){
     Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
@@ -310,7 +310,20 @@ public class Actividades extends javax.swing.JFrame {
         }
         
     
-    }
+    }*/
+    
+    public void Eliminar(){
+        
+        int fila=TablaActividades.getSelectedRow();
+        String valor =TablaActividades.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Actividad where id='"+valor+"'");
+                delete.executeUpdate();
+                MostrarRegistros();
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
      
      
     public void Actualizar(){
@@ -345,17 +358,9 @@ public class Actividades extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        Eliminar();
 
-        int fila=TablaActividades.getSelectedRowCount();
-        if(fila<1){
-            JOptionPane.showMessageDialog(null, "Seleccione un registro");
-        }
-        else{
-        if(Eliminar(TablaActividades.getValueAt(TablaActividades.getSelectedRow(),0).toString())){
-        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-       
-        }
-            }
+        
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
@@ -531,7 +536,7 @@ public class Actividades extends javax.swing.JFrame {
        }
     }
 
- /*   private void PasarValoresPanelDetallesMensaje(){
+ /*  private void PasarValoresPanelDetallesMensaje(){
         int rowIndex = TablaActividades.getSelectedRow();
 
         // Verifica si hay alguna fila seleccionada

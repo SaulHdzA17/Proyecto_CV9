@@ -4,7 +4,7 @@
  */
 package Ventana;
 
-import static Ventana.Actividades.Eliminar;
+
 import static Ventana.Items.fechaActual;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -311,7 +311,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
 }    
     
-     public static boolean Eliminar(String id){
+  /*   public static boolean Eliminar(String id){
     Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
@@ -328,7 +328,23 @@ public class OrganizarSalas extends javax.swing.JFrame {
         }
         
     
-    }    
+    }    */
+    
+    
+        public void Eliminar(){
+        
+        int fila=TablaSalas.getSelectedRow();
+        String valor =TablaSalas.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Sala where id='"+valor+"'");
+                delete.executeUpdate();
+                MostrarRegistros();
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+     
+     
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonAgregar1MouseClicked
@@ -341,17 +357,9 @@ public class OrganizarSalas extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        Eliminar();
 
-        int fila=TablaSalas.getSelectedRowCount();
-        if(fila<1){
-            JOptionPane.showMessageDialog(null, "Seleccione un registro");
-        }
-        else{
-        if(Eliminar(TablaSalas.getValueAt(TablaSalas.getSelectedRow(),0).toString())){
-        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-       
-        }
-            }
+
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed

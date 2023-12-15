@@ -4,7 +4,7 @@
  */
 package Ventana;
 
-import static Ventana.Personal.Eliminar;
+
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -84,7 +84,7 @@ public class Reportes extends javax.swing.JFrame {
        }
     }   
     
-        public static boolean Eliminar(String id){
+      /*  public static boolean Eliminar(String id){
         Conexion con = new Conexion();
         Connection cn = con.estableceConexion();
         PreparedStatement ps=null;
@@ -101,7 +101,20 @@ public class Reportes extends javax.swing.JFrame {
         }
         
     
-    }
+    }*/
+        public void Eliminar(){
+        
+        int fila=TablaReportes.getSelectedRow();
+        String valor =TablaReportes.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Reporte where id='"+valor+"'");
+                delete.executeUpdate();
+                Mostrar("Reporte");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+        
               
     public DefaultTableModel buscar1(String buscar){
     
@@ -458,19 +471,9 @@ public static String fechaActual(){
     }//GEN-LAST:event_BotonAgregar1ActionPerformed
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:      
              
-                int fila=TablaReportes.getSelectedRowCount();
-        if(fila<1){
-            JOptionPane.showMessageDialog(null, "Seleccione un registro");
-        }
-        else{
-        if(Eliminar(TablaReportes.getValueAt(TablaReportes.getSelectedRow(),0).toString())){
-        JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
-       
-        }
-            } 
+       Eliminar();
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
