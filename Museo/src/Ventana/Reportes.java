@@ -103,18 +103,21 @@ public class Reportes extends javax.swing.JFrame {
     
     }*/
         public void Eliminar(){
+       int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
         
+        if(opt==0){         
         int fila=TablaReportes.getSelectedRow();
         String valor =TablaReportes.getValueAt(fila,0).toString();
             try {
                 PreparedStatement delete = connection.prepareStatement("Delete from Reporte where id='"+valor+"'");
                 delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
                 Mostrar("Reporte");
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
         }
-        
+        } 
               
     public DefaultTableModel buscar1(String buscar){
     

@@ -106,18 +106,21 @@ public class Prestamos extends javax.swing.JFrame {
     }*/
     
     public void Eliminar(){
+        int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
         
+        if(opt==0){        
         int fila=TablaPrestamos.getSelectedRow();
         String valor =TablaPrestamos.getValueAt(fila,0).toString();
             try {
                 PreparedStatement delete = connection.prepareStatement("Delete from Prestamo where id='"+valor+"'");
                 delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
                 Mostrar("Prestamo");
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
         }
-         
+    }
 
         public DefaultTableModel buscar1(String buscar){
     

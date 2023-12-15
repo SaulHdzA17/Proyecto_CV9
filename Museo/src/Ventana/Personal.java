@@ -128,18 +128,21 @@ public class Personal extends javax.swing.JFrame {
     
     
     public void Eliminar(){
+       int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
         
+        if(opt==0){          
         int fila=TablaPersonal.getSelectedRow();
         String valor =TablaPersonal.getValueAt(fila,0).toString();
             try {
                 PreparedStatement delete = connection.prepareStatement("Delete from Personal where id='"+valor+"'");
                 delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
                 Mostrar("Personal");
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
         }
-         
+    }
        
         public DefaultTableModel buscar1(String buscar){
     
@@ -192,10 +195,21 @@ public class Personal extends javax.swing.JFrame {
     
         int id =Integer.parseInt(this.TablaPersonal.getValueAt(fila, 0).toString());
         String N =TablaPersonal.getValueAt(fila,1).toString();
+        String U =TablaPersonal.getValueAt(fila,2).toString();
+        String C =TablaPersonal.getValueAt(fila,3).toString();
+        String CU =TablaPersonal.getValueAt(fila,4).toString();
+        String R =TablaPersonal.getValueAt(fila,5).toString();
+        String F =TablaPersonal.getValueAt(fila,6).toString();
+        String CO =TablaPersonal.getValueAt(fila,7).toString();
+        String E =TablaPersonal.getValueAt(fila,8).toString();
+        String A =TablaPersonal.getValueAt(fila,9).toString();
+        String T =TablaPersonal.getValueAt(fila,10).toString();
+        String RL =TablaPersonal.getValueAt(fila,11).toString();
+        
 
     
         try {
-            PreparedStatement actu= connection.prepareStatement("Update Personal set nombre='"+N+"' where id='"+id+"'");
+            PreparedStatement actu= connection.prepareStatement("Update Personal set nombre='"+N+"', usuario='"+U+"', contraseña='"+C+"', curp='"+CU+"', rfc='"+R+"', fecha_contratacion='"+F+"', correo='"+CO+"', escolaridad='"+E+"', edad='"+A+"', telefono='"+T+"', rol='"+RL+"' where id='"+id+"'");
             actu.executeUpdate();
             Mostrar("Personal");
             JOptionPane.showMessageDialog(null,"Actualizacion exitosa");

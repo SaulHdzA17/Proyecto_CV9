@@ -332,18 +332,21 @@ public class OrganizarSalas extends javax.swing.JFrame {
     
     
         public void Eliminar(){
+       int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
         
+        if(opt==0){        
         int fila=TablaSalas.getSelectedRow();
         String valor =TablaSalas.getValueAt(fila,0).toString();
             try {
                 PreparedStatement delete = connection.prepareStatement("Delete from Sala where id='"+valor+"'");
                 delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
                 MostrarRegistros();
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
         }
-     
+        }
      
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:

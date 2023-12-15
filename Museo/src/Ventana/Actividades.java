@@ -313,18 +313,21 @@ public class Actividades extends javax.swing.JFrame {
     }*/
     
     public void Eliminar(){
+         int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
         
+        if(opt==0){       
         int fila=TablaActividades.getSelectedRow();
         String valor =TablaActividades.getValueAt(fila,0).toString();
             try {
                 PreparedStatement delete = connection.prepareStatement("Delete from Actividad where id='"+valor+"'");
                 delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
                 MostrarRegistros();
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
         }
-     
+    }
      
     public void Actualizar(){
 
