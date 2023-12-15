@@ -173,3 +173,5 @@ select * from Personal;
 SELECT * FROM Chat
 WHERE emisor_id = 1
 ORDER BY timestamp;
+
+select * from Chat;
