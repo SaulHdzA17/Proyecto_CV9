@@ -168,6 +168,8 @@ VALUES ('V', 'V123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'D
 INSERT INTO Item (nombre, clasificacion, descripcion, estado, prestamo)
 VALUES ('Retrato', 'Pintura', 'Arte del siglo XV', 'Buen estado', 'Museo local');
 
+select * from Personal;
+
 SELECT * FROM Chat
 WHERE emisor_id = 1
 ORDER BY timestamp;
