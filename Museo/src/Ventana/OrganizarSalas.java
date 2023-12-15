@@ -186,8 +186,11 @@ public class OrganizarSalas extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 70)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/OrganizarSalas.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Brillos.png"))); // NOI18N
+        jLabel1.setText("Organizar Salas");
 
         BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
         BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
@@ -217,10 +220,8 @@ public class OrganizarSalas extends javax.swing.JFrame {
                         .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

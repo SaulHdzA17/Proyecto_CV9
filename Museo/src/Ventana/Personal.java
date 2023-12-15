@@ -415,9 +415,11 @@ public class Personal extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 70)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(64, 97, 150));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Personal.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Brillos.png"))); // NOI18N
+        jLabel7.setText("Personal");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mostrar.png"))); // NOI18N

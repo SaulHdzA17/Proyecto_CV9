@@ -170,10 +170,11 @@ public class Mensajes extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 70)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mensajes.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Brillos.png"))); // NOI18N
+        jLabel1.setText("Mensajes");
 
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
@@ -188,10 +189,9 @@ public class Mensajes extends javax.swing.JFrame {
                         .addComponent(NuevoMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(309, 309, 309))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

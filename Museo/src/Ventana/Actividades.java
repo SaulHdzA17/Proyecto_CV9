@@ -67,8 +67,8 @@ public class Actividades extends javax.swing.JFrame {
         BotonBorrar = new javax.swing.JButton();
         BotonBuscar = new javax.swing.JButton();
         Mostrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         BotonActualizar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,9 +187,6 @@ public class Actividades extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actividades.png"))); // NOI18N
-
         BotonActualizar.setBackground(new java.awt.Color(255, 255, 255));
         BotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
         BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -197,6 +194,12 @@ public class Actividades extends javax.swing.JFrame {
                 BotonActualizarActionPerformed(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 70)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(64, 97, 150));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Brillos.png"))); // NOI18N
+        jLabel2.setText("Actividades");
 
         javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
         PanelContenido.setLayout(PanelContenidoLayout);
@@ -218,17 +221,17 @@ public class Actividades extends javax.swing.JFrame {
                         .addGap(71, 71, 71))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         PanelContenidoLayout.setVerticalGroup(
             PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -574,7 +577,7 @@ public class Actividades extends javax.swing.JFrame {
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
     public javax.swing.JTable TablaActividades;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

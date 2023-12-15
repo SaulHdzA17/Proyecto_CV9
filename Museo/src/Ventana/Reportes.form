@@ -235,12 +235,16 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="36" style="0"/>
+                  <Font name="Times New Roman" size="70" style="3"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="96" green="61" red="40" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Reportes.png"/>
+                  <Image iconType="3" name="/Imagenes/Brillos.png"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Reportes"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="BotonAgregar1">

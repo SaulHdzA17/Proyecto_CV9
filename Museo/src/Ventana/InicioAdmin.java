@@ -88,17 +88,20 @@ public class InicioAdmin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 70)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Bienvenido");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(432, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

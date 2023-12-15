@@ -201,10 +201,10 @@ public class MenuLateral_CR extends javax.swing.JPanel {
 
         add(BotonPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CerrarSesion.png"))); // NOI18N
+        jButton1.setBackground(new java.awt.Color(195, 216, 245));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(64, 97, 150));
+        jButton1.setText("CERRAR SESIÓN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

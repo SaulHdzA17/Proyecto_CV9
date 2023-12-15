@@ -41,7 +41,6 @@ public class Main extends javax.swing.JFrame {
 
         BG = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         LabelUsuario = new javax.swing.JLabel();
         ContraseñaLabel = new javax.swing.JLabel();
         Usuario = new javax.swing.JTextField();
@@ -50,6 +49,7 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         RecuperarContraseña = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main");
@@ -63,11 +63,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edicion-2.jpg"))); // NOI18N
         BG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 880));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edicion-4.jpg"))); // NOI18N
-        BG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, 130));
 
         LabelUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         LabelUsuario.setText("Usuario: ");
@@ -110,8 +105,10 @@ public class Main extends javax.swing.JFrame {
         BG.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 350, -1));
         BG.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 350, 30));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar.png"))); // NOI18N
+        jButton2.setBackground(new java.awt.Color(195, 216, 245));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(64, 97, 150));
+        jButton2.setText("INGRESAR");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -125,8 +122,10 @@ public class Main extends javax.swing.JFrame {
         BG.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, 190, 50));
         BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 350, 20));
 
-        RecuperarContraseña.setBackground(new java.awt.Color(255, 255, 255));
-        RecuperarContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RecuperarContraseña.png"))); // NOI18N
+        RecuperarContraseña.setBackground(new java.awt.Color(195, 216, 245));
+        RecuperarContraseña.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        RecuperarContraseña.setForeground(new java.awt.Color(64, 97, 150));
+        RecuperarContraseña.setText("RECUPERAR CONTRASEÑA");
         RecuperarContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecuperarContraseñaActionPerformed(evt);
@@ -134,11 +133,18 @@ public class Main extends javax.swing.JFrame {
         });
         BG.add(RecuperarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 570, 190, 50));
 
+        jLabel2.setBackground(new java.awt.Color(64, 97, 150));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 60)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(64, 97, 150));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Iniciar Sesión");
+        BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 430, 110));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
+            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +255,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField Usuario;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
