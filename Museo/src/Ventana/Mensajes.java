@@ -275,9 +275,9 @@ public class Mensajes extends javax.swing.JFrame {
                 MostrarPanelLateral(MLCP);
                 break;
                 
-            case "Coordinador de personal operativo y taquillas":
-                /*MenuLateral ML = new MenuLateral();
-                MostrarPanelLateral(ML);*/
+            case "Encargado del personal operativo y taquillas":
+                MenuLateralCoordinador_OperativoTaquillas MOT = new MenuLateralCoordinador_OperativoTaquillas();
+                MostrarPanelLateral(MOT);
                 break;
                 
             case "Jefe de seguridad":
