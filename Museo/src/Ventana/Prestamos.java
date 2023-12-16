@@ -176,7 +176,30 @@ public class Prestamos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
         }
 
-}            
+}   
+    
+   private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaPrestamos.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String IP = String.valueOf(TablaPrestamos.getValueAt(rowIndex, 1));  
+            String FP = String.valueOf(TablaPrestamos.getValueAt(rowIndex, 2));
+            String M = String.valueOf(TablaPrestamos.getValueAt(rowIndex, 3));
+          
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesPrestamos DPR = new DetallesPrestamos(IP, FP, M);
+            MostrarPanel(DPR);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
+        }
+    }    
            
     
     //Funcion para mostrar el menu lateral del admin
@@ -575,7 +598,7 @@ public class Prestamos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-                 Mostrar("Prestamo");
+        PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed

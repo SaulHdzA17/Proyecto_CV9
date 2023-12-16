@@ -217,7 +217,37 @@ public class Personal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
         }
 
-}             
+}
+    
+   private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaPersonal.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String N = String.valueOf(TablaPersonal.getValueAt(rowIndex, 1));  
+            String U = String.valueOf(TablaPersonal.getValueAt(rowIndex, 2));
+            String C = String.valueOf(TablaPersonal.getValueAt(rowIndex, 3));
+            String CU = String.valueOf(TablaPersonal.getValueAt(rowIndex, 4));
+            String RF = String.valueOf(TablaPersonal.getValueAt(rowIndex, 5));
+            String F = String.valueOf(TablaPersonal.getValueAt(rowIndex, 6));  
+            String CO = String.valueOf(TablaPersonal.getValueAt(rowIndex, 7));
+            String E = String.valueOf(TablaPersonal.getValueAt(rowIndex, 8));
+            String ED = String.valueOf(TablaPersonal.getValueAt(rowIndex, 9));
+            String T = String.valueOf(TablaPersonal.getValueAt(rowIndex, 10));
+            String R = String.valueOf(TablaPersonal.getValueAt(rowIndex, 11));
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesPersonal DP = new DetallesPersonal(N, U, C, CU, RF, F, CO, E, ED, T ,R);
+            MostrarPanel(DP);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
+        }
+    }    
     
     
     //Funciuon para mostrar la barra lateral. Modificar para que muestre la barra lateral del usuario correspondiente
@@ -529,8 +559,7 @@ public class Personal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-         Mostrar("Personal");
+        PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed

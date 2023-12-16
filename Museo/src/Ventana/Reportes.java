@@ -174,7 +174,31 @@ public class Reportes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
         }
 
-}     
+}
+    
+   private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaReportes.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String D = String.valueOf(TablaReportes.getValueAt(rowIndex, 1));  
+            String FI = String.valueOf(TablaReportes.getValueAt(rowIndex, 2));
+            String FF = String.valueOf(TablaReportes.getValueAt(rowIndex, 3));
+            String E = String.valueOf(TablaReportes.getValueAt(rowIndex, 4));
+            
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesReportes DR = new DetallesReportes(D, FI,FF, E);
+            MostrarPanel(DR);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
+        }
+    }    
 
     
     //Funcion para desplegar el menu lateral.
@@ -489,7 +513,7 @@ public static String fechaActual(){
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-                         Mostrar("Reportes");
+        PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed

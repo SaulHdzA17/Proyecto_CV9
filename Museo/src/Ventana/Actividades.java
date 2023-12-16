@@ -377,7 +377,7 @@ public class Actividades extends javax.swing.JFrame {
 
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
         // TODO add your handling code here:
-        MostrarRegistros();
+        PasarValoresPanelDetallesMensaje();
 
         //Mostrar("Item");
     }//GEN-LAST:event_MostrarActionPerformed
@@ -542,7 +542,7 @@ public class Actividades extends javax.swing.JFrame {
        }
     }
 
- /*  private void PasarValoresPanelDetallesMensaje(){
+   private void PasarValoresPanelDetallesMensaje(){
         int rowIndex = TablaActividades.getSelectedRow();
 
         // Verifica si hay alguna fila seleccionada
@@ -560,9 +560,9 @@ public class Actividades extends javax.swing.JFrame {
             // ... haz algo más con los valores
         } else {
             // No hay fila seleccionada, maneja la situación en consecuencia
-            JOptionPane.showMessageDialog(null, "Seleccione un mensaje para ver sus detalles");
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
         }
-    }*/
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;

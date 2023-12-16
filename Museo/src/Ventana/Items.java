@@ -188,7 +188,29 @@ public class Items extends javax.swing.JFrame {
 
 }    
     
-    
+   private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaItem.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String N = String.valueOf(TablaItem.getValueAt(rowIndex, 1));  
+            String C = String.valueOf(TablaItem.getValueAt(rowIndex, 2));
+            String D = String.valueOf(TablaItem.getValueAt(rowIndex, 3));
+            String E = String.valueOf(TablaItem.getValueAt(rowIndex, 4));
+            String P = String.valueOf(TablaItem.getValueAt(rowIndex, 5));
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesItems DI = new DetallesItems(N, C,D, E, P);
+            MostrarPanel(DI);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
+        }
+    }    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -433,7 +455,7 @@ public class Items extends javax.swing.JFrame {
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
         // TODO add your handling code here:
       
-        Mostrar("Item");
+        PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_MostrarActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
