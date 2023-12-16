@@ -144,7 +144,7 @@ public class Personal extends javax.swing.JFrame {
         }
     }
        
-        public DefaultTableModel buscar1(String buscar){
+    public DefaultTableModel buscar1(String buscar){
     
         String [] nombreColumna={"Id", "Nombre", "Usuario", "Contraseña", "CURP", "RFC", "Fecha_Contratacion", "Correo", "Escolaridad", "Edad", "Telefono", "Rol"};
         String [] registros = new String [12];
@@ -219,7 +219,7 @@ public class Personal extends javax.swing.JFrame {
 
 }
     
-   private void PasarValoresPanelDetallesMensaje(){
+    private void PasarValoresPanelDetallesMensaje(){
         int rowIndex = TablaPersonal.getSelectedRow();
 
         // Verifica si hay alguna fila seleccionada

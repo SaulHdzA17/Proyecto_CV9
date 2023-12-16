@@ -281,8 +281,8 @@ public class Mensajes extends javax.swing.JFrame {
                 break;
                 
             case "Jefe de seguridad":
-                /*MenuLateral ML = new MenuLateral();
-                MostrarPanelLateral(ML);*/
+                MenuLateralSeguridad MS = new MenuLateralSeguridad();
+                MostrarPanelLateral(MS);
                 break;
             case "Guardias":
                 /*MenuLateral ML = new MenuLateral();

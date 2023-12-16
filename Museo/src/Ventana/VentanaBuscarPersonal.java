@@ -440,6 +440,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton1);
         jRadioButton1.setText("CURP");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -447,6 +448,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton2);
         jRadioButton2.setText("Fecha Contratacion");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,6 +456,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton3);
         jRadioButton3.setText("Correo");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -461,6 +464,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton4);
         jRadioButton4.setText("Escolaridad");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,6 +472,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton5);
         jRadioButton5.setText("Edad");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -475,6 +480,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton6);
         jRadioButton6.setText("Telefono");
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -482,6 +488,7 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
             }
         });
 
+        GrpBotonesFiltro.add(jRadioButton7);
         jRadioButton7.setText("Rol");
         jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -542,7 +549,6 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(64, 97, 150));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -563,7 +569,6 @@ public class VentanaBuscarPersonal extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tablaLista);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
