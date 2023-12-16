@@ -112,8 +112,8 @@ CREATE TABLE IF NOT EXISTS DatosAceso (
     foto_identificacion BLOB, -- Puedes almacenar la imagen como un BLOB (Binary Large Object) si es necesario
 	motivo_visitante VARCHAR(255),
     descripcion_visitante TEXT,
-    id_usuario_registrador INT,
     fecha_registro_visitante DATETIME,
+	id_usuario_registrador INT,
     FOREIGN KEY (id_usuario_registrador) REFERENCES Personal(id)
 );
 
@@ -200,8 +200,16 @@ VALUES ('V', 'V123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'D
 INSERT INTO Item (nombre, clasificacion, descripcion, estado, prestamo)
 VALUES ('Retrato', 'Pintura', 'Arte del siglo XV', 'Buen estado', 'Museo local');
 
+-- Insertar un nuevo registro en la tabla 'Personal'
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
+VALUES ('z', 'z123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Jefe de seguridad', 1);
+
+ALTER TABLE DatosAceso
+MODIFY COLUMN foto_identificacion mediumblob;
+
+-- Insertar un nuevo registro en la tabla 'Personal'
+INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacion, edad, rol, registrado_por)
+VALUES ('ot', 'ot123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Encargado del personal operativo y taquillas', 1);
 
 
-SELECT * FROM Chat
-WHERE emisor_id = 1
-ORDER BY timestamp;
+SELECT * FROM Personal
