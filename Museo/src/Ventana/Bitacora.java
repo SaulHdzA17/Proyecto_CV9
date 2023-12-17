@@ -26,6 +26,10 @@ public class Bitacora extends javax.swing.JFrame {
     /**
      * Creates new form Bitacora
      */
+    
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();
+    
     public Bitacora() {
         initComponents();
         TipoMenu();
@@ -37,7 +41,7 @@ public class Bitacora extends javax.swing.JFrame {
         hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
         
         this.Hora.setText(hora);
-        
+        Mostrar("Bitacora");
     }
 
     /**
@@ -244,13 +248,146 @@ public class Bitacora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Mostrar(String tabla){
+        String sql="select * from Bitacora";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Id");
+       model.addColumn("Asunto");
+       model.addColumn("Descripcion");
+       model.addColumn("Fecha Incidente");
+
+       
+       TablaBitacora.setModel(model);
+       String [] datos = new String[4];
+       try {
+       st = conexion.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+       datos[1]=rs.getString(2);
+       datos[2]=rs.getString(3);
+       datos[3]=rs.getString(4);
+
+       model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }    
+
+   private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaBitacora.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String A = String.valueOf(TablaBitacora.getValueAt(rowIndex, 1));  
+            String D = String.valueOf(TablaBitacora.getValueAt(rowIndex, 2));
+            String F = String.valueOf(TablaBitacora.getValueAt(rowIndex, 3));
+
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesBitacora DB = new DetallesBitacora(A, D, F);
+            MostrarPanel(DB);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
+        }
+    } 
+
+    public void Eliminar(){
+        
+        int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
+        
+        if(opt==0){
+        int fila=TablaBitacora.getSelectedRow();
+        String valor =TablaBitacora.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from Bitacora where id='"+valor+"'");
+                delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
+                Mostrar("Bitacora");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+    }
+    
+    public void Actualizar(){
+
+        int fila = TablaBitacora.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaBitacora.getValueAt(fila, 0).toString());
+        String A =TablaBitacora.getValueAt(fila,1).toString();
+        String D =TablaBitacora.getValueAt(fila,2).toString();
+        String F =TablaBitacora.getValueAt(fila,3).toString();
+    
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update Bitacora set asunto='"+A+"', descripcion_incidente='"+D+"', fecha_incidente='"+F+"' where id='"+id+"'");
+            actu.executeUpdate();
+            Mostrar("Bitacora");
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}       
+
+    public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Asunto", "Descripcion_incidente", "Fecha_Incidente"};
+        String [] registros = new String [4];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from Bitacora where id like'"+buscar+"' or asunto like '"+buscar+"' or descripcion_incidente like'"+buscar+"' or fecha_incidente like '"+buscar+"'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("Asunto");
+        registros[2]=rs.getString("Descripcion_incidente");
+        registros[3]=rs.getString("Fecha_Incidente");
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }    
+    
     private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
         // Desplegar panel para registro de indicentes
+        VentanaRegistrarBitacora VRB = new VentanaRegistrarBitacora();
+        MostrarPanel(VRB);
 
     }//GEN-LAST:event_BotonAgregarActionPerformed
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // Metodo para borrar
+        Eliminar();
         
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
@@ -261,15 +398,18 @@ public class Bitacora extends javax.swing.JFrame {
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
+        VentanaBuscarBitacora VBB = new VentanaBuscarBitacora();
+        MostrarPanel(VBB);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
+       PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
         // TODO add your handling code here:
+        Actualizar();
        
     }//GEN-LAST:event_BotonActualizarActionPerformed
 
