@@ -125,6 +125,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Regresar.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +158,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Motivo de visita");
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Limpiar.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {

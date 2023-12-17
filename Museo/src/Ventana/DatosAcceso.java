@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventana;
+import static Ventana.Items.fechaActual;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -29,6 +30,14 @@ public class DatosAcceso extends javax.swing.JFrame {
         initComponents();
         
         TipoMenu();
+        
+        Fecha.setText(fechaActual());
+        Calendar cal= Calendar.getInstance();
+        String hora;
+        
+        hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
+        
+        this.Hora.setText(hora);
     }
 
     /**

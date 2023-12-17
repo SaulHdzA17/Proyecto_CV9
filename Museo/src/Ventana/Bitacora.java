@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventana;
+import static Ventana.Items.fechaActual;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -28,6 +29,15 @@ public class Bitacora extends javax.swing.JFrame {
     public Bitacora() {
         initComponents();
         TipoMenu();
+        
+        Fecha.setText(fechaActual());
+        Calendar cal= Calendar.getInstance();
+        String hora;
+        
+        hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
+        
+        this.Hora.setText(hora);
+        
     }
 
     /**
@@ -161,7 +171,7 @@ public class Bitacora extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(64, 97, 150));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Brillos.png"))); // NOI18N
-        jLabel7.setText("Bitacora");
+        jLabel7.setText("Bitácora");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mostrar.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {

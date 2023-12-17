@@ -4,8 +4,10 @@
  */
 package Ventana;
 
+import static Ventana.Items.fechaActual;
 import java.awt.BorderLayout;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,6 +24,14 @@ public class RegistrarEventos extends javax.swing.JFrame {
     public RegistrarEventos() {
         initComponents();
         TipoMenu();
+        
+        Fecha.setText(fechaActual());
+        Calendar cal= Calendar.getInstance();
+        String hora;
+        
+        hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
+        
+        this.Hora.setText(hora);
     }
 
     /**
