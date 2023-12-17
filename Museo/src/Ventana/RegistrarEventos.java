@@ -6,11 +6,16 @@ package Ventana;
 
 import static Ventana.Items.fechaActual;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +26,9 @@ public class RegistrarEventos extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarEventos
      */
+    Conexion enlace = new Conexion();
+    Connection connection = enlace.estableceConexion();    
+    
     public RegistrarEventos() {
         initComponents();
         TipoMenu();
@@ -32,6 +40,7 @@ public class RegistrarEventos extends javax.swing.JFrame {
         hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
         
         this.Hora.setText(hora);
+        Mostrar("EventosMuseo");
     }
 
     /**
@@ -51,7 +60,7 @@ public class RegistrarEventos extends javax.swing.JFrame {
         Hora = new javax.swing.JLabel();
         PanelContenido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TablaItem = new javax.swing.JTable();
+        TablaEventos = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         BotonAgregar1 = new javax.swing.JButton();
         BotonBorrar = new javax.swing.JButton();
@@ -117,7 +126,7 @@ public class RegistrarEventos extends javax.swing.JFrame {
 
         PanelContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        TablaItem.setModel(new javax.swing.table.DefaultTableModel(
+        TablaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -127,7 +136,7 @@ public class RegistrarEventos extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(TablaItem);
+        jScrollPane1.setViewportView(TablaEventos);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 70)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(64, 97, 150));
@@ -236,28 +245,190 @@ public class RegistrarEventos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Mostrar(String tabla){
+        String sql="select * from EventosMuseo";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+       System.out.println(sql);
+       DefaultTableModel model = new DefaultTableModel();
+       
+       model.addColumn("Id");
+       model.addColumn("Nombre");
+       model.addColumn("Descripción");
+       model.addColumn("Fecha Inicio");
+       model.addColumn("Fecha Fin");
+       model.addColumn("Hora Inicio");
+       model.addColumn("Hora Fin");
+       model.addColumn("Lugar");    
+       model.addColumn("Cupo");       
+       
+       TablaEventos.setModel(model);
+       String [] datos = new String[9];
+       try {
+       st = conexion.createStatement();
+       java.sql.ResultSet rs= st.executeQuery(sql);
+       while(rs.next())  
+           
+       {
+       datos[0]=rs.getString(1);
+       datos[1]=rs.getString(2);
+       datos[2]=rs.getString(3);
+       datos[3]=rs.getString(4);
+       datos[4]=rs.getString(5);
+       datos[5]=rs.getString(6);
+       datos[6]=rs.getString(7);
+       datos[7]=rs.getString(8);
+       datos[8]=rs.getString(9);       
+       
+       model.addRow(datos);
+       }
+       
+       }catch(SQLException e){
+       JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+    }    
+
+    private void PasarValoresPanelDetallesMensaje(){
+        int rowIndex = TablaEventos.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String N = String.valueOf(TablaEventos.getValueAt(rowIndex, 1));  
+            String D = String.valueOf(TablaEventos.getValueAt(rowIndex, 2));
+            String FI = String.valueOf(TablaEventos.getValueAt(rowIndex, 3));
+            String FF = String.valueOf(TablaEventos.getValueAt(rowIndex, 4));
+            String HI = String.valueOf(TablaEventos.getValueAt(rowIndex, 5));
+            String HF = String.valueOf(TablaEventos.getValueAt(rowIndex, 6));  
+            String L = String.valueOf(TablaEventos.getValueAt(rowIndex, 7));
+            String C = String.valueOf(TablaEventos.getValueAt(rowIndex, 8));
+
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesEventos DE = new DetallesEventos(N, D, FI, FF, HI, HF, L, C);
+            MostrarPanel(DE);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un registro para ver sus detalles");
+        }
+    }
+
+      public void Eliminar(){
+        
+        int opt=JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
+        
+        if(opt==0){
+        int fila=TablaEventos.getSelectedRow();
+        String valor =TablaEventos.getValueAt(fila,0).toString();
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from EventosMuseo where id='"+valor+"'");
+                delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
+                Mostrar("EventosMuseo");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+    }
+
+     public void Actualizar(){
+
+        int fila = TablaEventos.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaEventos.getValueAt(fila, 0).toString());
+        String N =TablaEventos.getValueAt(fila,1).toString();
+        String D =TablaEventos.getValueAt(fila,2).toString();
+        String FI =TablaEventos.getValueAt(fila,3).toString();
+        String FF =TablaEventos.getValueAt(fila,4).toString();
+        String HI =TablaEventos.getValueAt(fila,5).toString();
+        String HF =TablaEventos.getValueAt(fila,6).toString();
+        String L =TablaEventos.getValueAt(fila,7).toString();
+        String C =TablaEventos.getValueAt(fila,8).toString();
+    
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update EventosMuseo set Nombre_Evento='"+N+"', Descripcion='"+D+"', Fecha_Inicio='"+FI+"', Fecha_Fin='"+FF+"', Hora_Inicio='"+HI+"', Hora_Fin='"+HF+"', Lugar='"+L+"', Cupo_Maximo='"+C+"' where id='"+id+"'");
+            actu.executeUpdate();
+            Mostrar("EventosMuseo");
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+}
+
+    public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Nombre_Evento", "Descripcion", "Fecha_Inicio", "Fecha_Fin", "Hora_Inicio", "Hora_Fin", "Lugar", "Cupo_Maximo"};
+        String [] registros = new String [9];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        String sql="select * from EventosMuseo where id like'"+buscar+"' or Nombre_Evento like '"+buscar+"' or Descripcion like'"+buscar+"' or Fecha_Inicio like '"+buscar+"' or Fecha_Fin like '"+buscar+"' or Hora_Inicio like '"+buscar+"' or Hora_Fin like '"+buscar+"' or Lugar like '"+buscar+"' or Cupo_Maximo like '"+buscar+"'";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        java.sql.ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+        registros[0]=rs.getString("Id");
+        registros[1]=rs.getString("Nombre_Evento");
+        registros[2]=rs.getString("Descripcion");
+        registros[3]=rs.getString("Fecha_Inicio");
+        registros[4]=rs.getString("Fecha_Fin");
+        registros[5]=rs.getString("Hora_Inicio");
+        registros[6]=rs.getString("Hora_Fin");
+        registros[7]=rs.getString("Lugar");
+        registros[8]=rs.getString("Cupo_Maximo");
+
+       
+   
+        modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }     
+     
     private void BotonAgregar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregar1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonAgregar1MouseClicked
 
     private void BotonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregar1ActionPerformed
         // TODO add your handling code here:
+        VentanaRegistrarEventos VRE = new VentanaRegistrarEventos();
+        MostrarPanel(VRE);
     }//GEN-LAST:event_BotonAgregar1ActionPerformed
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
+        Eliminar();
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
+        VentanaBuscarEventos VBE = new VentanaBuscarEventos();
+        MostrarPanel(VBE);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
         // TODO add your handling code here:
+        PasarValoresPanelDetallesMensaje();
     }//GEN-LAST:event_MostrarActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
         // TODO add your handling code here:
+        Actualizar();
     }//GEN-LAST:event_BotonActualizarActionPerformed
 
     /**
@@ -389,7 +560,7 @@ public class RegistrarEventos extends javax.swing.JFrame {
     private javax.swing.JButton Mostrar;
     private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelInfoFecha;
-    public javax.swing.JTable TablaItem;
+    public javax.swing.JTable TablaEventos;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

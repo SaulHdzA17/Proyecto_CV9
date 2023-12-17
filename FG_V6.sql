@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS Chat (
 
 -- Crear Tabla para bitacora de incidentes
 CREATE TABLE IF NOT EXISTS Bitacora (
-    id_reporte INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     asunto VARCHAR(255), 
     descripcion_incidente TEXT,
     fecha_incidente DATE,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS Actividad (
 
 -- Crear Tabla para las visitas (visitas guiadas/ agendar horiarios/ eventos )
 CREATE TABLE IF NOT EXISTS VisitasAgendadas (
-    VisitaID INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     NombreVisitante VARCHAR(100) NOT NULL,
     CorreoVisitante VARCHAR(100),
     TelefonoVisitante VARCHAR(20),
@@ -139,17 +139,18 @@ CREATE TABLE IF NOT EXISTS VisitasAgendadas (
     Comentarios TEXT,
     EstadoVisita ENUM('Pendiente', 'Confirmada', 'Cancelada') DEFAULT 'Pendiente'
 );
+
 -- Crear Tabla Eventos
 CREATE TABLE IF NOT EXISTS EventosMuseo (
-    EventoID INT PRIMARY KEY AUTO_INCREMENT,
-    NombreEvento VARCHAR(255) NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Evento VARCHAR(255) NOT NULL,
     Descripcion TEXT,
-    FechaInicio DATE NOT NULL,
-    FechaFin DATE,
-    HoraInicio TIME,
-    HoraFin TIME,
+    Fecha_Inicio DATE NOT NULL,
+    Fecha_Fin DATE,
+    Hora_Inicio TIME,
+    Hora_Fin TIME,
     Lugar VARCHAR(255),
-    CupoMaximo INT,
+    Cupo_Maximo INT,
     UNIQUE (NombreEvento)
 );
 
@@ -212,4 +213,19 @@ INSERT INTO Personal (nombre, usuario, contraseña, curp, rfc, fecha_contratacio
 VALUES ('ot', 'ot123', '123', 'ABC123456XYZ', 'RFC123456XYZ', '2022-01-01', 30, 'Encargado del personal operativo y taquillas', 1);
 
 
-SELECT * FROM Personal
+SELECT * FROM Personal;
+
+-- Insertar un nuevo registro en la tabla 'VisitasAgendadas'
+
+INSERT INTO VisitasAgendadas (NombreVisitante, CorreoVisitante, TelefonoVisitante, FechaVisita, HoraInicio, HoraFin, Comentarios, EstadoVisita)
+VALUES ('Omar', 'omar@gmail.com', '5512345678', '2023-12-18', '10:30', '11:30', 'Excelente servicio', 'Pendiente');
+
+Select * from VisitasAgendadas;
+
+-- Insertar un nuevo registro en la tabla 'Bitacora'
+INSERT INTO Bitacora (asunto, descripcion_incidente, fecha_incidente) 
+VALUES ('Item recuperado', 'Se devolvió un item extraviado', '2023-12-17');
+
+-- Insertar un nuevo registro en la tabla 'EventoMuseo'
+INSERT INTO EventosMuseo (Nombre_Evento, Descripcion, Fecha_Inicio, Fecha_Fin, Hora_Inicio, Hora_Fin, Lugar, Cupo_Maximo)
+VALUES ('Visita guiada', 'Recorrido sobre el arte abstracto', '2023-12-15', '2023-12-18', '10:00:00', '12:00:00', 'Sala A', '30');
