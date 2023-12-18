@@ -237,3 +237,5 @@ INSERT INTO RegistrarVisitantes (cantidad_visitantes, fecha_registro) VALUES ('5
 INSERT INTO RegistrarVisitantes (cantidad_visitantes, fecha_registro) VALUES ('100', '2023-12-19');
 
 Select * from RegistrarVisitantes;
+select * from Actividad;
+select * from sala;
