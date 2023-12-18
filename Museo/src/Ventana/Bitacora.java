@@ -42,6 +42,7 @@ public class Bitacora extends javax.swing.JFrame {
         
         this.Hora.setText(hora);
         Mostrar("Bitacora");
+        this.setLocationRelativeTo(null);
     }
 
     /**

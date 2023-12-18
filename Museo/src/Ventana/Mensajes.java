@@ -46,6 +46,7 @@ public class Mensajes extends javax.swing.JFrame {
         hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
         
         this.Hora.setText(hora);
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -42,6 +42,7 @@ public class OrganizarSalas extends javax.swing.JFrame {
         this.Hora.setText(hora);
         
         MostrarRegistros();
+        this.setLocationRelativeTo(null);
     }
 
     /**

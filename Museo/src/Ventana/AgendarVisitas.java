@@ -45,6 +45,7 @@ public class AgendarVisitas extends javax.swing.JFrame {
         this.Hora.setText(hora);
         
         Mostrar("VisitasAgendadas");
+        this.setLocationRelativeTo(null);
     }
 
     /**

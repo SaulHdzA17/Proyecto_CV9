@@ -41,6 +41,7 @@ public class RegistrarEventos extends javax.swing.JFrame {
         
         this.Hora.setText(hora);
         Mostrar("EventosMuseo");
+        this.setLocationRelativeTo(null);
     }
 
     /**

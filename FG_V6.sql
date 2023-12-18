@@ -93,9 +93,9 @@ CREATE TABLE IF NOT EXISTS Bitacora (
     FOREIGN KEY (id_usuario_registrador) REFERENCES Personal(id)
 );
 
--- Crer tabla para registar Visitantes
-CREATE TABLE IF NOT EXISTS Visitantes (
-    id_visita INT AUTO_INCREMENT PRIMARY KEY,
+-- Crear tabla para registar Visitantes
+CREATE TABLE IF NOT EXISTS RegistrarVisitantes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     cantidad_visitantes INT,
     fecha_registro DATE,
     id_usuario_registrador INT,
@@ -229,3 +229,11 @@ VALUES ('Item recuperado', 'Se devolvió un item extraviado', '2023-12-17');
 -- Insertar un nuevo registro en la tabla 'EventoMuseo'
 INSERT INTO EventosMuseo (Nombre_Evento, Descripcion, Fecha_Inicio, Fecha_Fin, Hora_Inicio, Hora_Fin, Lugar, Cupo_Maximo)
 VALUES ('Visita guiada', 'Recorrido sobre el arte abstracto', '2023-12-15', '2023-12-18', '10:00:00', '12:00:00', 'Sala A', '30');
+
+-- Insertar un nuevo registro en la tabla 'Visitantes'
+INSERT INTO RegistrarVisitantes (cantidad_visitantes, fecha_registro) VALUES ('50', '2023-12-18');
+
+-- Insertar un nuevo registro en la tabla 'Visitantes'
+INSERT INTO RegistrarVisitantes (cantidad_visitantes, fecha_registro) VALUES ('100', '2023-12-19');
+
+Select * from RegistrarVisitantes;

@@ -43,6 +43,7 @@ public class Actividades extends javax.swing.JFrame {
         this.Hora.setText(hora);
         
         MostrarRegistros();
+        this.setLocationRelativeTo(null);
     }
 
     /**
