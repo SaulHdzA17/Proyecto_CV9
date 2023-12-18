@@ -43,7 +43,6 @@ public class DetallesItems extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         txtRegresar = new javax.swing.JButton();
-        Descripcion = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         Estado = new javax.swing.JTextField();
@@ -51,6 +50,8 @@ public class DetallesItems extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         Prestamo = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Descripcion = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,16 +72,16 @@ public class DetallesItems extends javax.swing.JPanel {
                 NombreActionPerformed(evt);
             }
         });
-        BG.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 113, 579, 23));
-        BG.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 142, 579, 10));
+        BG.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 113, 280, 23));
+        BG.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 142, 280, 10));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Clasificación");
         BG.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 158, -1, -1));
 
         Clasificacion.setBorder(null);
-        BG.add(Clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 181, 579, 26));
-        BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 213, 579, 10));
+        BG.add(Clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 181, 280, 26));
+        BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 213, 280, 10));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Descripción");
@@ -94,26 +95,31 @@ public class DetallesItems extends javax.swing.JPanel {
             }
         });
         BG.add(txtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(628, 416, 45, 47));
-        BG.add(Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 252, 579, 30));
-        BG.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 294, 579, 10));
+        BG.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 290, 10));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Estado");
-        BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 310, -1, -1));
-        BG.add(Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 333, 579, 35));
-        BG.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 380, 579, 10));
+        BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        BG.add(Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 270, -1));
+        BG.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 270, 10));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Préstamo");
-        BG.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 396, -1, -1));
+        BG.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
 
         Prestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrestamoActionPerformed(evt);
             }
         });
-        BG.add(Prestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 419, 576, 28));
-        BG.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 453, 576, 10));
+        BG.add(Prestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 270, -1));
+        BG.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 270, 10));
+
+        Descripcion.setColumns(20);
+        Descripcion.setRows(5);
+        jScrollPane1.setViewportView(Descripcion);
+
+        BG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 290, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,7 +162,7 @@ public class DetallesItems extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JTextField Clasificacion;
-    private javax.swing.JTextField Descripcion;
+    private javax.swing.JTextArea Descripcion;
     private javax.swing.JTextField Estado;
     private javax.swing.JTextField Nombre;
     private javax.swing.JTextField Prestamo;
@@ -165,6 +171,7 @@ public class DetallesItems extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

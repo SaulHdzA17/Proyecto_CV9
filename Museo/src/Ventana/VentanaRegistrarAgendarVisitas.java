@@ -131,7 +131,6 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
         Nombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        Comentarios = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         HInicio = new javax.swing.JComboBox<>();
         Fecha = new com.toedter.calendar.JDateChooser();
@@ -143,6 +142,8 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         Estado = new javax.swing.JComboBox<>();
         jSeparator8 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Comentarios = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -239,8 +240,6 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
         jSeparator5.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator5.setForeground(new java.awt.Color(64, 97, 150));
 
-        Comentarios.setBorder(null);
-
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Limpiar.png"))); // NOI18N
         jButton3.setBorder(null);
@@ -274,6 +273,10 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
         jSeparator8.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator8.setForeground(new java.awt.Color(64, 97, 150));
 
+        Comentarios.setColumns(20);
+        Comentarios.setRows(5);
+        jScrollPane1.setViewportView(Comentarios);
+
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
@@ -283,7 +286,7 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BGLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(156, 508, Short.MAX_VALUE))
+                        .addGap(156, 541, Short.MAX_VALUE))
                     .addGroup(BGLayout.createSequentialGroup()
                         .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -315,16 +318,17 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
                             .addGroup(BGLayout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(HFin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jSeparator6, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(Comentarios)
-                                    .addComponent(jSeparator7)
-                                    .addComponent(jLabel7)
-                                    .addComponent(Estado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jSeparator8))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(HFin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jSeparator6, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jSeparator7)
+                                        .addComponent(jLabel7)
+                                        .addComponent(Estado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jSeparator8)))))
+                        .addGap(0, 205, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,7 +368,7 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BGLayout.createSequentialGroup()
-                        .addComponent(Comentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -474,7 +478,7 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JTextField Comentarios;
+    private javax.swing.JTextArea Comentarios;
     private javax.swing.JTextField Correo;
     private javax.swing.JComboBox<String> Estado;
     private com.toedter.calendar.JDateChooser Fecha;
@@ -494,6 +498,7 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

@@ -38,12 +38,13 @@ public class DetallesBitacora extends javax.swing.JPanel {
         Asunto = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        Descripcion = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         txtRegresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         Fecha = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Descripcion = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,9 +71,6 @@ public class DetallesBitacora extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Descripción Incidente");
         BG.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 158, -1, -1));
-
-        Descripcion.setBorder(null);
-        BG.add(Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 181, 579, 110));
         BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 579, 10));
 
         txtRegresar.setBackground(new java.awt.Color(255, 255, 255));
@@ -89,6 +87,12 @@ public class DetallesBitacora extends javax.swing.JPanel {
         BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 310, -1, -1));
         BG.add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 333, 579, 35));
         BG.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 380, 579, 10));
+
+        Descripcion.setColumns(20);
+        Descripcion.setRows(5);
+        jScrollPane1.setViewportView(Descripcion);
+
+        BG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 580, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -127,11 +131,12 @@ public class DetallesBitacora extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Asunto;
     private javax.swing.JPanel BG;
-    private javax.swing.JTextField Descripcion;
+    private javax.swing.JTextArea Descripcion;
     private javax.swing.JTextField Fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;

@@ -101,7 +101,6 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
         ClasificacionItem = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelDescripcion = new javax.swing.JLabel();
-        DescripcionItem = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -115,6 +114,8 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
         PrestamoItem = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         EstadoItem = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DescripcionItem = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -143,19 +144,6 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
 
         jLabelDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDescripcion.setText("Descripcion");
-
-        DescripcionItem.setForeground(new java.awt.Color(204, 204, 204));
-        DescripcionItem.setBorder(null);
-        DescripcionItem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                DescripcionItemMousePressed(evt);
-            }
-        });
-        DescripcionItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DescripcionItemActionPerformed(evt);
-            }
-        });
 
         jSeparator2.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator2.setForeground(new java.awt.Color(64, 97, 150));
@@ -224,6 +212,10 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
 
         EstadoItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar estado", "Excelente estado", "Buen estado", "Mal estado", "Pesimo estado" }));
 
+        DescripcionItem.setColumns(20);
+        DescripcionItem.setRows(5);
+        jScrollPane1.setViewportView(DescripcionItem);
+
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
@@ -235,33 +227,33 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(156, 529, Short.MAX_VALUE))
                     .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(EstadoItem, javax.swing.GroupLayout.Alignment.LEADING, 0, 257, Short.MAX_VALUE)
-                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(DescripcionItem, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDescripcion, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ClasificacionItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator4)
-                                    .addComponent(NombreItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
-                                .addComponent(jLabel3)))
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabelDescripcion)
+                            .addComponent(jLabelNombre)
+                            .addComponent(ClasificacionItem, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(jSeparator1)
+                            .addComponent(jSeparator3)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NombreItem, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
                         .addGap(58, 58, 58)
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(BGLayout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(PrestamoItem))
+                                    .addComponent(jLabel4)
+                                    .addGap(216, 216, 216))
+                                .addComponent(PrestamoItem)
+                                .addComponent(EstadoItem, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(BGLayout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(
@@ -291,31 +283,30 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelDescripcion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DescripcionItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
                     .addGroup(BGLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ClasificacionItem, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EstadoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(jLabelNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(BGLayout.createSequentialGroup()
-                                        .addComponent(ClasificacionItem, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30))
-                                    .addGroup(BGLayout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addComponent(jButton2))))
+                                .addGap(19, 19, 19)
+                                .addComponent(jButton2))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(12, 12, 12)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EstadoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -350,16 +341,6 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
         // TODO add your handling code here:
         RegistrarItem();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void DescripcionItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescripcionItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DescripcionItemActionPerformed
-
-    private void DescripcionItemMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DescripcionItemMousePressed
-        // TODO add your handling code here:
-        DescripcionItem.setText("");
-        DescripcionItem.setForeground(Color.black);
-    }//GEN-LAST:event_DescripcionItemMousePressed
 
     private void ClasificacionItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClasificacionItemActionPerformed
         // TODO add your handling code here:
@@ -398,7 +379,7 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JTextField ClasificacionItem;
-    private javax.swing.JTextField DescripcionItem;
+    private javax.swing.JTextArea DescripcionItem;
     private javax.swing.JComboBox<String> EstadoItem;
     private javax.swing.JTextField NombreItem;
     private javax.swing.JTextField PrestamoItem;
@@ -411,6 +392,7 @@ public class VentanaRegistrarItem extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

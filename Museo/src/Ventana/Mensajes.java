@@ -47,6 +47,8 @@ public class Mensajes extends javax.swing.JFrame {
         
         this.Hora.setText(hora);
         this.setLocationRelativeTo(null);
+        
+        MostrarMensajes();
     }
 
     /**

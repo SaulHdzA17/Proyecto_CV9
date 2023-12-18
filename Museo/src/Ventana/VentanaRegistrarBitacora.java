@@ -96,7 +96,6 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
         BG = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
-        Descripcion = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelDescripcion = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -107,6 +106,8 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
         Asunto = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         Fecha = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Descripcion = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -116,19 +117,6 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNombre.setText("Descripción");
-
-        Descripcion.setForeground(new java.awt.Color(204, 204, 204));
-        Descripcion.setBorder(null);
-        Descripcion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                DescripcionMousePressed(evt);
-            }
-        });
-        Descripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DescripcionActionPerformed(evt);
-            }
-        });
 
         jSeparator1.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator1.setForeground(new java.awt.Color(64, 97, 150));
@@ -187,6 +175,10 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
             }
         });
 
+        Descripcion.setColumns(20);
+        Descripcion.setRows(5);
+        jScrollPane1.setViewportView(Descripcion);
+
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
@@ -194,27 +186,24 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
             .addGroup(BGLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(156, 480, Short.MAX_VALUE))
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabelDescripcion)
-                            .addComponent(jLabelNombre)
-                            .addComponent(Asunto)
-                            .addComponent(jSeparator4)
-                            .addComponent(Descripcion)
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator3)
-                            .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jLabel1)
+                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(BGLayout.createSequentialGroup()
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2)
+                        .addComponent(jLabelDescripcion)
+                        .addComponent(jLabelNombre)
+                        .addComponent(Asunto)
+                        .addComponent(jSeparator3)
+                        .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jSeparator4)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addGap(156, 422, Short.MAX_VALUE))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,8 +219,8 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelDescripcion)
@@ -280,16 +269,6 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
         RegistrarBitacora();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void DescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DescripcionActionPerformed
-
-    private void DescripcionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DescripcionMousePressed
-        // TODO add your handling code here:
-        Descripcion.setText("");
-        Descripcion.setForeground(Color.black);
-    }//GEN-LAST:event_DescripcionMousePressed
-
     private void AsuntoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AsuntoMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_AsuntoMousePressed
@@ -315,7 +294,7 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Asunto;
     private javax.swing.JPanel BG;
-    private javax.swing.JTextField Descripcion;
+    private javax.swing.JTextArea Descripcion;
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -324,6 +303,7 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

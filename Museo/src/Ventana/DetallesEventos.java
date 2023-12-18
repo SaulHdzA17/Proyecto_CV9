@@ -43,7 +43,6 @@ public class DetallesEventos extends javax.swing.JPanel {
         jlabel = new javax.swing.JLabel();
         Nombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        Descripcion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtRegresar = new javax.swing.JButton();
         FechaI = new javax.swing.JTextField();
@@ -58,6 +57,8 @@ public class DetallesEventos extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         Cupo = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Descripcion = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -78,8 +79,6 @@ public class DetallesEventos extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Descripción");
-
-        Descripcion.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Fecha Inicio");
@@ -115,6 +114,10 @@ public class DetallesEventos extends javax.swing.JPanel {
 
         jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        Descripcion.setColumns(20);
+        Descripcion.setRows(5);
+        jScrollPane1.setViewportView(Descripcion);
+
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
@@ -125,12 +128,12 @@ public class DetallesEventos extends javax.swing.JPanel {
                     .addComponent(jlabel)
                     .addComponent(FechaF, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
                     .addComponent(FechaI)
-                    .addComponent(Descripcion)
                     .addComponent(Nombre)
                     .addComponent(jLabel4)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,8 +168,8 @@ public class DetallesEventos extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(FechaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +240,7 @@ public class DetallesEventos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JTextField Cupo;
-    private javax.swing.JTextField Descripcion;
+    private javax.swing.JTextArea Descripcion;
     private javax.swing.JTextField FechaF;
     private javax.swing.JTextField FechaI;
     private javax.swing.JTextField HoraFin;
@@ -252,6 +255,7 @@ public class DetallesEventos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JLabel jlabel;
     private javax.swing.JButton txtRegresar;

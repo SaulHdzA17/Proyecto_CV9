@@ -42,8 +42,9 @@ public class DetallesPrestamos extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         txtRegresar = new javax.swing.JButton();
-        Motivo = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Motivo = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,8 +88,13 @@ public class DetallesPrestamos extends javax.swing.JPanel {
             }
         });
         BG.add(txtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 45, 47));
-        BG.add(Motivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 252, 579, 60));
         BG.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 579, 10));
+
+        Motivo.setColumns(20);
+        Motivo.setRows(5);
+        jScrollPane1.setViewportView(Motivo);
+
+        BG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 580, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -128,10 +134,11 @@ public class DetallesPrestamos extends javax.swing.JPanel {
     private javax.swing.JPanel BG;
     private javax.swing.JTextField FinP;
     private javax.swing.JTextField InicioP;
-    private javax.swing.JTextField Motivo;
+    private javax.swing.JTextArea Motivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

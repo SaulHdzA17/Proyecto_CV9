@@ -54,10 +54,11 @@ public class DetallesAgendarVisitas extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         HoraFin = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        Comentarios = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Estado = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Comentarios = new javax.swing.JTextArea();
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -115,6 +116,10 @@ public class DetallesAgendarVisitas extends javax.swing.JPanel {
 
         jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        Comentarios.setColumns(20);
+        Comentarios.setRows(5);
+        jScrollPane1.setViewportView(Comentarios);
+
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
@@ -145,11 +150,11 @@ public class DetallesAgendarVisitas extends javax.swing.JPanel {
                         .addGap(107, 107, 107))
                     .addGroup(BGLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8)
                             .addComponent(jLabel7)
-                            .addComponent(Comentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Estado, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Estado, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(
@@ -189,7 +194,7 @@ public class DetallesAgendarVisitas extends javax.swing.JPanel {
                                 .addComponent(HoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(144, 144, 144))
                             .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(Comentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -242,7 +247,7 @@ public class DetallesAgendarVisitas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
-    private javax.swing.JTextField Comentarios;
+    private javax.swing.JTextArea Comentarios;
     private javax.swing.JTextField Correo;
     private javax.swing.JTextField Estado;
     private javax.swing.JTextField Fecha;
@@ -258,6 +263,7 @@ public class DetallesAgendarVisitas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JLabel jlabel;
     private javax.swing.JButton txtRegresar;
