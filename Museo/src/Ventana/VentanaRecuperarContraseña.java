@@ -65,6 +65,7 @@ public class VentanaRecuperarContraseña extends javax.swing.JFrame {
         jLabel1.setText("Usuario");
 
         Usr.setBackground(new java.awt.Color(255, 255, 255));
+        Usr.setBorder(null);
         Usr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsrActionPerformed(evt);
@@ -94,6 +95,7 @@ public class VentanaRecuperarContraseña extends javax.swing.JFrame {
         });
 
         NewPwd.setBackground(new java.awt.Color(255, 255, 255));
+        NewPwd.setBorder(null);
         NewPwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewPwdActionPerformed(evt);
@@ -115,8 +117,6 @@ public class VentanaRecuperarContraseña extends javax.swing.JFrame {
                 BotonRegresarInicioActionPerformed(evt);
             }
         });
-
-        Contraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Contraseña actual");

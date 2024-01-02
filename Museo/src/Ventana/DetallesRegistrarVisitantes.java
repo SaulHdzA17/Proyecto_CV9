@@ -10,12 +10,12 @@ import javax.swing.SwingUtilities;
  *
  * @author jauregui
  */
-public class DetallesRegistrarEventos extends javax.swing.JPanel {
+public class DetallesRegistrarVisitantes extends javax.swing.JPanel {
 
     /**
      * Creates new form DetallesSala
      */
-    public DetallesRegistrarEventos(String C, String F) {
+    public DetallesRegistrarVisitantes(String C, String F) {
         initComponents();
         Cantidad.setText(C);
         Fecha.setText(F);
@@ -45,11 +45,12 @@ public class DetallesRegistrarEventos extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(64, 97, 150));
-        jLabel1.setText("Registrar Eventos");
+        jLabel1.setText("Registrar Visitantes");
 
         jlabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlabel.setText("Cantidad Visitantes");
 
+        Cantidad.setEditable(false);
         Cantidad.setBorder(null);
         Cantidad.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         Cantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +62,7 @@ public class DetallesRegistrarEventos extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Fecha");
 
+        Fecha.setEditable(false);
         Fecha.setBorder(null);
 
         txtRegresar.setBackground(new java.awt.Color(255, 255, 255));

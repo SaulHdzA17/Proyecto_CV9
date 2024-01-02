@@ -104,6 +104,7 @@ public class VentanaRegistrarReporte extends javax.swing.JPanel {
 
         DescripcionR.setColumns(20);
         DescripcionR.setRows(5);
+        DescripcionR.setBorder(null);
         jScrollPane1.setViewportView(DescripcionR);
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);

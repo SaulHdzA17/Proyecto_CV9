@@ -275,6 +275,7 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
 
         Comentarios.setColumns(20);
         Comentarios.setRows(5);
+        Comentarios.setBorder(null);
         jScrollPane1.setViewportView(Comentarios);
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
@@ -319,15 +320,14 @@ public class VentanaRegistrarAgendarVisitas extends javax.swing.JPanel {
                                 .addGap(48, 48, 48)
                                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(HFin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jSeparator6, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jSeparator7)
-                                        .addComponent(jLabel7)
-                                        .addComponent(Estado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jSeparator8)))))
+                                    .addComponent(HFin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jSeparator6, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jSeparator7)
+                                    .addComponent(jLabel7)
+                                    .addComponent(Estado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSeparator8))))
                         .addGap(0, 205, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(

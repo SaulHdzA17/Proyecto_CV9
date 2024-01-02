@@ -59,6 +59,7 @@ public class DetallesMensaje extends javax.swing.JPanel {
 
         jLabel2.setText("De:");
 
+        TxtEmisor.setEditable(false);
         TxtEmisor.setBorder(null);
         TxtEmisor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtEmisor.setEnabled(false);
@@ -70,16 +71,20 @@ public class DetallesMensaje extends javax.swing.JPanel {
 
         jLabel3.setText("Fecha de envio:");
 
+        TxtFecha.setEditable(false);
         TxtFecha.setEnabled(false);
 
         jLabel4.setText("Asunto:");
 
+        TxtAsunto.setEditable(false);
         TxtAsunto.setEnabled(false);
 
         jLabel5.setText("Mensaje:");
 
+        TxtMensaje.setEditable(false);
         TxtMensaje.setColumns(20);
         TxtMensaje.setRows(5);
+        TxtMensaje.setBorder(null);
         TxtMensaje.setEnabled(false);
         jScrollPane1.setViewportView(TxtMensaje);
 

@@ -65,6 +65,7 @@ public class DetallesItems extends javax.swing.JPanel {
         jlabel.setText("Nombre");
         BG.add(jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 90, -1, -1));
 
+        Nombre.setEditable(false);
         Nombre.setBorder(null);
         Nombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         Nombre.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +80,7 @@ public class DetallesItems extends javax.swing.JPanel {
         jLabel4.setText("Clasificación");
         BG.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 158, -1, -1));
 
+        Clasificacion.setEditable(false);
         Clasificacion.setBorder(null);
         BG.add(Clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 181, 280, 26));
         BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 213, 280, 10));
@@ -100,23 +102,30 @@ public class DetallesItems extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Estado");
         BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
-        BG.add(Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 270, -1));
+
+        Estado.setEditable(false);
+        Estado.setBorder(null);
+        BG.add(Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 270, 20));
         BG.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 270, 10));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Préstamo");
         BG.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
 
+        Prestamo.setEditable(false);
+        Prestamo.setBorder(null);
         Prestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrestamoActionPerformed(evt);
             }
         });
-        BG.add(Prestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 270, -1));
+        BG.add(Prestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 270, 20));
         BG.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 270, 10));
 
+        Descripcion.setEditable(false);
         Descripcion.setColumns(20);
         Descripcion.setRows(5);
+        Descripcion.setBorder(null);
         jScrollPane1.setViewportView(Descripcion);
 
         BG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 290, -1));

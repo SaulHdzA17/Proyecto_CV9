@@ -62,6 +62,7 @@ public class DetallesReportes extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Fecha Inicio");
 
+        FechaInicio.setEditable(false);
         FechaInicio.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -75,11 +76,19 @@ public class DetallesReportes extends javax.swing.JPanel {
             }
         });
 
+        FechaFin.setEditable(false);
+        FechaFin.setBorder(null);
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Estado");
 
+        Estado.setEditable(false);
+        Estado.setBorder(null);
+
+        Descripcion.setEditable(false);
         Descripcion.setColumns(20);
         Descripcion.setRows(5);
+        Descripcion.setBorder(null);
         jScrollPane1.setViewportView(Descripcion);
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
@@ -103,13 +112,12 @@ public class DetallesReportes extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(BGLayout.createSequentialGroup()
-                        .addComponent(jlabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(jSeparator1))
-                        .addGap(44, 361, Short.MAX_VALUE))))
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlabel)
+                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                .addComponent(jSeparator1)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(BGLayout.createSequentialGroup()
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BGLayout.createSequentialGroup()

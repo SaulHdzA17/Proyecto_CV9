@@ -71,6 +71,7 @@ public class VentanaRegistrarActividad extends javax.swing.JPanel {
 
         TxtDescripcion.setColumns(20);
         TxtDescripcion.setRows(5);
+        TxtDescripcion.setBorder(null);
         jScrollPane1.setViewportView(TxtDescripcion);
 
         btnAgregar.setBackground(new java.awt.Color(195, 216, 245));

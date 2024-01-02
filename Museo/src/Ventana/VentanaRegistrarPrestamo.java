@@ -136,6 +136,7 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
 
         Motivo.setColumns(20);
         Motivo.setRows(5);
+        Motivo.setBorder(null);
         jScrollPane1.setViewportView(Motivo);
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
@@ -191,7 +192,7 @@ public class VentanaRegistrarPrestamo extends javax.swing.JPanel {
                     .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

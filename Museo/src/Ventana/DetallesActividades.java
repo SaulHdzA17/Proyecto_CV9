@@ -54,6 +54,7 @@ public class DetallesActividades extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Fecha de Actividad:");
 
+        txtfechaactividad.setEditable(false);
         txtfechaactividad.setBorder(null);
         txtfechaactividad.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtfechaactividad.addActionListener(new java.awt.event.ActionListener() {
@@ -65,11 +66,13 @@ public class DetallesActividades extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Asunto:");
 
+        txtasunto.setEditable(false);
         txtasunto.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Descripción de actividad:");
 
+        txtdesripcionactividad.setEditable(false);
         txtdesripcionactividad.setColumns(20);
         txtdesripcionactividad.setRows(5);
         jScrollPane1.setViewportView(txtdesripcionactividad);

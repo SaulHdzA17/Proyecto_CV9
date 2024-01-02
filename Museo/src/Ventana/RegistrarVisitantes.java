@@ -290,7 +290,7 @@ public class RegistrarVisitantes extends javax.swing.JFrame {
         
 
             //Mando a llamar el nuevo panel
-            DetallesRegistrarEventos DRE = new DetallesRegistrarEventos(C, F);
+            DetallesRegistrarVisitantes DRE = new DetallesRegistrarVisitantes(C, F);
             MostrarPanel(DRE);
            
             // ... haz algo más con los valores

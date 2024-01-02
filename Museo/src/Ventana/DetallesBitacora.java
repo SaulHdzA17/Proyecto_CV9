@@ -58,6 +58,7 @@ public class DetallesBitacora extends javax.swing.JPanel {
         jlabel.setText("Asunto");
         BG.add(jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
+        Asunto.setEditable(false);
         Asunto.setBorder(null);
         Asunto.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         Asunto.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +86,16 @@ public class DetallesBitacora extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Fecha Incidente");
         BG.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 310, -1, -1));
+
+        Fecha.setEditable(false);
+        Fecha.setBorder(null);
         BG.add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 333, 579, 35));
         BG.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 380, 579, 10));
 
+        Descripcion.setEditable(false);
         Descripcion.setColumns(20);
         Descripcion.setRows(5);
+        Descripcion.setBorder(null);
         jScrollPane1.setViewportView(Descripcion);
 
         BG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 580, 110));

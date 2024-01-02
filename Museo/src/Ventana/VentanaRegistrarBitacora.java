@@ -177,6 +177,7 @@ public class VentanaRegistrarBitacora extends javax.swing.JPanel {
 
         Descripcion.setColumns(20);
         Descripcion.setRows(5);
+        Descripcion.setBorder(null);
         jScrollPane1.setViewportView(Descripcion);
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);

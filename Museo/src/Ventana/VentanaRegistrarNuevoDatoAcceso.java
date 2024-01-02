@@ -181,10 +181,12 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
 
         txtmotivo.setColumns(20);
         txtmotivo.setRows(5);
+        txtmotivo.setBorder(null);
         jScrollPane1.setViewportView(txtmotivo);
 
         txtvisitante.setColumns(20);
         txtvisitante.setRows(5);
+        txtvisitante.setBorder(null);
         jScrollPane2.setViewportView(txtvisitante);
 
         jLabelDescripcion1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -270,7 +272,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDescripcion)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BGLayout.createSequentialGroup()
                         .addComponent(txtcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)

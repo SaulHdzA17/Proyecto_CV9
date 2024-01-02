@@ -58,6 +58,7 @@ public class DetallesPrestamos extends javax.swing.JPanel {
         jlabel.setText("Inicio Préstamo");
         BG.add(jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 90, -1, -1));
 
+        InicioP.setEditable(false);
         InicioP.setBorder(null);
         InicioP.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         InicioP.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +73,7 @@ public class DetallesPrestamos extends javax.swing.JPanel {
         jLabel4.setText("Fin Préstamo");
         BG.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 158, -1, -1));
 
+        FinP.setEditable(false);
         FinP.setBorder(null);
         BG.add(FinP, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 181, 579, 26));
         BG.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 213, 579, 10));
@@ -90,8 +92,10 @@ public class DetallesPrestamos extends javax.swing.JPanel {
         BG.add(txtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 45, 47));
         BG.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 579, 10));
 
+        Motivo.setEditable(false);
         Motivo.setColumns(20);
         Motivo.setRows(5);
+        Motivo.setBorder(null);
         jScrollPane1.setViewportView(Motivo);
 
         BG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 580, 60));

@@ -108,6 +108,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtfechasala">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -131,6 +132,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txttematica">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -155,8 +157,12 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="txtinformacion">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

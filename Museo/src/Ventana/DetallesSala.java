@@ -53,6 +53,7 @@ public class DetallesSala extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Fecha de Actividad:");
 
+        txtfechasala.setEditable(false);
         txtfechasala.setBorder(null);
         txtfechasala.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtfechasala.addActionListener(new java.awt.event.ActionListener() {
@@ -64,13 +65,16 @@ public class DetallesSala extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Tematica:");
 
+        txttematica.setEditable(false);
         txttematica.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Informacion:");
 
+        txtinformacion.setEditable(false);
         txtinformacion.setColumns(20);
         txtinformacion.setRows(5);
+        txtinformacion.setBorder(null);
         jScrollPane1.setViewportView(txtinformacion);
 
         txtRegresar.setBackground(new java.awt.Color(255, 255, 255));

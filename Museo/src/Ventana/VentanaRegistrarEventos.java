@@ -246,8 +246,11 @@ public class VentanaRegistrarEventos extends javax.swing.JPanel {
         jSeparator8.setBackground(new java.awt.Color(64, 97, 150));
         jSeparator8.setForeground(new java.awt.Color(64, 97, 150));
 
+        Cupo.setBorder(null);
+
         Descripcion.setColumns(20);
         Descripcion.setRows(5);
+        Descripcion.setBorder(null);
         jScrollPane1.setViewportView(Descripcion);
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);

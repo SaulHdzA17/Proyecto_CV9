@@ -68,6 +68,7 @@ public class VentanaRegistrarOrganizacionSala extends javax.swing.JPanel {
 
         txtinformacion.setColumns(20);
         txtinformacion.setRows(5);
+        txtinformacion.setBorder(null);
         jScrollPane1.setViewportView(txtinformacion);
 
         btnAgregar.setBackground(new java.awt.Color(195, 216, 245));
