@@ -62,7 +62,6 @@ public class DetallesMensaje extends javax.swing.JPanel {
         TxtEmisor.setEditable(false);
         TxtEmisor.setBorder(null);
         TxtEmisor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        TxtEmisor.setEnabled(false);
         TxtEmisor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtEmisorActionPerformed(evt);
@@ -72,12 +71,12 @@ public class DetallesMensaje extends javax.swing.JPanel {
         jLabel3.setText("Fecha de envio:");
 
         TxtFecha.setEditable(false);
-        TxtFecha.setEnabled(false);
+        TxtFecha.setBorder(null);
 
         jLabel4.setText("Asunto:");
 
         TxtAsunto.setEditable(false);
-        TxtAsunto.setEnabled(false);
+        TxtAsunto.setBorder(null);
 
         jLabel5.setText("Mensaje:");
 
@@ -85,7 +84,6 @@ public class DetallesMensaje extends javax.swing.JPanel {
         TxtMensaje.setColumns(20);
         TxtMensaje.setRows(5);
         TxtMensaje.setBorder(null);
-        TxtMensaje.setEnabled(false);
         jScrollPane1.setViewportView(TxtMensaje);
 
         txtRegresar.setBackground(new java.awt.Color(255, 255, 255));

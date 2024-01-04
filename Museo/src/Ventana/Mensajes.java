@@ -384,7 +384,7 @@ public class Mensajes extends javax.swing.JFrame {
         return mostrar_fecha.format(fecha);
     }
     
-    public void MostrarMensajes(){
+    private void MostrarMensajes(){
         
         //Obtengo el ID del usuairo activo
         int idusuarioactivo = SesionUsuario.getUsuarioActivo();

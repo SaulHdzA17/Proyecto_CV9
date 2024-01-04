@@ -16,6 +16,13 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.*;
+
+
+
+
 
 /**
  *
@@ -39,6 +46,8 @@ public class DatosAcceso extends javax.swing.JFrame {
         
         this.Hora.setText(hora);
         this.setLocationRelativeTo(null);
+        
+        MostrarVisitantes();
     }
 
     /**
@@ -135,6 +144,11 @@ public class DatosAcceso extends javax.swing.JFrame {
 
             }
         ));
+        TablaVisitantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaVisitantesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaVisitantes);
 
         BotonAgregar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -253,7 +267,7 @@ public class DatosAcceso extends javax.swing.JFrame {
 
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         // TODO add your handling code here:
-
+        EliminarDatos();
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void BotonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonBuscarMouseClicked
@@ -263,15 +277,24 @@ public class DatosAcceso extends javax.swing.JFrame {
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         // TODO add your handling code here:
+        VentanaBuscarDatosAcceso VBDA = new VentanaBuscarDatosAcceso();
+        MostrarPanel(VBDA);
     }//GEN-LAST:event_BotonBuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        PasarValoresPanelDetallesVisitante();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
         // TODO add your handling code here:
+        ActualizarDatos();
     }//GEN-LAST:event_BotonActualizarActionPerformed
+
+    private void TablaVisitantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaVisitantesMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TablaVisitantesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -388,6 +411,216 @@ public class DatosAcceso extends javax.swing.JFrame {
         PanelContenido.add(p,BorderLayout.CENTER);
         PanelContenido.revalidate();
         PanelContenido.repaint();
+    }
+    
+    private class ImageRenderer extends DefaultTableCellRenderer {
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        JLabel label = new JLabel();
+
+        if (value != null && value instanceof ImageIcon) {
+            ImageIcon originalIcon = (ImageIcon) value;
+
+            // Obtén la imagen del ImageIcon
+            Image originalImage = originalIcon.getImage();
+
+            // Establece el nuevo tamaño deseado
+            int nuevoAncho = 50; // Reemplaza con el ancho deseado
+            int nuevoAlto = 50;  // Reemplaza con el alto deseado
+
+            // Redimensiona la imagen al nuevo tamaño
+            Image nuevaImagen = originalImage.getScaledInstance(nuevoAncho, nuevoAlto, Image.SCALE_SMOOTH);
+
+            // Crea un nuevo ImageIcon con la imagen redimensionada
+            ImageIcon imagenRedimensionada = new ImageIcon(nuevaImagen);
+
+            label.setIcon(imagenRedimensionada);
+            label.setHorizontalAlignment(JLabel.CENTER);
+            label.setToolTipText("Imagen de Identificación");
+        } else {
+            label.setIcon(null);
+        }
+
+        return label;
+    }
+}
+
+        
+    private void MostrarVisitantes(){
+        
+        String sql="select * from DatosAceso ";
+        Statement st;
+        
+        Conexion con = new Conexion();
+        Connection conexion = con.estableceConexion();
+        System.out.println(sql);
+        DefaultTableModel model = new DefaultTableModel();
+       
+        model.addColumn("Id visitante");
+        model.addColumn("Nombre");
+        model.addColumn("Telefono");
+        model.addColumn("Correo Electronico");
+        model.addColumn("Direccion");
+        model.addColumn("Foto de identificacion");
+        model.addColumn("Motivo del visitante");
+        model.addColumn("Descripcion del visitante");
+        model.addColumn("Fecha del registro");
+       
+        TablaVisitantes.setModel(model);
+        Object [] datos = new Object[10];
+        try {
+            st = conexion.createStatement();
+            ResultSet rs= st.executeQuery(sql);
+            
+            while(rs.next())
+            {  
+                
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                datos[3]=rs.getString(4);
+                datos[4]=rs.getString(5);
+                // Manejar la columna de imagen (foto_identificacion)
+                byte[] imagenBytes = rs.getBytes(6);
+                ImageIcon imagenIcon = new ImageIcon(imagenBytes);
+                datos[5] = imagenIcon;
+                datos[6]=rs.getString(7);
+                datos[7]=rs.getString(8);
+                datos[8]=rs.getString(9);
+                datos[9]=rs.getString(10);
+                model.addRow(datos);
+               
+            }
+       
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error" + e.toString());
+       }
+        // Muestra la imagen en un JLabel solo en la columna "Foto de identificacion"
+        int columnaImagen = model.findColumn("Foto de identificacion");
+        TablaVisitantes.getColumnModel().getColumn(columnaImagen).setCellRenderer(new ImageRenderer());
+        
+        // Repintar la tabla después de agregar los datos
+         TablaVisitantes.repaint();
+    }
+    
+    public DefaultTableModel buscar1(String buscar){
+    
+        String [] nombreColumna={"Id", "Nombre", "Telefono", "Correo", "Direccion", "Foto", "Motivo", "Descripcion" , "Fecha"};
+        Object [] registros = new Object [10];
+        
+        DefaultTableModel modelo = new DefaultTableModel(null, nombreColumna);
+        
+        String sql="select * from DatosAceso where id_visitante like'"+buscar+"' or nombrecompleto like '"+buscar+"' or telefono like'"+buscar+"' or correoElectronico like '"+buscar+"' or direccion like '"+buscar+"' or motivo_visitante like '"+buscar+"' or descripcion_visitante like '"+buscar+"' or fecha_registro_visitante like '"+buscar+"' ";
+        Connection cn = null;
+        Conexion con = new Conexion();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try{
+            
+        cn= con.estableceConexion();
+        ps = cn.prepareStatement(sql);
+        rs= ps.executeQuery();
+        
+        while(rs.next()){
+            
+            registros[0]=rs.getString("id_visitante");
+            registros[1]=rs.getString("nombrecompleto");
+            registros[2]=rs.getString("telefono");
+            registros[3]=rs.getString("correoElectronico");
+            registros[4]=rs.getString("direccion");
+            // Manejar la columna de imagen (foto_identificacion)
+            byte[] imagenBytes = rs.getBytes(6);
+            ImageIcon imagenIcon = new ImageIcon(imagenBytes);
+            registros[5] = imagenIcon;
+            registros[6]=rs.getString("motivo_visitante");
+            registros[7]=rs.getString("descripcion_visitante");
+            registros[8]=rs.getString("fecha_registro_visitante");
+            modelo.addRow(registros);
+        
+        }
+        
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+        return modelo;
+    }  
+    
+    private void PasarValoresPanelDetallesVisitante(){
+        int rowIndex = TablaVisitantes.getSelectedRow();
+
+        // Verifica si hay alguna fila seleccionada
+        if (rowIndex != -1) {
+            // Obtiene los valores de las celdas en la fila seleccionada
+            String nombre = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 1));  
+            String telefono = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 2));  
+            String correo = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 3));
+            String direccion = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 4));
+            ImageIcon foto = (ImageIcon) TablaVisitantes.getValueAt(rowIndex, 5);
+            String motivo = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 6));
+            String desc = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 7));
+            String fecha = String.valueOf(TablaVisitantes.getValueAt(rowIndex, 8));
+            
+
+            //Mando a llamar el nuevo panel
+            DetallesVisitante DV = new DetallesVisitante(nombre, telefono, correo, direccion, foto, motivo, desc, fecha);
+            MostrarPanel(DV);
+           
+            // ... haz algo más con los valores
+        } else {
+            // No hay fila seleccionada, maneja la situación en consecuencia
+            JOptionPane.showMessageDialog(null, "Seleccione un visitante para ver sus detalles");
+        }
+    }
+    
+    public void ActualizarDatos(){
+        Conexion enlace = new Conexion();
+        Connection connection = enlace.estableceConexion();
+
+        int fila = TablaVisitantes.getSelectedRow();
+    
+        int id =Integer.parseInt(this.TablaVisitantes.getValueAt(fila, 0).toString());
+        String A =TablaVisitantes.getValueAt(fila,1).toString();
+        String B =TablaVisitantes.getValueAt(fila,2).toString();
+        String C =TablaVisitantes.getValueAt(fila,3).toString();
+        String D =TablaVisitantes.getValueAt(fila,4).toString();
+        //String E =TablaVisitantes.getValueAt(fila,5).toString();
+        String E =TablaVisitantes.getValueAt(fila,6).toString();
+        String F =TablaVisitantes.getValueAt(fila,7).toString();
+        String G =TablaVisitantes.getValueAt(fila,8).toString();
+    
+        try {
+            PreparedStatement actu= connection.prepareStatement("Update DatosAceso set nombrecompleto='"+A+"', telefono='"+B+"', correoElectronico='"+C+"', direccion='"+D+"', motivo_visitante='"+E+"', descripcion_visitante='"+F+"', fecha_registro_visitante='"+G+"' where id_visitante='"+id+"'");
+            actu.executeUpdate();
+            MostrarVisitantes();
+            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e +"No se actualizó el registro");
+        }
+
+    } 
+    
+    public void EliminarDatos(){
+        Conexion enlace = new Conexion();
+        Connection connection = enlace.estableceConexion();
+        
+        int opt = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro seleccionado?", "Eliminación", JOptionPane.YES_NO_OPTION);
+        
+        if(opt==0){
+            
+            int fila=TablaVisitantes.getSelectedRow();
+            String valor =TablaVisitantes.getValueAt(fila,0).toString();
+            
+            try {
+                PreparedStatement delete = connection.prepareStatement("Delete from DatosAceso where id_visitante='"+valor+"'");
+                delete.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Eliminación exitosa");
+                MostrarVisitantes();
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
