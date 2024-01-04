@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS DatosAceso (
     telefono VARCHAR(20),
     correoElectronico VARCHAR(100),
     direccion VARCHAR(255),
-    foto_identificacion BLOB, -- Puedes almacenar la imagen como un BLOB (Binary Large Object) si es necesario
+    foto_identificacion BLOB, 
 	motivo_visitante VARCHAR(255),
     descripcion_visitante TEXT,
     fecha_registro_visitante DATETIME,
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS EventosMuseo (
     Hora_Fin TIME,
     Lugar VARCHAR(255),
     Cupo_Maximo INT,
-    UNIQUE (NombreEvento)
+    UNIQUE (Nombre_Evento)
 );
 
 -- Tabla para registrar Salas
@@ -238,4 +238,5 @@ INSERT INTO RegistrarVisitantes (cantidad_visitantes, fecha_registro) VALUES ('1
 
 Select * from RegistrarVisitantes;
 select * from Actividad;
-select * from sala;
+select * from Sala;
+select * from DatosAceso;

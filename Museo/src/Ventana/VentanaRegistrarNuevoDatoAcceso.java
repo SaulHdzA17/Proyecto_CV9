@@ -65,7 +65,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         txtmotivo = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtvisitante = new javax.swing.JTextArea();
-        selectorfecha = new com.toedter.calendar.JDateChooser();
+        fecha = new com.toedter.calendar.JDateChooser();
         jLabelDescripcion1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -79,7 +79,6 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNombre.setText("Telefono");
 
-        txttelefono.setForeground(new java.awt.Color(204, 204, 204));
         txttelefono.setBorder(null);
         txttelefono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -98,7 +97,6 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         jLabelDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDescripcion.setText("Correo electronico");
 
-        txtcorreo.setForeground(new java.awt.Color(204, 204, 204));
         txtcorreo.setBorder(null);
         txtcorreo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -112,7 +110,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Foto de identificacion vigente");
+        jLabel3.setText("Foto de identificacion vigente en formato PNG");
 
         jButton1.setBackground(new java.awt.Color(195, 216, 245));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -227,7 +225,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
                                                 .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)))
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(selectorfecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(fecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(botonimagen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -244,7 +242,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                                     .addComponent(jScrollPane2)
                                     .addComponent(jLabel5))))
-                        .addGap(52, 52, Short.MAX_VALUE))))
+                        .addGap(55, 55, Short.MAX_VALUE))))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +298,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
 
@@ -322,6 +320,11 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         txtnombre.setText("");
         txttelefono.setText("");
         txtcorreo.setText("");
+        txtdireccion.setText("");
+        fecha.setDate(null);
+        txtmotivo.setText("");
+        txtvisitante.setText("");
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
@@ -406,7 +409,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
         String descripcion = txtvisitante.getText();
         //Le doy formato ami calendario
         SimpleDateFormat ff = new SimpleDateFormat("yyyy-MM-dd");
-        String fecha_registro= ff.format(selectorfecha.getCalendar().getTime());
+        String fecha_registro= ff.format(fecha.getCalendar().getTime());
         //Obtengo el ID del usuario activo 
         int idusuarioactivo = SesionUsuario.getUsuarioActivo();
 
@@ -458,6 +461,7 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton botonimagen;
+    private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -476,7 +480,6 @@ public class VentanaRegistrarNuevoDatoAcceso extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator7;
-    private com.toedter.calendar.JDateChooser selectorfecha;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextArea txtmotivo;
