@@ -21,7 +21,7 @@ public class InicioAdmin extends javax.swing.JFrame {
      * Creates new form InicioAdmin
      */
     
-    ImageIcon Imagen[] =new ImageIcon[10];
+    ImageIcon Imagen[] =new ImageIcon[8];
     int contador =1;
     
  
@@ -37,7 +37,7 @@ public class InicioAdmin extends javax.swing.JFrame {
         
         
         
-        for(int i=1;i<10;i++){
+        for(int i=1;i<8;i++){
             Imagen [i]= new ImageIcon(getClass().getResource("/Ventana/Visor/G"+i+".jpg"));
         }
         jLabel3.setIcon(Imagen[1]);
@@ -162,7 +162,7 @@ public class InicioAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
        if(contador == 1){
-       contador = 10;
+       contador = 8;
        } 
        contador--;
        jLabel3.setIcon(Imagen[contador]);
@@ -171,7 +171,7 @@ public class InicioAdmin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
         // TODO add your handling code here:
-     if (contador==9){
+     if (contador==7){
      contador = 0;
     }    
         contador++;

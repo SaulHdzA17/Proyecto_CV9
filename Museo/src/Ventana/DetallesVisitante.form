@@ -251,7 +251,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="365" y="97" width="267" height="-1"/>
+              <AbsoluteConstraints x="365" y="97" width="267" height="80"/>
             </Constraint>
           </Constraints>
 
@@ -279,7 +279,7 @@
         <Component class="javax.swing.JLabel" name="labelfoto">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="365" y="281" width="330" height="180"/>
+              <AbsoluteConstraints x="365" y="281" width="270" height="180"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -296,7 +296,6 @@
         <Component class="javax.swing.JTextField" name="txtfecha">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>

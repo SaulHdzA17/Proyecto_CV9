@@ -151,17 +151,16 @@ public class DetallesVisitante extends javax.swing.JPanel {
         txtdesc.setRows(5);
         jScrollPane2.setViewportView(txtdesc);
 
-        BG.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 97, 267, -1));
+        BG.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 97, 267, 80));
 
         jLabel6.setText("Identifiacion");
         BG.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 259, -1, -1));
-        BG.add(labelfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 281, 330, 180));
+        BG.add(labelfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 281, 270, 180));
 
         jLabel8.setText("Fecha");
         BG.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 199, -1, -1));
 
         txtfecha.setEditable(false);
-        txtfecha.setText("jTextField1");
         txtfecha.setBorder(null);
         txtfecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
