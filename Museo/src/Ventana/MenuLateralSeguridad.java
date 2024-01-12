@@ -261,13 +261,13 @@ public class MenuLateralSeguridad extends javax.swing.JPanel {
 
     private void BotonDatosAccesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonDatosAccesoMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonDatosAcceso.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonDatosAccesoMouseEntered
 
     private void BotonDatosAccesoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonDatosAccesoMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonDatosAcceso.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonDatosAccesoMouseExited
 
@@ -290,13 +290,13 @@ public class MenuLateralSeguridad extends javax.swing.JPanel {
 
     private void BotonBitacoraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonBitacoraMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonBitacora.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonBitacoraMouseEntered
 
     private void BotonBitacoraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonBitacoraMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonBitacora.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonBitacoraMouseExited
 
@@ -319,13 +319,13 @@ public class MenuLateralSeguridad extends javax.swing.JPanel {
 
     private void BotonMensajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonMensajes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonMensajesMouseEntered
 
     private void BotonMensajesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonMensajes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonMensajesMouseExited
 

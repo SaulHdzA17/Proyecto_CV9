@@ -326,7 +326,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="96" green="61" red="40" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CERRAR SESI&#xd3;N"/>
+        <Property name="text" type="java.lang.String" value="CERRAR SESION"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
