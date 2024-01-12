@@ -303,14 +303,14 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonInicioMouseEntered
 
     private void BotonInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonInicioMouseExited
         // TODO add your handling code here:
 
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonInicio.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonInicioMouseExited
 
@@ -336,14 +336,15 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonActividadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActividadesMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonActividades.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonActividadesMouseEntered
 
     private void BotonActividadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonActividadesMouseExited
         // TODO add your handling code here:
 
-        Color nuevoColor = new Color(18,113,199);
+
+        Color nuevoColor = new Color(159,195,231);
         BotonActividades.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonActividadesMouseExited
 
@@ -366,13 +367,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonItemsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseEntered
          // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseEntered
 
     private void BotonItemsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonItemsMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonItems.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonItemsMouseExited
 
@@ -399,13 +400,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonReportes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonReportesMouseEntered
 
     private void BotonReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonReportesMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonReportes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonReportesMouseExited
 
@@ -428,13 +429,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonMensajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonMensajes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonMensajesMouseEntered
 
     private void BotonMensajesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMensajesMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonMensajes.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonMensajesMouseExited
 
@@ -457,13 +458,13 @@ public class MenuLateralEncargado_C_I extends javax.swing.JPanel {
 
     private void BotonOrganizarSalasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseEntered
         // TODO add your handling code here:
-        Color nuevoColor = new Color(16,106,182);
+        Color nuevoColor = new Color(18,113,199);
         BotonOrganizarSalas.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonOrganizarSalasMouseEntered
 
     private void BotonOrganizarSalasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonOrganizarSalasMouseExited
         // TODO add your handling code here:
-        Color nuevoColor = new Color(18,113,199);
+        Color nuevoColor = new Color(159,195,231);
         BotonOrganizarSalas.setBackground(nuevoColor);
     }//GEN-LAST:event_BotonOrganizarSalasMouseExited
 
